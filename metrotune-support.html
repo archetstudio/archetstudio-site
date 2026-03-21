@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MetroTune Support & Feedback — Archet Studio LLC</title>
+  <meta name="description" content="Get help with MetroTune — the precision metronome and tuner app. Find answers about Clap Control, Tempo Maps, Gap Click, Pitch Checker, and more.">
+  <meta name="author" content="Archet Studio LLC">
+  <meta property="og:title" content="MetroTune Support & Feedback — Archet Studio LLC">
+  <meta property="og:description" content="Get help with MetroTune — the precision metronome and tuner app. FAQs, feature guides, and contact support.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://archetstudio.com/metrotune-support">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MetroTune Support & Feedback">
+  <meta name="twitter:description" content="Get help with MetroTune — the precision metronome and tuner app.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
+  <meta property="og:image" content="https://archetstudio.com/images/adaptive-icon.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <meta name="theme-color" content="#111827">
+  <meta name="twitter:image" content="https://archetstudio.com/images/adaptive-icon.png">
+  <link rel="canonical" href="https://archetstudio.com/metrotune-support">
+  <link rel="stylesheet" href="css/tailwind.min.css">
+  <style>
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/inter-400.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/inter-500.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url('fonts/inter-600.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url('fonts/inter-700.woff2') format('woff2'); }
+    @font-face { font-family: 'Lato'; font-style: normal; font-weight: 100; font-display: swap; src: url('fonts/lato-100.woff2') format('woff2'); }
+    @font-face { font-family: 'Lato'; font-style: normal; font-weight: 900; font-display: swap; src: url('fonts/lato-900.woff2') format('woff2'); }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .logo-nav { display: inline-flex; align-items: baseline; font-size: 1.125rem; line-height: 1; color: #f3f4f6; opacity: 0.9; transition: all 0.2s ease; text-decoration: none; }
+    .logo-nav:hover { opacity: 1; transform: translateY(-1px); }
+    .logo-archet { font-family: 'Lato', sans-serif; font-weight: 900; letter-spacing: 0.04em; }
+    .logo-studio { font-family: 'Lato', sans-serif; font-weight: 100; letter-spacing: 0.04em; }
+    .logo-gap { width: 0.2em; }
+    @media (min-width: 640px) { .logo-nav { font-size: 1.35rem; } }
+    a:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; border-radius: 4px; }
+    details summary { cursor: pointer; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::marker { display: none; content: ''; }
+    details[open] summary .faq-chevron { transform: rotate(180deg); }
+    .faq-chevron { transition: transform 0.2s ease; }
+    #lang-select { background-color: #1f2937; color: #d1d5db; border: 1px solid #374151; border-radius: 0.5rem; padding: 0.35rem 0.5rem; font-size: 0.8rem; cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239ca3af' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.4rem center; padding-right: 1.4rem; }
+    #lang-select:focus { outline: 2px solid #60a5fa; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 antialiased">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-blue-500 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="border-b border-gray-800">
+    <div class="max-w-5xl mx-auto px-6 sm:px-8 py-5 flex items-center justify-between">
+      <a href="/" class="logo-nav" aria-label="Archet Studio LLC — Home">
+        <span class="logo-archet">ARCHET</span>
+        <span class="logo-gap" aria-hidden="true"></span>
+        <span class="logo-studio">STUDIO</span>
+      </a>
+      <div class="flex items-center gap-5 sm:gap-7 text-sm font-medium tracking-wide text-gray-400">
+        <a href="/" class="hover:text-gray-100 transition-colors">Home</a>
+        <a href="/privacy/metrotune.html" class="hover:text-gray-100 transition-colors">Privacy</a>
+        <select id="lang-select" aria-label="Language">
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Espa&#241;ol</option>
+          <option value="es-MX">Espa&#241;ol (MX)</option>
+          <option value="fr">Fran&#231;ais</option>
+          <option value="id">Bahasa Indonesia</option>
+          <option value="it">Italiano</option>
+          <option value="ja">&#26085;&#26412;&#35486;</option>
+          <option value="ko">&#54620;&#44397;&#50612;</option>
+          <option value="pt-BR">Portugu&#234;s (BR)</option>
+          <option value="pt-PT">Portugu&#234;s (PT)</option>
+          <option value="th">&#3616;&#3634;&#3625;&#3634;&#3652;&#3607;&#3618;</option>
+          <option value="vi">Ti&#7871;ng Vi&#7879;t</option>
+        </select>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- Header -->
+    <section class="max-w-3xl mx-auto px-6 pt-16 pb-10">
+      <div class="flex items-center gap-4 mb-6">
+        <img src="images/metrotune-icon.png" alt="MetroTune app icon" class="rounded-xl shrink-0" style="width:48px;height:48px">
+        <div>
+          <h1 data-i18n="pageTitle" class="text-3xl sm:text-4xl font-bold tracking-tight">MetroTune Support &amp; Feedback</h1>
+          <p data-i18n="tagline" class="mt-1 text-gray-400">Practice Smarter. Play Better.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="max-w-3xl mx-auto px-6 pb-12">
+      <div class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+        <h2 data-i18n="contactTitle" class="text-xl font-semibold text-gray-100">Need Help?</h2>
+        <p data-i18n="contactDesc" class="mt-3 text-gray-400 leading-relaxed">For bug reports, feature requests, or any questions about MetroTune, email us at</p>
+        <a href="mailto:support+metrotune@archetstudio.com" class="mt-3 inline-flex items-center gap-2 text-blue-400 hover:underline text-lg font-medium">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+          support+metrotune@archetstudio.com
+        </a>
+        <p data-i18n="contactResponse" class="mt-3 text-sm text-gray-500">We typically respond within 48 hours.</p>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="max-w-3xl mx-auto px-6"><div class="border-t border-gray-800"></div></div>
+
+    <!-- FAQ -->
+    <section class="max-w-3xl mx-auto px-6 pt-24 pb-12">
+      <h2 data-i18n="faqTitle" class="text-2xl font-bold tracking-tight text-gray-100">Frequently Asked Questions</h2>
+
+      <div class="mt-8 space-y-4">
+
+        <!-- Clap Control -->
+        <details class="bg-gray-800 border border-gray-700 rounded-xl">
+          <summary class="flex items-center justify-between p-5 text-gray-100 font-medium">
+            <span data-i18n="faqClapQ">How does Clap Control work?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div data-i18n-html="faqClapA" class="px-5 pb-5 text-sm text-gray-400 leading-relaxed space-y-3">
+            <p>Clap twice quickly to start or stop the metronome hands-free. Two sharp claps within 0.6 seconds will toggle playback &mdash; perfect when your hands are on an instrument.</p>
+            <p>MetroTune uses advanced signal processing to distinguish real claps from other sounds like metronome clicks or instrument attacks. It analyzes the frequency signature and zero-crossing rate of each sound, and automatically adapts to your background noise level.</p>
+            <p>Premium users can fine-tune the detection threshold and background ratio, and adjust the double-clap timing window (0.5&ndash;1.0 seconds) to match their preference.</p>
+          </div>
+        </details>
+
+        <!-- Tempo Maps -->
+        <details class="bg-gray-800 border border-gray-700 rounded-xl">
+          <summary class="flex items-center justify-between p-5 text-gray-100 font-medium">
+            <span data-i18n="faqTempoQ">What are Tempo Maps?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div data-i18n-html="faqTempoA" class="px-5 pb-5 text-sm text-gray-400 leading-relaxed space-y-3">
+            <p>Tempo Maps let you create a sequence of tempo, time signature, beat pattern, and sound changes that play automatically. Each entry specifies the BPM, beat count, pattern, sound, and number of measures to play before moving to the next step.</p>
+            <p>You can save and load named profiles, set loop modes (play once, repeat 1&ndash;99 times, or loop infinitely), and add lead-in count beats. Long-press any entry to start playback from that point.</p>
+            <p>This is ideal for practicing pieces with tempo changes, building progressive exercises, or running structured warm-up routines.</p>
+          </div>
+        </details>
+
+        <!-- Gap Click -->
+        <details class="bg-gray-800 border border-gray-700 rounded-xl">
+          <summary class="flex items-center justify-between p-5 text-gray-100 font-medium">
+            <span data-i18n="faqGapQ">What is Gap Click?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div data-i18n-html="faqGapA" class="px-5 pb-5 text-sm text-gray-400 leading-relaxed space-y-3">
+            <p>Gap Click trains your internal clock by alternating between audible clicks and silence. Play in time during the silent gap, then check yourself when the click returns.</p>
+            <p>Choose from built-in modes: <strong>Beginner</strong> (3 measures click, 1 silent), <strong>Pro</strong> (1 measure click, 3 silent), or <strong>Random</strong> (randomized split each cycle). Premium users also get <strong>Manual</strong> mode with fully customizable sound and silent measures, plus a Guide Beat that plays the downbeat of each silent measure as a reference anchor.</p>
+          </div>
+        </details>
+
+        <!-- Pitch Checker -->
+        <details class="bg-gray-800 border border-gray-700 rounded-xl">
+          <summary class="flex items-center justify-between p-5 text-gray-100 font-medium">
+            <span data-i18n="faqPitchQ">How does the Pitch Checker (Check) feature work?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div data-i18n-html="faqPitchA" class="px-5 pb-5 text-sm text-gray-400 leading-relaxed space-y-3">
+            <p>Pitch Checker plays a confirmation sound when you hold a note in tune for a set duration. It monitors your pitch in real time and triggers when you sustain a note within the tolerance range (adjustable from &plusmn;5 to &plusmn;20 cents) for the required hold time (0.25&ndash;3.0 seconds).</p>
+            <p>You can choose a click, beep, or reference tone as your confirmation sound. A progress ring shows your tracking status, and the note letter flashes on confirmation.</p>
+          </div>
+        </details>
+
+        <!-- Tuner -->
+        <details class="bg-gray-800 border border-gray-700 rounded-xl">
+          <summary class="flex items-center justify-between p-5 text-gray-100 font-medium">
+            <span data-i18n="faqTunerQ">What tuner features are available?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div data-i18n-html="faqTunerA" class="px-5 pb-5 text-sm text-gray-400 leading-relaxed space-y-3">
+            <p>MetroTune includes a full chromatic tuner with real-time pitch detection. It displays the detected note name and octave, a tuning gauge showing cents off-target, and the frequency in Hz. The reference pitch is customizable (default A4 = 440 Hz).</p>
+            <p>Adjustable sensitivity modes let you optimize for your instrument: <strong>Stable</strong> for voice and wind instruments, <strong>Medium</strong> for balanced use, or <strong>Fast</strong> for string instruments.</p>
+            <p>The tuner also offers multiple reference tone profiles including Tone, Clarinet, Organ, Bell, and Brass, each with distinct harmonic characteristics. Long-press any note to play a sustained <strong>Guide Tone</strong> as a reference pitch.</p>
+          </div>
+        </details>
+
+        <!-- Vibrate Mode -->
+        <details class="bg-gray-800 border border-gray-700 rounded-xl">
+          <summary class="flex items-center justify-between p-5 text-gray-100 font-medium">
+            <span data-i18n="faqVibrateQ">Can I use the metronome silently?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div data-i18n-html="faqVibrateA" class="px-5 pb-5 text-sm text-gray-400 leading-relaxed space-y-3">
+            <p>Yes. <strong>Vibrate Mode</strong> pulses your phone on each beat instead of playing audio &mdash; a stronger pulse marks beat 1. This is great for rehearsals, live performance, or anywhere you need a silent click track. <strong>Muted Mode</strong> turns off all sound and haptics, displaying an enlarged visual beat indicator instead.</p>
+          </div>
+        </details>
+
+        <!-- Tap Tempo -->
+        <details class="bg-gray-800 border border-gray-700 rounded-xl">
+          <summary class="flex items-center justify-between p-5 text-gray-100 font-medium">
+            <span data-i18n="faqTapQ">How do I set tempo by tapping?</span>
+            <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div data-i18n-html="faqTapA" class="px-5 pb-5 text-sm text-gray-400 leading-relaxed space-y-3">
+            <p>Tap the <strong>TAP</strong> button next to the BPM display repeatedly at your desired tempo. MetroTune detects the average interval and shows the BPM in real time. Press <strong>Done</strong> to apply the detected tempo.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="max-w-3xl mx-auto px-6"><div class="border-t border-gray-800"></div></div>
+
+    <!-- Additional Resources -->
+    <section class="max-w-3xl mx-auto px-6 pt-24 pb-12">
+      <h2 data-i18n="resourcesTitle" class="text-2xl font-bold tracking-tight text-gray-100">Additional Resources</h2>
+      <div class="mt-6 grid sm:grid-cols-2 gap-4">
+        <a id="privacy-link" href="/privacy/metrotune.html" class="bg-gray-800 border border-gray-700 rounded-xl p-5 hover:border-gray-600 transition-colors block">
+          <p data-i18n="privacyTitle" class="text-gray-100 font-medium">Privacy Policy</p>
+          <p data-i18n="privacyDesc" class="mt-1 text-sm text-gray-400">How MetroTune handles your data.</p>
+        </a>
+        <a href="/terms.html" class="bg-gray-800 border border-gray-700 rounded-xl p-5 hover:border-gray-600 transition-colors block">
+          <p data-i18n="termsTitle" class="text-gray-100 font-medium">Terms of Service</p>
+          <p data-i18n="termsDesc" class="mt-1 text-sm text-gray-400">Usage terms for our apps and services.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800">
+    <div class="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-gray-400">
+      <div>
+        <p>&copy; 2026 Archet Studio LLC. All rights reserved.</p>
+        <p class="mt-1">MetroTune&trade; is a trademark of Archet Studio LLC.</p>
+        <address class="not-italic mt-1">2261 Market Street STE 79219, San Francisco, CA 94114</address>
+        <a href="mailto:inquiry@archetstudio.com" class="hover:text-gray-100 transition-colors">inquiry@archetstudio.com</a>
+      </div>
+      <div class="flex flex-col sm:items-end gap-2">
+        <a href="/terms.html" class="hover:text-gray-100 transition-colors">Terms of Service</a>
+        <a href="/privacy/" class="hover:text-gray-100 transition-colors">Privacy Policy</a>
+        <a href="/privacy/metrotune.html#do-not-sell" class="hover:text-gray-100 transition-colors">Do Not Sell or Share My Personal Information</a>
+        <a href="mailto:privacy@archetstudio.com?subject=Data%20Deletion%20Request" class="hover:text-gray-100 transition-colors">Data Deletion Request</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var T = {
+      en: {
+        pageTitle: "MetroTune Support & Feedback",
+        tagline: "Practice Smarter. Play Better.",
+        contactTitle: "Need Help?",
+        contactDesc: "For bug reports, feature requests, or any questions about MetroTune, email us at",
+        contactResponse: "We typically respond within 48 hours.",
+        faqTitle: "Frequently Asked Questions",
+        faqClapQ: "How does Clap Control work?",
+        faqClapA: '<p>Clap twice quickly to start or stop the metronome hands-free. Two sharp claps within 0.6 seconds will toggle playback \u2014 perfect when your hands are on an instrument.</p><p>MetroTune uses advanced signal processing to distinguish real claps from other sounds like metronome clicks or instrument attacks. It analyzes the frequency signature and zero-crossing rate of each sound, and automatically adapts to your background noise level.</p><p>Premium users can fine-tune the detection threshold and background ratio, and adjust the double-clap timing window (0.5\u20131.0 seconds) to match their preference.</p>',
+        faqTempoQ: "What are Tempo Maps?",
+        faqTempoA: '<p>Tempo Maps let you create a sequence of tempo, time signature, beat pattern, and sound changes that play automatically. Each entry specifies the BPM, beat count, pattern, sound, and number of measures to play before moving to the next step.</p><p>You can save and load named profiles, set loop modes (play once, repeat 1\u201399 times, or loop infinitely), and add lead-in count beats. Long-press any entry to start playback from that point.</p><p>This is ideal for practicing pieces with tempo changes, building progressive exercises, or running structured warm-up routines.</p>',
+        faqGapQ: "What is Gap Click?",
+        faqGapA: '<p>Gap Click trains your internal clock by alternating between audible clicks and silence. Play in time during the silent gap, then check yourself when the click returns.</p><p>Choose from built-in modes: <strong>Beginner</strong> (3 measures click, 1 silent), <strong>Pro</strong> (1 measure click, 3 silent), or <strong>Random</strong> (randomized split each cycle). Premium users also get <strong>Manual</strong> mode with fully customizable sound and silent measures, plus a Guide Beat that plays the downbeat of each silent measure as a reference anchor.</p>',
+        faqPitchQ: "How does the Pitch Checker (Check) feature work?",
+        faqPitchA: '<p>Pitch Checker plays a confirmation sound when you hold a note in tune for a set duration. It monitors your pitch in real time and triggers when you sustain a note within the tolerance range (adjustable from \u00b15 to \u00b120 cents) for the required hold time (0.25\u20133.0 seconds).</p><p>You can choose a click, beep, or reference tone as your confirmation sound. A progress ring shows your tracking status, and the note letter flashes on confirmation.</p>',
+        faqTunerQ: "What tuner features are available?",
+        faqTunerA: '<p>MetroTune includes a full chromatic tuner with real-time pitch detection. It displays the detected note name and octave, a tuning gauge showing cents off-target, and the frequency in Hz. The reference pitch is customizable (default A4 = 440 Hz).</p><p>Adjustable sensitivity modes let you optimize for your instrument: <strong>Stable</strong> for voice and wind instruments, <strong>Medium</strong> for balanced use, or <strong>Fast</strong> for string instruments.</p><p>The tuner also offers multiple reference tone profiles including Tone, Clarinet, Organ, Bell, and Brass, each with distinct harmonic characteristics. Long-press any note to play a sustained <strong>Guide Tone</strong> as a reference pitch.</p>',
+        faqVibrateQ: "Can I use the metronome silently?",
+        faqVibrateA: '<p>Yes. <strong>Vibrate Mode</strong> pulses your phone on each beat instead of playing audio \u2014 a stronger pulse marks beat 1. This is great for rehearsals, live performance, or anywhere you need a silent click track. <strong>Muted Mode</strong> turns off all sound and haptics, displaying an enlarged visual beat indicator instead.</p>',
+        faqTapQ: "How do I set tempo by tapping?",
+        faqTapA: '<p>Tap the <strong>TAP</strong> button next to the BPM display repeatedly at your desired tempo. MetroTune detects the average interval and shows the BPM in real time. Press <strong>Done</strong> to apply the detected tempo.</p>',
+        resourcesTitle: "Additional Resources",
+        privacyTitle: "Privacy Policy",
+        privacyDesc: "How MetroTune handles your data.",
+        termsTitle: "Terms of Service",
+        termsDesc: "Usage terms for our apps and services.",
+        privacyHref: "/privacy/metrotune.html"
+      },
+      de: {
+        pageTitle: "MetroTune Support & Feedback",
+        tagline: "\u00dcbe klüger. Spiele besser.",
+        contactTitle: "Brauchen Sie Hilfe?",
+        contactDesc: "F\u00fcr Fehlerberichte, Funktionsw\u00fcnsche oder Fragen zu MetroTune schreiben Sie uns an",
+        contactResponse: "Wir antworten in der Regel innerhalb von 48 Stunden.",
+        faqTitle: "H\u00e4ufig gestellte Fragen",
+        faqClapQ: "Wie funktioniert die Klatschsteuerung?",
+        faqClapA: '<p>Klatschen Sie zweimal schnell, um das Metronom freih\u00e4ndig zu starten oder zu stoppen. Zwei scharfe Klatscher innerhalb von 0,6 Sekunden schalten die Wiedergabe um \u2014 ideal, wenn Ihre H\u00e4nde am Instrument sind.</p><p>MetroTune verwendet fortschrittliche Signalverarbeitung, um echtes Klatschen von anderen Ger\u00e4uschen wie Metronom-Klicks oder Instrumentenanschl\u00e4gen zu unterscheiden. Es analysiert die Frequenzsignatur und Nulldurchgangsrate jedes Ger\u00e4uschs und passt sich automatisch an Ihren Hintergrundger\u00e4uschpegel an.</p><p>Premium-Nutzer k\u00f6nnen die Erkennungsschwelle und das Hintergrundverh\u00e4ltnis anpassen sowie das Doppelklatsch-Zeitfenster (0,5\u20131,0 Sekunden) einstellen.</p>',
+        faqTempoQ: "Was sind Tempo Maps?",
+        faqTempoA: '<p>Mit Tempo Maps k\u00f6nnen Sie eine Abfolge von Tempo-, Taktart-, Schlagmuster- und Klang\u00e4nderungen erstellen, die automatisch abgespielt werden. Jeder Eintrag gibt BPM, Schlaganzahl, Muster, Klang und Anzahl der Takte an.</p><p>Sie k\u00f6nnen benannte Profile speichern und laden, Schleifenmodi einstellen (einmal abspielen, 1\u201399 Mal wiederholen oder endlos), und Einz\u00e4hlschl\u00e4ge hinzuf\u00fcgen. Dr\u00fccken Sie lange auf einen Eintrag, um die Wiedergabe von diesem Punkt zu starten.</p><p>Ideal zum \u00dcben von St\u00fccken mit Tempowechseln, f\u00fcr progressive \u00dcbungen oder strukturierte Aufw\u00e4rmroutinen.</p>',
+        faqGapQ: "Was ist Gap Click?",
+        faqGapA: '<p>Gap Click trainiert Ihre innere Uhr, indem es zwischen h\u00f6rbaren Klicks und Stille wechselt. Spielen Sie im Takt w\u00e4hrend der stillen Pause und \u00fcberpr\u00fcfen Sie sich, wenn der Klick zur\u00fcckkehrt.</p><p>W\u00e4hlen Sie aus voreingestellten Modi: <strong>Anf\u00e4nger</strong> (3 Takte Klick, 1 still), <strong>Profi</strong> (1 Takt Klick, 3 still) oder <strong>Zufall</strong> (zuf\u00e4llige Aufteilung). Premium-Nutzer erhalten zus\u00e4tzlich den <strong>Manuell</strong>-Modus mit frei einstellbaren Klang- und Stilletakten sowie einen Leitschlag auf der ersten Z\u00e4hlzeit jedes stillen Taktes.</p>',
+        faqPitchQ: "Wie funktioniert der Pitch Checker (Check)?",
+        faqPitchA: '<p>Der Pitch Checker spielt einen Best\u00e4tigungston, wenn Sie eine Note f\u00fcr eine bestimmte Dauer sauber halten. Er \u00fcberwacht Ihre Tonh\u00f6he in Echtzeit und l\u00f6st aus, wenn Sie eine Note im Toleranzbereich (\u00b15 bis \u00b120 Cent) f\u00fcr die erforderliche Haltezeit (0,25\u20133,0 Sekunden) halten.</p><p>W\u00e4hlen Sie einen Klick, Piepton oder Referenzton als Best\u00e4tigungssignal. Ein Fortschrittsring zeigt Ihren Tracking-Status, und der Notenname blinkt bei Best\u00e4tigung.</p>',
+        faqTunerQ: "Welche Stimmger\u00e4t-Funktionen sind verf\u00fcgbar?",
+        faqTunerA: '<p>MetroTune enth\u00e4lt ein vollst\u00e4ndiges chromatisches Stimmger\u00e4t mit Echtzeit-Tonerkennung. Es zeigt den erkannten Notennamen und die Oktave, eine Stimmungsanzeige in Cent und die Frequenz in Hz. Die Referenztonh\u00f6he ist einstellbar (Standard A4 = 440 Hz).</p><p>Einstellbare Empfindlichkeitsmodi optimieren f\u00fcr Ihr Instrument: <strong>Stabil</strong> f\u00fcr Gesang und Blasinstrumente, <strong>Mittel</strong> f\u00fcr ausgewogene Nutzung oder <strong>Schnell</strong> f\u00fcr Saiteninstrumente.</p><p>Das Stimmger\u00e4t bietet au\u00dferdem mehrere Referenztonprofile wie Ton, Klarinette, Orgel, Glocke und Blech, jeweils mit eigenen Klangeigenschaften. Dr\u00fccken Sie lange auf eine Note, um einen anhaltenden <strong>Leitton</strong> als Referenz zu spielen.</p>',
+        faqVibrateQ: "Kann ich das Metronom lautlos verwenden?",
+        faqVibrateA: '<p>Ja. Der <strong>Vibrationsmodus</strong> l\u00e4sst Ihr Telefon bei jedem Schlag vibrieren \u2014 ein st\u00e4rkerer Impuls markiert Schlag 1. Ideal f\u00fcr Proben, Live-Auftritte oder \u00fcberall, wo Sie einen leisen Klicktrack ben\u00f6tigen. Der <strong>Stummschaltmodus</strong> schaltet alle Ger\u00e4usche und Haptik ab und zeigt stattdessen eine vergr\u00f6\u00dferte visuelle Schlaganzeige.</p>',
+        faqTapQ: "Wie stelle ich das Tempo durch Tippen ein?",
+        faqTapA: '<p>Tippen Sie wiederholt auf die <strong>TAP</strong>-Taste neben der BPM-Anzeige in Ihrem gew\u00fcnschten Tempo. MetroTune erkennt das durchschnittliche Intervall und zeigt die BPM in Echtzeit an. Dr\u00fccken Sie <strong>Fertig</strong>, um das erkannte Tempo zu \u00fcbernehmen.</p>',
+        resourcesTitle: "Weitere Ressourcen",
+        privacyTitle: "Datenschutzrichtlinie",
+        privacyDesc: "Wie MetroTune mit Ihren Daten umgeht.",
+        termsTitle: "Nutzungsbedingungen",
+        termsDesc: "Nutzungsbedingungen f\u00fcr unsere Apps und Dienste.",
+        privacyHref: "/privacy/metrotune-de.html"
+      },
+      es: {
+        pageTitle: "MetroTune Soporte y Comentarios",
+        tagline: "Practica mejor. Toca mejor.",
+        contactTitle: "\u00bfNecesitas ayuda?",
+        contactDesc: "Para reportar errores, solicitar funciones o cualquier pregunta sobre MetroTune, escr\u00edbenos a",
+        contactResponse: "Normalmente respondemos en un plazo de 48 horas.",
+        faqTitle: "Preguntas Frecuentes",
+        faqClapQ: "\u00bfC\u00f3mo funciona el Control por Palmadas?",
+        faqClapA: '<p>Da dos palmadas r\u00e1pidas para iniciar o detener el metr\u00f3nomo sin usar las manos. Dos palmadas fuertes en 0,6 segundos activar\u00e1n o detendr\u00e1n la reproducci\u00f3n \u2014 perfecto cuando tienes las manos en el instrumento.</p><p>MetroTune utiliza procesamiento avanzado de se\u00f1ales para distinguir palmadas reales de otros sonidos como clics del metr\u00f3nomo o ataques de instrumentos. Analiza la signatura de frecuencia y la tasa de cruce por cero de cada sonido, y se adapta autom\u00e1ticamente al nivel de ruido ambiental.</p><p>Los usuarios Premium pueden ajustar el umbral de detecci\u00f3n, la relaci\u00f3n con el ruido de fondo y la ventana de tiempo de doble palmada (0,5\u20131,0 segundos).</p>',
+        faqTempoQ: "\u00bfQu\u00e9 son los Mapas de Tempo?",
+        faqTempoA: '<p>Los Mapas de Tempo te permiten crear una secuencia de cambios de tempo, comp\u00e1s, patr\u00f3n r\u00edtmico y sonido que se reproducen autom\u00e1ticamente. Cada entrada especifica el BPM, n\u00famero de pulsos, patr\u00f3n, sonido y cantidad de compases a reproducir.</p><p>Puedes guardar y cargar perfiles con nombre, configurar modos de bucle (reproducir una vez, repetir 1\u201399 veces o bucle infinito) y a\u00f1adir pulsos de entrada. Mant\u00e9n presionada cualquier entrada para iniciar la reproducci\u00f3n desde ese punto.</p><p>Ideal para practicar piezas con cambios de tempo, crear ejercicios progresivos o rutinas de calentamiento estructuradas.</p>',
+        faqGapQ: "\u00bfQu\u00e9 es Gap Click?",
+        faqGapA: '<p>Gap Click entrena tu reloj interno alternando entre clics audibles y silencio. Toca a tiempo durante la pausa silenciosa y compru\u00e9bate cuando el clic regrese.</p><p>Elige entre modos predefinidos: <strong>Principiante</strong> (3 compases con clic, 1 silencioso), <strong>Pro</strong> (1 comp\u00e1s con clic, 3 silenciosos) o <strong>Aleatorio</strong> (divisi\u00f3n aleatoria por ciclo). Los usuarios Premium tambi\u00e9n obtienen el modo <strong>Manual</strong> con compases de sonido y silencio totalmente personalizables, m\u00e1s un pulso gu\u00eda en el primer tiempo de cada comp\u00e1s silencioso.</p>',
+        faqPitchQ: "\u00bfC\u00f3mo funciona el Verificador de Afinaci\u00f3n (Check)?",
+        faqPitchA: '<p>El Verificador de Afinaci\u00f3n reproduce un sonido de confirmaci\u00f3n cuando mantienes una nota afinada durante un tiempo determinado. Monitorea tu afinaci\u00f3n en tiempo real y se activa cuando sostienes una nota dentro del rango de tolerancia (\u00b15 a \u00b120 cents) durante el tiempo requerido (0,25\u20133,0 segundos).</p><p>Puedes elegir un clic, pitido o tono de referencia como sonido de confirmaci\u00f3n. Un anillo de progreso muestra tu estado de seguimiento, y la letra de la nota parpadea al confirmar.</p>',
+        faqTunerQ: "\u00bfQu\u00e9 funciones de afinador est\u00e1n disponibles?",
+        faqTunerA: '<p>MetroTune incluye un afinador crom\u00e1tico completo con detecci\u00f3n de tono en tiempo real. Muestra el nombre de la nota detectada y la octava, un indicador de afinaci\u00f3n en cents y la frecuencia en Hz. El tono de referencia es configurable (predeterminado A4 = 440 Hz).</p><p>Los modos de sensibilidad ajustables optimizan para tu instrumento: <strong>Estable</strong> para voz e instrumentos de viento, <strong>Medio</strong> para uso equilibrado o <strong>R\u00e1pido</strong> para instrumentos de cuerda.</p><p>El afinador tambi\u00e9n ofrece m\u00faltiples perfiles de tono de referencia como Tono, Clarinete, \u00d3rgano, Campana y Metal, cada uno con caracter\u00edsticas arm\u00f3nicas distintas. Mant\u00e9n presionada cualquier nota para reproducir un <strong>Tono Gu\u00eda</strong> sostenido como referencia.</p>',
+        faqVibrateQ: "\u00bfPuedo usar el metr\u00f3nomo en silencio?",
+        faqVibrateA: '<p>S\u00ed. El <strong>Modo Vibraci\u00f3n</strong> hace vibrar tu tel\u00e9fono en cada pulso en lugar de reproducir audio \u2014 un pulso m\u00e1s fuerte marca el tiempo 1. Ideal para ensayos, actuaciones en vivo o donde necesites un click track silencioso. El <strong>Modo Silenciado</strong> desactiva todo sonido y h\u00e1ptica, mostrando un indicador visual de pulso ampliado.</p>',
+        faqTapQ: "\u00bfC\u00f3mo configuro el tempo tocando?",
+        faqTapA: '<p>Toca repetidamente el bot\u00f3n <strong>TAP</strong> junto a la pantalla de BPM al tempo deseado. MetroTune detecta el intervalo promedio y muestra los BPM en tiempo real. Presiona <strong>Listo</strong> para aplicar el tempo detectado.</p>',
+        resourcesTitle: "Recursos Adicionales",
+        privacyTitle: "Pol\u00edtica de Privacidad",
+        privacyDesc: "C\u00f3mo MetroTune gestiona tus datos.",
+        termsTitle: "T\u00e9rminos de Servicio",
+        termsDesc: "T\u00e9rminos de uso para nuestras apps y servicios.",
+        privacyHref: "/privacy/metrotune-es.html"
+      },
+      "es-MX": {
+        pageTitle: "MetroTune Soporte y Comentarios",
+        tagline: "Practica mejor. Toca mejor.",
+        contactTitle: "\u00bfNecesitas ayuda?",
+        contactDesc: "Para reportar errores, solicitar funciones o cualquier pregunta sobre MetroTune, escr\u00edbenos a",
+        contactResponse: "Normalmente respondemos en un plazo de 48 horas.",
+        faqTitle: "Preguntas Frecuentes",
+        faqClapQ: "\u00bfC\u00f3mo funciona el Control por Palmadas?",
+        faqClapA: '<p>Da dos palmadas r\u00e1pidas para iniciar o detener el metr\u00f3nomo sin usar las manos. Dos palmadas fuertes en 0.6 segundos activar\u00e1n o detendr\u00e1n la reproducci\u00f3n \u2014 perfecto cuando tienes las manos en el instrumento.</p><p>MetroTune utiliza procesamiento avanzado de se\u00f1ales para distinguir palmadas reales de otros sonidos como clics del metr\u00f3nomo o ataques de instrumentos. Analiza la signatura de frecuencia y la tasa de cruce por cero, y se adapta autom\u00e1ticamente al nivel de ruido ambiental.</p><p>Los usuarios Premium pueden ajustar el umbral de detecci\u00f3n, la relaci\u00f3n con el ruido de fondo y la ventana de tiempo de doble palmada (0.5\u20131.0 segundos).</p>',
+        faqTempoQ: "\u00bfQu\u00e9 son los Mapas de Tempo?",
+        faqTempoA: '<p>Los Mapas de Tempo te permiten crear una secuencia de cambios de tempo, comp\u00e1s, patr\u00f3n r\u00edtmico y sonido que se reproducen autom\u00e1ticamente. Cada entrada especifica el BPM, n\u00famero de pulsos, patr\u00f3n, sonido y cantidad de compases.</p><p>Puedes guardar y cargar perfiles con nombre, configurar modos de bucle (reproducir una vez, repetir 1\u201399 veces o bucle infinito) y agregar pulsos de entrada. Mant\u00e9n presionada cualquier entrada para iniciar desde ese punto.</p><p>Ideal para practicar piezas con cambios de tempo, crear ejercicios progresivos o rutinas de calentamiento.</p>',
+        faqGapQ: "\u00bfQu\u00e9 es Gap Click?",
+        faqGapA: '<p>Gap Click entrena tu reloj interno alternando entre clics audibles y silencio. Toca a tiempo durante la pausa silenciosa y compru\u00e9bate cuando el clic regrese.</p><p>Elige entre modos predefinidos: <strong>Principiante</strong> (3 compases con clic, 1 silencioso), <strong>Pro</strong> (1 comp\u00e1s con clic, 3 silenciosos) o <strong>Aleatorio</strong> (divisi\u00f3n aleatoria por ciclo). Los usuarios Premium tambi\u00e9n obtienen el modo <strong>Manual</strong> con compases totalmente personalizables, m\u00e1s un pulso gu\u00eda en el primer tiempo de cada comp\u00e1s silencioso.</p>',
+        faqPitchQ: "\u00bfC\u00f3mo funciona el Verificador de Afinaci\u00f3n (Check)?",
+        faqPitchA: '<p>El Verificador de Afinaci\u00f3n reproduce un sonido de confirmaci\u00f3n cuando mantienes una nota afinada durante un tiempo determinado. Monitorea tu afinaci\u00f3n en tiempo real y se activa cuando sostienes una nota dentro del rango de tolerancia (\u00b15 a \u00b120 cents) durante el tiempo requerido (0.25\u20133.0 segundos).</p><p>Puedes elegir un clic, pitido o tono de referencia como confirmaci\u00f3n. Un anillo de progreso muestra tu estado y la letra de la nota parpadea al confirmar.</p>',
+        faqTunerQ: "\u00bfQu\u00e9 funciones de afinador est\u00e1n disponibles?",
+        faqTunerA: '<p>MetroTune incluye un afinador crom\u00e1tico completo con detecci\u00f3n de tono en tiempo real. Muestra el nombre de la nota, la octava, un indicador en cents y la frecuencia en Hz. El tono de referencia es configurable (predeterminado A4 = 440 Hz).</p><p>Los modos de sensibilidad optimizan para tu instrumento: <strong>Estable</strong> para voz y viento, <strong>Medio</strong> para uso equilibrado o <strong>R\u00e1pido</strong> para cuerdas.</p><p>Tambi\u00e9n ofrece perfiles de tono como Tono, Clarinete, \u00d3rgano, Campana y Metal. Mant\u00e9n presionada cualquier nota para reproducir un <strong>Tono Gu\u00eda</strong> sostenido.</p>',
+        faqVibrateQ: "\u00bfPuedo usar el metr\u00f3nomo en silencio?",
+        faqVibrateA: '<p>S\u00ed. El <strong>Modo Vibraci\u00f3n</strong> hace vibrar tu tel\u00e9fono en cada pulso \u2014 un pulso m\u00e1s fuerte marca el tiempo 1. Ideal para ensayos o donde necesites un click track silencioso. El <strong>Modo Silenciado</strong> desactiva todo sonido y muestra un indicador visual ampliado.</p>',
+        faqTapQ: "\u00bfC\u00f3mo configuro el tempo tocando?",
+        faqTapA: '<p>Toca repetidamente el bot\u00f3n <strong>TAP</strong> junto a la pantalla de BPM al tempo deseado. MetroTune detecta el intervalo promedio y muestra los BPM en tiempo real. Presiona <strong>Listo</strong> para aplicar el tempo.</p>',
+        resourcesTitle: "Recursos Adicionales",
+        privacyTitle: "Pol\u00edtica de Privacidad",
+        privacyDesc: "C\u00f3mo MetroTune gestiona tus datos.",
+        termsTitle: "T\u00e9rminos de Servicio",
+        termsDesc: "T\u00e9rminos de uso para nuestras apps y servicios.",
+        privacyHref: "/privacy/metrotune-es-mx.html"
+      },
+      fr: {
+        pageTitle: "MetroTune Support & Commentaires",
+        tagline: "Pratiquez mieux. Jouez mieux.",
+        contactTitle: "Besoin d\u2019aide\u00a0?",
+        contactDesc: "Pour signaler un bug, demander une fonctionnalit\u00e9 ou toute question sur MetroTune, \u00e9crivez-nous \u00e0",
+        contactResponse: "Nous r\u00e9pondons g\u00e9n\u00e9ralement sous 48 heures.",
+        faqTitle: "Questions Fr\u00e9quentes",
+        faqClapQ: "Comment fonctionne le Contr\u00f4le par Claquement\u00a0?",
+        faqClapA: '<p>Frappez deux fois dans vos mains rapidement pour d\u00e9marrer ou arr\u00eater le m\u00e9tronome en mains libres. Deux claquements nets en 0,6 seconde basculent la lecture \u2014 id\u00e9al quand vos mains sont sur votre instrument.</p><p>MetroTune utilise un traitement avanc\u00e9 du signal pour distinguer les vrais claquements des autres sons comme les clics du m\u00e9tronome ou les attaques instrumentales. Il analyse la signature fr\u00e9quentielle et le taux de passage par z\u00e9ro, et s\u2019adapte automatiquement au bruit ambiant.</p><p>Les utilisateurs Premium peuvent affiner le seuil de d\u00e9tection, le rapport au bruit de fond et la fen\u00eatre temporelle du double claquement (0,5\u20131,0 seconde).</p>',
+        faqTempoQ: "Que sont les Cartes de Tempo\u00a0?",
+        faqTempoA: '<p>Les Cartes de Tempo vous permettent de cr\u00e9er une s\u00e9quence de changements de tempo, de mesure, de motif rythmique et de son qui se jouent automatiquement. Chaque entr\u00e9e sp\u00e9cifie le BPM, le nombre de temps, le motif, le son et le nombre de mesures.</p><p>Vous pouvez sauvegarder et charger des profils nomm\u00e9s, d\u00e9finir des modes de boucle (jouer une fois, r\u00e9p\u00e9ter 1\u201399 fois ou en boucle infinie) et ajouter des temps de d\u00e9compte. Appuyez longuement sur une entr\u00e9e pour lancer la lecture depuis ce point.</p><p>Id\u00e9al pour pratiquer des morceaux avec des changements de tempo, des exercices progressifs ou des routines d\u2019\u00e9chauffement structur\u00e9es.</p>',
+        faqGapQ: "Qu\u2019est-ce que le Gap Click\u00a0?",
+        faqGapA: '<p>Gap Click entra\u00eene votre horloge interne en alternant clics audibles et silence. Jouez en rythme pendant la pause silencieuse, puis v\u00e9rifiez-vous quand le clic revient.</p><p>Choisissez parmi les modes int\u00e9gr\u00e9s\u00a0: <strong>D\u00e9butant</strong> (3 mesures avec clic, 1 silencieuse), <strong>Pro</strong> (1 mesure avec clic, 3 silencieuses) ou <strong>Al\u00e9atoire</strong> (r\u00e9partition al\u00e9atoire par cycle). Les utilisateurs Premium disposent aussi du mode <strong>Manuel</strong> avec mesures sonores et silencieuses enti\u00e8rement personnalisables, plus un temps guide sur le premier temps de chaque mesure silencieuse.</p>',
+        faqPitchQ: "Comment fonctionne le V\u00e9rificateur de Justesse (Check)\u00a0?",
+        faqPitchA: '<p>Le V\u00e9rificateur de Justesse joue un son de confirmation quand vous tenez une note juste pendant une dur\u00e9e d\u00e9finie. Il surveille votre hauteur en temps r\u00e9el et se d\u00e9clenche quand vous maintenez une note dans la plage de tol\u00e9rance (\u00b15 \u00e0 \u00b120 cents) pendant le temps requis (0,25\u20133,0 secondes).</p><p>Choisissez un clic, un bip ou un son de r\u00e9f\u00e9rence comme confirmation. Un anneau de progression montre votre suivi, et la lettre de la note clignote \u00e0 la confirmation.</p>',
+        faqTunerQ: "Quelles fonctions d\u2019accordeur sont disponibles\u00a0?",
+        faqTunerA: '<p>MetroTune inclut un accordeur chromatique complet avec d\u00e9tection de hauteur en temps r\u00e9el. Il affiche le nom de la note d\u00e9tect\u00e9e et l\u2019octave, une jauge d\u2019accord en cents et la fr\u00e9quence en Hz. La hauteur de r\u00e9f\u00e9rence est r\u00e9glable (par d\u00e9faut La4 = 440 Hz).</p><p>Les modes de sensibilit\u00e9 r\u00e9glables optimisent pour votre instrument\u00a0: <strong>Stable</strong> pour la voix et les vents, <strong>Moyen</strong> pour un usage \u00e9quilibr\u00e9 ou <strong>Rapide</strong> pour les cordes.</p><p>L\u2019accordeur propose aussi plusieurs profils de ton de r\u00e9f\u00e9rence dont Ton, Clarinette, Orgue, Cloche et Cuivre, chacun avec des harmoniques distinctes. Appuyez longuement sur une note pour jouer un <strong>Ton Guide</strong> soutenu.</p>',
+        faqVibrateQ: "Puis-je utiliser le m\u00e9tronome en silence\u00a0?",
+        faqVibrateA: '<p>Oui. Le <strong>Mode Vibration</strong> fait vibrer votre t\u00e9l\u00e9phone \u00e0 chaque temps au lieu de jouer du son \u2014 une vibration plus forte marque le temps 1. Id\u00e9al pour les r\u00e9p\u00e9titions, les performances live ou partout o\u00f9 vous avez besoin d\u2019un click track silencieux. Le <strong>Mode Muet</strong> d\u00e9sactive tout son et haptique, affichant un indicateur visuel de temps agrandi.</p>',
+        faqTapQ: "Comment r\u00e9gler le tempo en tapant\u00a0?",
+        faqTapA: '<p>Tapez r\u00e9p\u00e9titivement sur le bouton <strong>TAP</strong> \u00e0 c\u00f4t\u00e9 de l\u2019affichage BPM au tempo souhait\u00e9. MetroTune d\u00e9tecte l\u2019intervalle moyen et affiche les BPM en temps r\u00e9el. Appuyez sur <strong>Termin\u00e9</strong> pour appliquer le tempo d\u00e9tect\u00e9.</p>',
+        resourcesTitle: "Ressources Suppl\u00e9mentaires",
+        privacyTitle: "Politique de Confidentialit\u00e9",
+        privacyDesc: "Comment MetroTune g\u00e8re vos donn\u00e9es.",
+        termsTitle: "Conditions d\u2019Utilisation",
+        termsDesc: "Conditions d\u2019utilisation de nos apps et services.",
+        privacyHref: "/privacy/metrotune-fr.html"
+      },
+      id: {
+        pageTitle: "MetroTune Dukungan & Umpan Balik",
+        tagline: "Latihan Lebih Cerdas. Bermain Lebih Baik.",
+        contactTitle: "Butuh Bantuan?",
+        contactDesc: "Untuk laporan bug, permintaan fitur, atau pertanyaan tentang MetroTune, kirim email ke",
+        contactResponse: "Kami biasanya merespons dalam 48 jam.",
+        faqTitle: "Pertanyaan yang Sering Diajukan",
+        faqClapQ: "Bagaimana cara kerja Kontrol Tepukan?",
+        faqClapA: '<p>Tepuk dua kali dengan cepat untuk memulai atau menghentikan metronom tanpa tangan. Dua tepukan tajam dalam 0,6 detik akan mengaktifkan pemutaran \u2014 sempurna saat tangan Anda memegang instrumen.</p><p>MetroTune menggunakan pemrosesan sinyal canggih untuk membedakan tepukan asli dari suara lain seperti klik metronom atau serangan instrumen. Aplikasi menganalisis signatur frekuensi dan laju zero-crossing, serta secara otomatis menyesuaikan dengan tingkat kebisingan latar belakang.</p><p>Pengguna Premium dapat menyesuaikan ambang deteksi, rasio latar belakang, dan jendela waktu tepukan ganda (0,5\u20131,0 detik).</p>',
+        faqTempoQ: "Apa itu Tempo Map?",
+        faqTempoA: '<p>Tempo Map memungkinkan Anda membuat urutan perubahan tempo, tanda birama, pola ketukan, dan suara yang diputar secara otomatis. Setiap entri menentukan BPM, jumlah ketukan, pola, suara, dan jumlah birama.</p><p>Anda dapat menyimpan dan memuat profil bernama, mengatur mode loop (putar sekali, ulangi 1\u201399 kali, atau loop tak terbatas), dan menambahkan ketukan hitung mundur. Tekan lama entri untuk memulai pemutaran dari titik tersebut.</p><p>Ideal untuk berlatih lagu dengan perubahan tempo, membangun latihan progresif, atau rutinitas pemanasan terstruktur.</p>',
+        faqGapQ: "Apa itu Gap Click?",
+        faqGapA: '<p>Gap Click melatih jam internal Anda dengan bergantian antara klik yang terdengar dan keheningan. Mainkan sesuai tempo selama jeda hening, lalu periksa diri Anda saat klik kembali.</p><p>Pilih dari mode bawaan: <strong>Pemula</strong> (3 birama klik, 1 hening), <strong>Pro</strong> (1 birama klik, 3 hening), atau <strong>Acak</strong> (pembagian acak setiap siklus). Pengguna Premium juga mendapat mode <strong>Manual</strong> dengan birama suara dan hening yang sepenuhnya dapat disesuaikan, ditambah ketukan panduan pada ketukan pertama setiap birama hening.</p>',
+        faqPitchQ: "Bagaimana cara kerja Pemeriksa Nada (Check)?",
+        faqPitchA: '<p>Pemeriksa Nada memainkan suara konfirmasi saat Anda menahan nada yang tepat selama durasi tertentu. Ia memantau nada Anda secara real-time dan terpicu saat Anda menahan nada dalam rentang toleransi (\u00b15 hingga \u00b120 sen) selama waktu yang diperlukan (0,25\u20133,0 detik).</p><p>Pilih klik, bip, atau nada referensi sebagai suara konfirmasi. Cincin progres menunjukkan status pelacakan, dan huruf nada berkedip saat dikonfirmasi.</p>',
+        faqTunerQ: "Fitur tuner apa saja yang tersedia?",
+        faqTunerA: '<p>MetroTune menyertakan tuner kromatik lengkap dengan deteksi nada real-time. Menampilkan nama nada dan oktaf, pengukur tuning dalam sen, dan frekuensi dalam Hz. Nada referensi dapat disesuaikan (default A4 = 440 Hz).</p><p>Mode sensitivitas yang dapat disesuaikan mengoptimalkan untuk instrumen Anda: <strong>Stabil</strong> untuk vokal dan tiup, <strong>Sedang</strong> untuk penggunaan seimbang, atau <strong>Cepat</strong> untuk petik/gesek.</p><p>Tuner juga menawarkan beberapa profil nada referensi termasuk Tone, Klarinet, Organ, Lonceng, dan Brass. Tekan lama nada apa pun untuk memainkan <strong>Nada Panduan</strong> yang berkelanjutan.</p>',
+        faqVibrateQ: "Bisakah saya menggunakan metronom secara diam?",
+        faqVibrateA: '<p>Ya. <strong>Mode Getar</strong> membuat ponsel Anda bergetar di setiap ketukan \u2014 getaran lebih kuat menandai ketukan 1. Cocok untuk latihan, pertunjukan langsung, atau di mana pun Anda butuh click track tanpa suara. <strong>Mode Bisu</strong> menonaktifkan semua suara dan haptik, menampilkan indikator visual ketukan yang diperbesar.</p>',
+        faqTapQ: "Bagaimana cara mengatur tempo dengan mengetuk?",
+        faqTapA: '<p>Ketuk tombol <strong>TAP</strong> di sebelah tampilan BPM berulang kali sesuai tempo yang diinginkan. MetroTune mendeteksi interval rata-rata dan menampilkan BPM secara real-time. Tekan <strong>Selesai</strong> untuk menerapkan tempo yang terdeteksi.</p>',
+        resourcesTitle: "Sumber Daya Tambahan",
+        privacyTitle: "Kebijakan Privasi",
+        privacyDesc: "Bagaimana MetroTune menangani data Anda.",
+        termsTitle: "Ketentuan Layanan",
+        termsDesc: "Ketentuan penggunaan untuk aplikasi dan layanan kami.",
+        privacyHref: "/privacy/metrotune-id.html"
+      },
+      it: {
+        pageTitle: "MetroTune Supporto e Feedback",
+        tagline: "Pratica in modo pi\u00f9 intelligente. Suona meglio.",
+        contactTitle: "Hai bisogno di aiuto?",
+        contactDesc: "Per segnalazioni di bug, richieste di funzionalit\u00e0 o domande su MetroTune, scrivici a",
+        contactResponse: "Rispondiamo generalmente entro 48 ore.",
+        faqTitle: "Domande Frequenti",
+        faqClapQ: "Come funziona il Controllo con Battito di Mani?",
+        faqClapA: '<p>Batti le mani due volte rapidamente per avviare o fermare il metronomo a mani libere. Due battiti netti entro 0,6 secondi attiveranno la riproduzione \u2014 perfetto quando hai le mani sullo strumento.</p><p>MetroTune utilizza un\u2019elaborazione avanzata del segnale per distinguere i veri battiti di mani da altri suoni come i clic del metronomo o gli attacchi strumentali. Analizza la firma in frequenza e il tasso di attraversamento dello zero, e si adatta automaticamente al livello di rumore ambientale.</p><p>Gli utenti Premium possono regolare la soglia di rilevamento, il rapporto con il rumore di fondo e la finestra temporale del doppio battito (0,5\u20131,0 secondi).</p>',
+        faqTempoQ: "Cosa sono le Mappe di Tempo?",
+        faqTempoA: '<p>Le Mappe di Tempo ti permettono di creare una sequenza di cambiamenti di tempo, metro, pattern ritmico e suono che si riproducono automaticamente. Ogni voce specifica BPM, numero di battiti, pattern, suono e numero di battute.</p><p>Puoi salvare e caricare profili con nome, impostare modalit\u00e0 di loop (riprodurre una volta, ripetere 1\u201399 volte o loop infinito) e aggiungere battiti di conteggio. Tieni premuta una voce per avviare la riproduzione da quel punto.</p><p>Ideale per praticare brani con cambi di tempo, esercizi progressivi o routine di riscaldamento strutturate.</p>',
+        faqGapQ: "Cos\u2019\u00e8 il Gap Click?",
+        faqGapA: '<p>Gap Click allena il tuo orologio interno alternando clic udibili e silenzio. Suona a tempo durante la pausa silenziosa, poi verificati quando il clic ritorna.</p><p>Scegli tra le modalit\u00e0 integrate: <strong>Principiante</strong> (3 battute con clic, 1 silenziosa), <strong>Pro</strong> (1 battuta con clic, 3 silenziose) o <strong>Casuale</strong> (suddivisione casuale per ciclo). Gli utenti Premium ottengono anche la modalit\u00e0 <strong>Manuale</strong> con battute sonore e silenziose completamente personalizzabili, pi\u00f9 un battito guida sul primo tempo di ogni battuta silenziosa.</p>',
+        faqPitchQ: "Come funziona il Verificatore di Intonazione (Check)?",
+        faqPitchA: '<p>Il Verificatore di Intonazione riproduce un suono di conferma quando mantieni una nota intonata per una durata impostata. Monitora l\u2019intonazione in tempo reale e si attiva quando sostieni una nota nel range di tolleranza (\u00b15 a \u00b120 cent) per il tempo richiesto (0,25\u20133,0 secondi).</p><p>Scegli un clic, un bip o un tono di riferimento come suono di conferma. Un anello di progresso mostra lo stato di tracciamento e la lettera della nota lampeggia alla conferma.</p>',
+        faqTunerQ: "Quali funzioni di accordatore sono disponibili?",
+        faqTunerA: '<p>MetroTune include un accordatore cromatico completo con rilevamento dell\u2019intonazione in tempo reale. Mostra il nome della nota rilevata e l\u2019ottava, un indicatore di accordatura in cent e la frequenza in Hz. L\u2019intonazione di riferimento \u00e8 regolabile (predefinito La4 = 440 Hz).</p><p>Le modalit\u00e0 di sensibilit\u00e0 regolabili ottimizzano per il tuo strumento: <strong>Stabile</strong> per voce e fiati, <strong>Medio</strong> per uso bilanciato o <strong>Veloce</strong> per archi.</p><p>L\u2019accordatore offre anche diversi profili di tono di riferimento tra cui Tono, Clarinetto, Organo, Campana e Ottoni, ognuno con caratteristiche armoniche distinte. Tieni premuta una nota per riprodurre un <strong>Tono Guida</strong> sostenuto come riferimento.</p>',
+        faqVibrateQ: "Posso usare il metronomo in silenzio?",
+        faqVibrateA: '<p>S\u00ec. La <strong>Modalit\u00e0 Vibrazione</strong> fa vibrare il telefono a ogni battito invece di riprodurre audio \u2014 una vibrazione pi\u00f9 forte segna il battito 1. Ideale per le prove, esibizioni dal vivo o ovunque serva un click track silenzioso. La <strong>Modalit\u00e0 Silenziosa</strong> disattiva tutti i suoni e la vibrazione, mostrando un indicatore visuale del battito ingrandito.</p>',
+        faqTapQ: "Come imposto il tempo toccando?",
+        faqTapA: '<p>Tocca ripetutamente il pulsante <strong>TAP</strong> accanto al display BPM al tempo desiderato. MetroTune rileva l\u2019intervallo medio e mostra i BPM in tempo reale. Premi <strong>Fatto</strong> per applicare il tempo rilevato.</p>',
+        resourcesTitle: "Risorse Aggiuntive",
+        privacyTitle: "Informativa sulla Privacy",
+        privacyDesc: "Come MetroTune gestisce i tuoi dati.",
+        termsTitle: "Termini di Servizio",
+        termsDesc: "Termini d\u2019uso per le nostre app e servizi.",
+        privacyHref: "/privacy/metrotune-it.html"
+      },
+      ja: {
+        pageTitle: "MetroTune \u30b5\u30dd\u30fc\u30c8\uff06\u30d5\u30a3\u30fc\u30c9\u30d0\u30c3\u30af",
+        tagline: "\u8ce2\u304f\u7df4\u7fd2\u3002\u3082\u3063\u3068\u4e0a\u624b\u306b\u3002",
+        contactTitle: "\u304a\u56f0\u308a\u3067\u3059\u304b\uff1f",
+        contactDesc: "\u30d0\u30b0\u5831\u544a\u3001\u6a5f\u80fd\u30ea\u30af\u30a8\u30b9\u30c8\u3001\u307e\u305f\u306fMetroTune\u306b\u95a2\u3059\u308b\u3054\u8cea\u554f\u306f\u3001\u4ee5\u4e0b\u306e\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9\u307e\u3067\u3054\u9023\u7d61\u304f\u3060\u3055\u3044",
+        contactResponse: "\u901a\u5e38\u300148\u6642\u9593\u4ee5\u5185\u306b\u8fd4\u4fe1\u3044\u305f\u3057\u307e\u3059\u3002",
+        faqTitle: "\u3088\u304f\u3042\u308b\u8cea\u554f",
+        faqClapQ: "\u62cd\u624b\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb\u306e\u4f7f\u3044\u65b9\u306f\uff1f",
+        faqClapA: '<p>\u7d20\u65e9\u304f2\u56de\u62cd\u624b\u3059\u308b\u3060\u3051\u3067\u3001\u30cf\u30f3\u30ba\u30d5\u30ea\u30fc\u3067\u30e1\u30c8\u30ed\u30ce\u30fc\u30e0\u306e\u958b\u59cb\u30fb\u505c\u6b62\u304c\u3067\u304d\u307e\u3059\u30020.6\u79d2\u4ee5\u5185\u306b2\u56de\u306e\u9bae\u660e\u306a\u62cd\u624b\u3067\u518d\u751f\u304c\u5207\u308a\u66ff\u308f\u308a\u307e\u3059\u2014\u2014\u697d\u5668\u3092\u6301\u3063\u305f\u307e\u307e\u64cd\u4f5c\u3067\u304d\u307e\u3059\u3002</p><p>MetroTune\u306f\u9ad8\u5ea6\u306a\u4fe1\u53f7\u51e6\u7406\u3092\u4f7f\u7528\u3057\u3066\u3001\u5b9f\u969b\u306e\u62cd\u624b\u3092\u30e1\u30c8\u30ed\u30ce\u30fc\u30e0\u306e\u30af\u30ea\u30c3\u30af\u97f3\u3084\u697d\u5668\u306e\u30a2\u30bf\u30c3\u30af\u97f3\u3068\u533a\u5225\u3057\u307e\u3059\u3002\u5468\u6ce2\u6570\u7279\u6027\u3068\u30bc\u30ed\u30af\u30ed\u30b9\u7387\u3092\u5206\u6790\u3057\u3001\u80cc\u666f\u30ce\u30a4\u30ba\u30ec\u30d9\u30eb\u306b\u81ea\u52d5\u9069\u5fdc\u3057\u307e\u3059\u3002</p><p>Premium\u30e6\u30fc\u30b6\u30fc\u306f\u691c\u51fa\u95be\u5024\u3001\u80cc\u666f\u6bd4\u7387\u3001\u30c0\u30d6\u30eb\u30af\u30e9\u30c3\u30d7\u306e\u30bf\u30a4\u30df\u30f3\u30b0\u30a6\u30a3\u30f3\u30c9\u30a6\uff080.5\u301c1.0\u79d2\uff09\u3092\u8abf\u6574\u3067\u304d\u307e\u3059\u3002</p>',
+        faqTempoQ: "\u30c6\u30f3\u30dd\u30de\u30c3\u30d7\u3068\u306f\uff1f",
+        faqTempoA: '<p>\u30c6\u30f3\u30dd\u30de\u30c3\u30d7\u3067\u306f\u3001\u30c6\u30f3\u30dd\u3001\u62cd\u5b50\u3001\u30d3\u30fc\u30c8\u30d1\u30bf\u30fc\u30f3\u3001\u30b5\u30a6\u30f3\u30c9\u306e\u5909\u66f4\u30b7\u30fc\u30b1\u30f3\u30b9\u3092\u4f5c\u6210\u3057\u3001\u81ea\u52d5\u518d\u751f\u3067\u304d\u307e\u3059\u3002\u5404\u30a8\u30f3\u30c8\u30ea\u3067BPM\u3001\u62cd\u6570\u3001\u30d1\u30bf\u30fc\u30f3\u3001\u30b5\u30a6\u30f3\u30c9\u3001\u5c0f\u7bc0\u6570\u3092\u6307\u5b9a\u3057\u307e\u3059\u3002</p><p>\u540d\u524d\u4ed8\u304d\u30d7\u30ed\u30d5\u30a1\u30a4\u30eb\u306e\u4fdd\u5b58\u30fb\u8aad\u307f\u8fbc\u307f\u3001\u30eb\u30fc\u30d7\u30e2\u30fc\u30c9\uff081\u56de\u518d\u751f\u30011\u301c99\u56de\u30ea\u30d4\u30fc\u30c8\u3001\u7121\u9650\u30eb\u30fc\u30d7\uff09\u3001\u30ab\u30a6\u30f3\u30c8\u30a4\u30f3\u62cd\u306e\u8ffd\u52a0\u304c\u53ef\u80fd\u3067\u3059\u3002\u30a8\u30f3\u30c8\u30ea\u3092\u9577\u62bc\u3057\u3059\u308b\u3068\u3001\u305d\u306e\u30dd\u30a4\u30f3\u30c8\u304b\u3089\u518d\u751f\u3092\u958b\u59cb\u3067\u304d\u307e\u3059\u3002</p><p>\u30c6\u30f3\u30dd\u5909\u5316\u306e\u3042\u308b\u66f2\u306e\u7df4\u7fd2\u3001\u6bb5\u968e\u7684\u306a\u30a8\u30af\u30b5\u30b5\u30a4\u30ba\u3001\u69cb\u9020\u5316\u3055\u308c\u305f\u30a6\u30a9\u30fc\u30e0\u30a2\u30c3\u30d7\u306b\u6700\u9069\u3067\u3059\u3002</p>',
+        faqGapQ: "\u30ae\u30e3\u30c3\u30d7\u30af\u30ea\u30c3\u30af\u3068\u306f\uff1f",
+        faqGapA: '<p>\u30ae\u30e3\u30c3\u30d7\u30af\u30ea\u30c3\u30af\u306f\u3001\u805e\u3053\u3048\u308b\u30af\u30ea\u30c3\u30af\u3068\u7121\u97f3\u3092\u4ea4\u4e92\u306b\u7e70\u308a\u8fd4\u3059\u3053\u3068\u3067\u3001\u4f53\u5185\u6642\u8a08\u3092\u8a13\u7df4\u3057\u307e\u3059\u3002\u7121\u97f3\u306e\u9593\u306b\u30ea\u30ba\u30e0\u3092\u4fdd\u3061\u3001\u30af\u30ea\u30c3\u30af\u304c\u623b\u3063\u305f\u3068\u304d\u306b\u78ba\u8a8d\u3057\u307e\u3057\u3087\u3046\u3002</p><p>\u5185\u8535\u30e2\u30fc\u30c9\u304b\u3089\u9078\u629e\uff1a<strong>\u521d\u5fc3\u8005</strong>\uff08\u30af\u30ea\u30c3\u30af3\u5c0f\u7bc0\u3001\u7121\u97f31\u5c0f\u7bc0\uff09\u3001<strong>\u30d7\u30ed</strong>\uff08\u30af\u30ea\u30c3\u30af1\u5c0f\u7bc0\u3001\u7121\u97f33\u5c0f\u7bc0\uff09\u3001<strong>\u30e9\u30f3\u30c0\u30e0</strong>\uff08\u30b5\u30a4\u30af\u30eb\u3054\u3068\u306b\u30e9\u30f3\u30c0\u30e0\u5206\u5272\uff09\u3002Premium\u30e6\u30fc\u30b6\u30fc\u306f<strong>\u30de\u30cb\u30e5\u30a2\u30eb</strong>\u30e2\u30fc\u30c9\u3082\u5229\u7528\u3067\u304d\u3001\u30b5\u30a6\u30f3\u30c9\u3068\u7121\u97f3\u306e\u5c0f\u7bc0\u6570\u3092\u81ea\u7531\u306b\u8a2d\u5b9a\u3067\u304d\u307e\u3059\u3002\u307e\u305f\u3001\u7121\u97f3\u5c0f\u7bc0\u306e\u982d\u62cd\u306b\u30ac\u30a4\u30c9\u30d3\u30fc\u30c8\u3092\u9cf4\u3089\u3059\u3053\u3068\u3082\u53ef\u80fd\u3067\u3059\u3002</p>',
+        faqPitchQ: "\u30d4\u30c3\u30c1\u30c1\u30a7\u30c3\u30ab\u30fc\uff08Check\uff09\u306e\u4f7f\u3044\u65b9\u306f\uff1f",
+        faqPitchA: '<p>\u30d4\u30c3\u30c1\u30c1\u30a7\u30c3\u30ab\u30fc\u306f\u3001\u8a2d\u5b9a\u3057\u305f\u6642\u9593\u97f3\u7a0b\u3092\u6b63\u78ba\u306b\u4fdd\u3064\u3068\u78ba\u8a8d\u97f3\u3092\u518d\u751f\u3057\u307e\u3059\u3002\u30ea\u30a2\u30eb\u30bf\u30a4\u30e0\u3067\u97f3\u7a0b\u3092\u76e3\u8996\u3057\u3001\u8a31\u5bb9\u7bc4\u56f2\uff08\u00b15\u301c\u00b120\u30bb\u30f3\u30c8\uff09\u5185\u3067\u5fc5\u8981\u306a\u4fdd\u6301\u6642\u9593\uff080.25\u301c3.0\u79d2\uff09\u97f3\u3092\u7dad\u6301\u3059\u308b\u3068\u30c8\u30ea\u30ac\u30fc\u3055\u308c\u307e\u3059\u3002</p><p>\u78ba\u8a8d\u97f3\u306f\u30af\u30ea\u30c3\u30af\u3001\u30d3\u30fc\u30d7\u3001\u30ea\u30d5\u30a1\u30ec\u30f3\u30b9\u30c8\u30fc\u30f3\u304b\u3089\u9078\u3079\u307e\u3059\u3002\u30d7\u30ed\u30b0\u30ec\u30b9\u30ea\u30f3\u30b0\u3067\u30c8\u30e9\u30c3\u30ad\u30f3\u30b0\u72b6\u614b\u3092\u8868\u793a\u3057\u3001\u78ba\u8a8d\u6642\u306b\u97f3\u540d\u304c\u70b9\u6ec5\u3057\u307e\u3059\u3002</p>',
+        faqTunerQ: "\u30c1\u30e5\u30fc\u30ca\u30fc\u306b\u306f\u3069\u3093\u306a\u6a5f\u80fd\u304c\u3042\u308a\u307e\u3059\u304b\uff1f",
+        faqTunerA: '<p>MetroTune\u306b\u306f\u30ea\u30a2\u30eb\u30bf\u30a4\u30e0\u97f3\u7a0b\u691c\u51fa\u4ed8\u304d\u306e\u30d5\u30eb\u30af\u30ed\u30de\u30c1\u30c3\u30af\u30c1\u30e5\u30fc\u30ca\u30fc\u304c\u542b\u307e\u308c\u3066\u3044\u307e\u3059\u3002\u691c\u51fa\u3055\u308c\u305f\u97f3\u540d\u3068\u30aa\u30af\u30bf\u30fc\u30d6\u3001\u30bb\u30f3\u30c8\u5358\u4f4d\u306e\u30c1\u30e5\u30fc\u30cb\u30f3\u30b0\u30b2\u30fc\u30b8\u3001Hz\u5358\u4f4d\u306e\u5468\u6ce2\u6570\u3092\u8868\u793a\u3057\u307e\u3059\u3002\u57fa\u6e96\u97f3\u306f\u30ab\u30b9\u30bf\u30de\u30a4\u30ba\u53ef\u80fd\u3067\u3059\uff08\u30c7\u30d5\u30a9\u30eb\u30c8 A4 = 440 Hz\uff09\u3002</p><p>\u8abf\u6574\u53ef\u80fd\u306a\u611f\u5ea6\u30e2\u30fc\u30c9\u3067\u697d\u5668\u306b\u6700\u9069\u5316\uff1a<strong>\u5b89\u5b9a</strong>\uff08\u58f0\u697d\u30fb\u7ba1\u697d\u5668\u5411\u3051\uff09\u3001<strong>\u6a19\u6e96</strong>\uff08\u30d0\u30e9\u30f3\u30b9\u578b\uff09\u3001<strong>\u9ad8\u901f</strong>\uff08\u5f26\u697d\u5668\u5411\u3051\uff09\u3002</p><p>\u30c1\u30e5\u30fc\u30ca\u30fc\u306b\u306f\u30c8\u30fc\u30f3\u3001\u30af\u30e9\u30ea\u30cd\u30c3\u30c8\u3001\u30aa\u30eb\u30ac\u30f3\u3001\u30d9\u30eb\u3001\u30d6\u30e9\u30b9\u306a\u3069\u306e\u53c2\u7167\u30c8\u30fc\u30f3\u30d7\u30ed\u30d5\u30a1\u30a4\u30eb\u304c\u3042\u308a\u307e\u3059\u3002\u97f3\u3092\u9577\u62bc\u3057\u3059\u308b\u3068\u3001\u6301\u7d9a\u7684\u306a<strong>\u30ac\u30a4\u30c9\u30c8\u30fc\u30f3</strong>\u3092\u57fa\u6e96\u97f3\u3068\u3057\u3066\u518d\u751f\u3067\u304d\u307e\u3059\u3002</p>',
+        faqVibrateQ: "\u30e1\u30c8\u30ed\u30ce\u30fc\u30e0\u3092\u7121\u97f3\u3067\u4f7f\u3048\u307e\u3059\u304b\uff1f",
+        faqVibrateA: '<p>\u306f\u3044\u3002<strong>\u30d0\u30a4\u30d6\u30ec\u30fc\u30b7\u30e7\u30f3\u30e2\u30fc\u30c9</strong>\u306f\u97f3\u58f0\u306e\u4ee3\u308f\u308a\u306b\u6bce\u62cd\u3067\u96fb\u8a71\u3092\u632f\u52d5\u3055\u305b\u307e\u3059\u2014\u2014\u62cd1\u3067\u3088\u308a\u5f37\u3044\u632f\u52d5\u304c\u9cf4\u308a\u307e\u3059\u3002\u30ea\u30cf\u30fc\u30b5\u30eb\u3001\u30e9\u30a4\u30d6\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u3001\u307e\u305f\u306f\u9759\u304b\u306a\u30af\u30ea\u30c3\u30af\u30c8\u30e9\u30c3\u30af\u304c\u5fc5\u8981\u306a\u5834\u6240\u306b\u6700\u9069\u3067\u3059\u3002<strong>\u30df\u30e5\u30fc\u30c8\u30e2\u30fc\u30c9</strong>\u306f\u3059\u3079\u3066\u306e\u97f3\u3068\u89e6\u899a\u30d5\u30a3\u30fc\u30c9\u30d0\u30c3\u30af\u3092\u30aa\u30d5\u306b\u3057\u3001\u62e1\u5927\u3055\u308c\u305f\u30d3\u30b8\u30e5\u30a2\u30eb\u30d3\u30fc\u30c8\u30a4\u30f3\u30b8\u30b1\u30fc\u30bf\u30fc\u3092\u8868\u793a\u3057\u307e\u3059\u3002</p>',
+        faqTapQ: "\u30bf\u30c3\u30d7\u3067\u30c6\u30f3\u30dd\u3092\u8a2d\u5b9a\u3059\u308b\u306b\u306f\uff1f",
+        faqTapA: '<p>BPM\u30c7\u30a3\u30b9\u30d7\u30ec\u30a4\u306e\u6a2a\u306b\u3042\u308b<strong>TAP</strong>\u30dc\u30bf\u30f3\u3092\u5e0c\u671b\u306e\u30c6\u30f3\u30dd\u3067\u7e70\u308a\u8fd4\u3057\u30bf\u30c3\u30d7\u3057\u3066\u304f\u3060\u3055\u3044\u3002MetroTune\u304c\u5e73\u5747\u30a4\u30f3\u30bf\u30fc\u30d0\u30eb\u3092\u691c\u51fa\u3057\u3001BPM\u3092\u30ea\u30a2\u30eb\u30bf\u30a4\u30e0\u3067\u8868\u793a\u3057\u307e\u3059\u3002<strong>\u5b8c\u4e86</strong>\u3092\u62bc\u3057\u3066\u691c\u51fa\u3055\u308c\u305f\u30c6\u30f3\u30dd\u3092\u9069\u7528\u3057\u307e\u3059\u3002</p>',
+        resourcesTitle: "\u305d\u306e\u4ed6\u306e\u30ea\u30bd\u30fc\u30b9",
+        privacyTitle: "\u30d7\u30e9\u30a4\u30d0\u30b7\u30fc\u30dd\u30ea\u30b7\u30fc",
+        privacyDesc: "MetroTune\u304c\u3042\u306a\u305f\u306e\u30c7\u30fc\u30bf\u3092\u3069\u306e\u3088\u3046\u306b\u6271\u3046\u304b\u3002",
+        termsTitle: "\u5229\u7528\u898f\u7d04",
+        termsDesc: "\u30a2\u30d7\u30ea\u3068\u30b5\u30fc\u30d3\u30b9\u306e\u5229\u7528\u898f\u7d04\u3002",
+        privacyHref: "/privacy/metrotune-ja.html"
+      },
+      ko: {
+        pageTitle: "MetroTune \uc9c0\uc6d0 \ubc0f \ud53c\ub4dc\ubc31",
+        tagline: "\ub354 \uc2a4\ub9c8\ud2b8\ud558\uac8c \uc5f0\uc2b5. \ub354 \uc798 \uc5f0\uc8fc.",
+        contactTitle: "\ub3c4\uc6c0\uc774 \ud544\uc694\ud558\uc2e0\uac00\uc694?",
+        contactDesc: "\ubc84\uadf8 \uc2e0\uace0, \uae30\ub2a5 \uc694\uccad \ub610\ub294 MetroTune\uc5d0 \ub300\ud55c \ubb38\uc758\ub294 \ub2e4\uc74c \uc774\uba54\uc77c\ub85c \uc5f0\ub77d\ud574 \uc8fc\uc138\uc694",
+        contactResponse: "\ubcf4\ud1b5 48\uc2dc\uac04 \uc774\ub0b4\uc5d0 \ub2f5\ubcc0\ub4dc\ub9bd\ub2c8\ub2e4.",
+        faqTitle: "\uc790\uc8fc \ubb3b\ub294 \uc9c8\ubb38",
+        faqClapQ: "\ubc15\uc218 \ucee8\ud2b8\ub864\uc740 \uc5b4\ub5bb\uac8c \uc791\ub3d9\ud558\ub098\uc694?",
+        faqClapA: '<p>\ube60\ub974\uac8c \ub450 \ubc88 \ubc15\uc218\ub97c \uccd0\uc11c \ub9e4\ud2b8\ub85c\ub188\uc744 \ud578\uc988\ud504\ub9ac\ub85c \uc2dc\uc791\ud558\uac70\ub098 \uc815\uc9c0\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4. 0.6\ucd08 \uc774\ub0b4\uc5d0 \ub450 \ubc88\uc758 \ub0a0\uce74\ub85c\uc6b4 \ubc15\uc218\ub85c \uc7ac\uc0dd\uc774 \uc804\ud658\ub429\ub2c8\ub2e4 \u2014 \uc545\uae30\ub97c \uc7a1\uace0 \uc788\uc744 \ub54c \uc644\ubcbd\ud569\ub2c8\ub2e4.</p><p>MetroTune\uc740 \uace0\uae09 \uc2e0\ud638 \ucc98\ub9ac\ub97c \uc0ac\uc6a9\ud558\uc5ec \uc2e4\uc81c \ubc15\uc218\ub97c \ub9e4\ud2b8\ub85c\ub188 \ud074\ub9ad\uc74c\uc774\ub098 \uc545\uae30 \uc5b4\ud0dd \uc74c\uacfc \uad6c\ubcc4\ud569\ub2c8\ub2e4. \uc8fc\ud30c\uc218 \ud2b9\uc131\uacfc \uc81c\ub85c \ud06c\ub85c\uc2f1\ub960\uc744 \ubd84\uc11d\ud558\uace0 \ubc30\uacbd \uc18c\uc74c \uc218\uc900\uc5d0 \uc790\ub3d9 \uc801\uc751\ud569\ub2c8\ub2e4.</p><p>Premium \uc0ac\uc6a9\uc790\ub294 \uac10\uc9c0 \uc784\uacc4\uac12, \ubc30\uacbd \ube44\uc728, \ub354\ube14 \ud074\ub7a9 \ud0c0\uc774\ubc0d \ucc3d(0.5\u20131.0\ucd08)\uc744 \uc870\uc815\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.</p>',
+        faqTempoQ: "\ud15c\ud3ec \ub9f5\uc774\ub780 \ubb34\uc5c7\uc778\uac00\uc694?",
+        faqTempoA: '<p>\ud15c\ud3ec \ub9f5\uc744 \uc0ac\uc6a9\ud558\uba74 \ud15c\ud3ec, \ubc15\uc790, \ube44\ud2b8 \ud328\ud134, \uc0ac\uc6b4\ub4dc \ubcc0\uacbd \uc2dc\ud000\uc2a4\ub97c \ub9cc\ub4e4\uc5b4 \uc790\ub3d9 \uc7ac\uc0dd\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \uac01 \ud56d\ubaa9\uc5d0\uc11c BPM, \ubc15\uc218, \ud328\ud134, \uc0ac\uc6b4\ub4dc, \ub9c8\ub514 \uc218\ub97c \uc9c0\uc815\ud569\ub2c8\ub2e4.</p><p>\uc774\ub984\uc774 \uc788\ub294 \ud504\ub85c\ud544\uc744 \uc800\uc7a5/\ubd88\ub7ec\uc624\uae30, \ub8e8\ud504 \ubaa8\ub4dc(1\ud68c \uc7ac\uc0dd, 1\u201399\ud68c \ubc18\ubcf5, \ubb34\ud55c \ub8e8\ud504) \uc124\uc815, \uce74\uc6b4\ud2b8\uc778 \ubc15 \ucd94\uac00\uac00 \uac00\ub2a5\ud569\ub2c8\ub2e4. \ud56d\ubaa9\uc744 \uae38\uac8c \ub20c\ub7ec \ud574\ub2f9 \uc9c0\uc810\ubd80\ud130 \uc7ac\uc0dd\uc744 \uc2dc\uc791\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.</p><p>\ud15c\ud3ec \ubcc0\ud654\uac00 \uc788\ub294 \uace1 \uc5f0\uc2b5, \uc810\uc9c4\uc801 \uc5f0\uc2b5, \uad6c\uc870\ud654\ub41c \uc6cc\ubc0d\uc5c5 \ub8e8\ud2f4\uc5d0 \uc774\uc0c1\uc801\uc785\ub2c8\ub2e4.</p>',
+        faqGapQ: "\uac6d \ud074\ub9ad\uc774\ub780 \ubb34\uc5c7\uc778\uac00\uc694?",
+        faqGapA: '<p>\uac6d \ud074\ub9ad\uc740 \ub4e4\ub9ac\ub294 \ud074\ub9ad\uacfc \ubb34\uc74c\uc744 \ubc88\uac08\uc544 \ubc18\ubcf5\ud558\uc5ec \ub0b4\uc7ac\uc801 \uc2dc\uacc4\ub97c \ud6c8\ub828\ud569\ub2c8\ub2e4. \ubb34\uc74c \uad6c\uac04\uc5d0\uc11c \ubc15\uc790\ub97c \uc720\uc9c0\ud558\uace0, \ud074\ub9ad\uc774 \ub3cc\uc544\uc654\uc744 \ub54c \ud655\uc778\ud558\uc138\uc694.</p><p>\ub0b4\uc7a5 \ubaa8\ub4dc \uc120\ud0dd: <strong>\ucd08\uae09</strong> (\ud074\ub9ad 3\ub9c8\ub514, \ubb34\uc74c 1\ub9c8\ub514), <strong>\ud504\ub85c</strong> (\ud074\ub9ad 1\ub9c8\ub514, \ubb34\uc74c 3\ub9c8\ub514), <strong>\ub79c\ub364</strong> (\uc0ac\uc774\ud074\ub9c8\ub2e4 \ub79c\ub364 \ubd84\ud560). Premium \uc0ac\uc6a9\uc790\ub294 <strong>\uc218\ub3d9</strong> \ubaa8\ub4dc\ub85c \uc18c\ub9ac\uc640 \ubb34\uc74c \ub9c8\ub514\ub97c \uc790\uc720\ub86d\uac8c \uc124\uc815\ud560 \uc218 \uc788\uc73c\uba70, \ubb34\uc74c \ub9c8\ub514\uc758 \uccab \ubc15\uc5d0 \uac00\uc774\ub4dc \ube44\ud2b8\ub97c \uc7ac\uc0dd\ud560 \uc218\ub3c4 \uc788\uc2b5\ub2c8\ub2e4.</p>',
+        faqPitchQ: "\ud53c\uce58 \uccb4\ucee4(Check) \uae30\ub2a5\uc740 \uc5b4\ub5bb\uac8c \uc791\ub3d9\ud558\ub098\uc694?",
+        faqPitchA: '<p>\ud53c\uce58 \uccb4\ucee4\ub294 \uc124\uc815\ub41c \uc2dc\uac04 \ub3d9\uc548 \uc74c\uc815\uc744 \uc815\ud655\ud558\uac8c \uc720\uc9c0\ud558\uba74 \ud655\uc778\uc74c\uc744 \uc7ac\uc0dd\ud569\ub2c8\ub2e4. \uc2e4\uc2dc\uac04\uc73c\ub85c \uc74c\uc815\uc744 \ubaa8\ub2c8\ud130\ub9c1\ud558\uace0, \ud5c8\uc6a9 \ubc94\uc704(\u00b15\u223c\u00b120\uc13c\ud2b8) \ub0b4\uc5d0\uc11c \ud544\uc694\ud55c \uc720\uc9c0 \uc2dc\uac04(0.25\u20133.0\ucd08) \ub3d9\uc548 \uc74c\uc744 \uc720\uc9c0\ud558\uba74 \ud2b8\ub9ac\uac70\ub429\ub2c8\ub2e4.</p><p>\ud074\ub9ad, \ube44\ud504 \ub610\ub294 \ub808\ud37c\ub7f0\uc2a4 \ud1a4\uc744 \ud655\uc778\uc74c\uc73c\ub85c \uc120\ud0dd\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \ud504\ub85c\uadf8\ub808\uc2a4 \ub9c1\uc774 \ud2b8\ub798\ud0b9 \uc0c1\ud0dc\ub97c \ud45c\uc2dc\ud558\uace0, \ud655\uc778 \uc2dc \uc74c\uc774\ub984\uc774 \uae5c\ubc15\uc785\ub2c8\ub2e4.</p>',
+        faqTunerQ: "\uc5b4\ub5a4 \ud29c\ub108 \uae30\ub2a5\uc774 \uc788\ub098\uc694?",
+        faqTunerA: '<p>MetroTune\uc5d0\ub294 \uc2e4\uc2dc\uac04 \uc74c\uc815 \uac10\uc9c0 \uae30\ub2a5\uc758 \ud480 \ud06c\ub85c\ub9e4\ud2f1 \ud29c\ub108\uac00 \ud3ec\ud568\ub418\uc5b4 \uc788\uc2b5\ub2c8\ub2e4. \uac10\uc9c0\ub41c \uc74c\uc774\ub984\uacfc \uc625\ud0c0\ube0c, \uc13c\ud2b8 \ub2e8\uc704 \ud29c\ub2dd \uac8c\uc774\uc9c0, Hz \ub2e8\uc704 \uc8fc\ud30c\uc218\ub97c \ud45c\uc2dc\ud569\ub2c8\ub2e4. \uae30\uc900\uc74c\uc740 \uc0ac\uc6a9\uc790 \uc815\uc758 \uac00\ub2a5\ud569\ub2c8\ub2e4 (\uae30\ubcf8\uac12 A4 = 440 Hz).</p><p>\uc870\uc808 \uac00\ub2a5\ud55c \uac10\ub3c4 \ubaa8\ub4dc\ub85c \uc545\uae30\uc5d0 \ucd5c\uc801\ud654: <strong>\uc548\uc815</strong> (\ubcf4\uceec \ubc0f \uad00\uc545\uae30\uc6a9), <strong>\ubc14\ub780\uc2a4</strong> (\uade0\ud615 \uc7a1\ud78c \uc0ac\uc6a9), <strong>\ube60\ub984</strong> (\ud604\uc545\uae30\uc6a9).</p><p>\ud29c\ub108\ub294 \ud1a4, \ud074\ub77c\ub9ac\ub137, \uc624\ub974\uac04, \ubca8, \uae08\uad00 \ub4f1 \ub2e4\uc591\ud55c \ub808\ud37c\ub7f0\uc2a4 \ud1a4 \ud504\ub85c\ud544\ub3c4 \uc81c\uacf5\ud569\ub2c8\ub2e4. \uc74c\uc744 \uae38\uac8c \ub20c\ub7ec \uc9c0\uc18d\uc801\uc778 <strong>\uac00\uc774\ub4dc \ud1a4</strong>\uc744 \uae30\uc900\uc74c\uc73c\ub85c \uc7ac\uc0dd\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.</p>',
+        faqVibrateQ: "\ub9e4\ud2b8\ub85c\ub188\uc744 \uc870\uc6a9\ud788 \uc0ac\uc6a9\ud560 \uc218 \uc788\ub098\uc694?",
+        faqVibrateA: '<p>\ub124. <strong>\uc9c4\ub3d9 \ubaa8\ub4dc</strong>\ub294 \uc624\ub514\uc624 \ub300\uc2e0 \ub9e4 \ubc15\ub9c8\ub2e4 \ud734\ub300\ud3f0\uc744 \uc9c4\ub3d9\uc2dc\ud0b5\ub2c8\ub2e4 \u2014 1\ubc15\uc5d0 \ub354 \uac15\ud55c \uc9c4\ub3d9\uc774 \uc6b8\ub9bd\ub2c8\ub2e4. \ub9ac\ud5c8\uc124, \ub77c\uc774\ube0c \uacf5\uc5f0, \uc870\uc6a9\ud55c \ud074\ub9ad \ud2b8\ub799\uc774 \ud544\uc694\ud55c \uacf3\uc5d0 \uc801\ud569\ud569\ub2c8\ub2e4. <strong>\uc74c\uc18c\uac70 \ubaa8\ub4dc</strong>\ub294 \ubaa8\ub4e0 \uc74c\ud5a5\uacfc \ud584\ud2f1\uc744 \ub044\uace0 \ud655\ub300\ub41c \uc2dc\uac01\uc801 \ube44\ud2b8 \uc778\ub514\ucf00\uc774\ud130\ub97c \ud45c\uc2dc\ud569\ub2c8\ub2e4.</p>',
+        faqTapQ: "\ud0ed\uc73c\ub85c \ud15c\ud3ec\ub97c \uc124\uc815\ud558\ub824\uba74?",
+        faqTapA: '<p>BPM \ub514\uc2a4\ud50c\ub808\uc774 \uc606\uc758 <strong>TAP</strong> \ubc84\ud2bc\uc744 \uc6d0\ud558\ub294 \ud15c\ud3ec\ub85c \ubc18\ubcf5\ud574\uc11c \ud0ed\ud558\uc138\uc694. MetroTune\uc774 \ud3c9\uade0 \uac04\uaca9\uc744 \uac10\uc9c0\ud558\uace0 BPM\uc744 \uc2e4\uc2dc\uac04\uc73c\ub85c \ud45c\uc2dc\ud569\ub2c8\ub2e4. <strong>\uc644\ub8cc</strong>\ub97c \ub20c\ub7ec \uac10\uc9c0\ub41c \ud15c\ud3ec\ub97c \uc801\uc6a9\ud558\uc138\uc694.</p>',
+        resourcesTitle: "\ucd94\uac00 \ub9ac\uc18c\uc2a4",
+        privacyTitle: "\uac1c\uc778\uc815\ubcf4 \ucc98\ub9ac\ubc29\uce68",
+        privacyDesc: "MetroTune\uc758 \ub370\uc774\ud130 \ucc98\ub9ac \ubc29\uce68.",
+        termsTitle: "\uc774\uc6a9 \uc57d\uad00",
+        termsDesc: "\uc571 \ubc0f \uc11c\ube44\uc2a4 \uc774\uc6a9 \uc57d\uad00.",
+        privacyHref: "/privacy/metrotune-ko.html"
+      },
+      "pt-BR": {
+        pageTitle: "MetroTune Suporte e Feedback",
+        tagline: "Pratique melhor. Toque melhor.",
+        contactTitle: "Precisa de ajuda?",
+        contactDesc: "Para relat\u00f3rios de bugs, solicita\u00e7\u00f5es de recursos ou d\u00favidas sobre o MetroTune, envie um e-mail para",
+        contactResponse: "Normalmente respondemos em at\u00e9 48 horas.",
+        faqTitle: "Perguntas Frequentes",
+        faqClapQ: "Como funciona o Controle por Palmas?",
+        faqClapA: '<p>Bata palmas duas vezes rapidamente para iniciar ou parar o metr\u00f4nomo sem usar as m\u00e3os. Duas palmas firmes em 0,6 segundos alternam a reprodu\u00e7\u00e3o \u2014 perfeito quando suas m\u00e3os est\u00e3o no instrumento.</p><p>O MetroTune usa processamento avan\u00e7ado de sinal para distinguir palmas reais de outros sons como cliques do metr\u00f4nomo ou ataques de instrumentos. Ele analisa a assinatura de frequ\u00eancia e a taxa de cruzamento por zero, e se adapta automaticamente ao n\u00edvel de ru\u00eddo ambiente.</p><p>Usu\u00e1rios Premium podem ajustar o limiar de detec\u00e7\u00e3o, a propor\u00e7\u00e3o de ru\u00eddo de fundo e a janela de tempo da dupla palma (0,5\u20131,0 segundos).</p>',
+        faqTempoQ: "O que s\u00e3o Mapas de Tempo?",
+        faqTempoA: '<p>Mapas de Tempo permitem criar uma sequ\u00eancia de mudan\u00e7as de andamento, f\u00f3rmula de comp., padr\u00e3o r\u00edtmico e som que tocam automaticamente. Cada entrada especifica BPM, contagem de tempos, padr\u00e3o, som e n\u00famero de compassos.</p><p>Voc\u00ea pode salvar e carregar perfis nomeados, definir modos de loop (tocar uma vez, repetir 1\u201399 vezes ou loop infinito) e adicionar tempos de contagem. Pressione longamente uma entrada para iniciar a reprodu\u00e7\u00e3o daquele ponto.</p><p>Ideal para praticar pe\u00e7as com mudan\u00e7as de tempo, exerc\u00edcios progressivos ou rotinas de aquecimento estruturadas.</p>',
+        faqGapQ: "O que \u00e9 Gap Click?",
+        faqGapA: '<p>Gap Click treina seu rel\u00f3gio interno alternando entre cliques aud\u00edveis e sil\u00eancio. Toque no tempo durante a pausa silenciosa e confira quando o clique retornar.</p><p>Escolha entre os modos integrados: <strong>Iniciante</strong> (3 compassos com clique, 1 silencioso), <strong>Pro</strong> (1 compasso com clique, 3 silenciosos) ou <strong>Aleat\u00f3rio</strong> (divis\u00e3o aleat\u00f3ria por ciclo). Usu\u00e1rios Premium tamb\u00e9m t\u00eam o modo <strong>Manual</strong> com compassos de som e sil\u00eancio totalmente personaliz\u00e1veis, al\u00e9m de um pulso guia no primeiro tempo de cada compasso silencioso.</p>',
+        faqPitchQ: "Como funciona o Verificador de Afina\u00e7\u00e3o (Check)?",
+        faqPitchA: '<p>O Verificador de Afina\u00e7\u00e3o toca um som de confirma\u00e7\u00e3o quando voc\u00ea mant\u00e9m uma nota afinada pelo tempo definido. Ele monitora sua afina\u00e7\u00e3o em tempo real e dispara quando voc\u00ea sustenta uma nota na faixa de toler\u00e2ncia (\u00b15 a \u00b120 cents) pelo tempo necess\u00e1rio (0,25\u20133,0 segundos).</p><p>Escolha um clique, bipe ou tom de refer\u00eancia como som de confirma\u00e7\u00e3o. Um anel de progresso mostra o status de rastreamento e a letra da nota pisca na confirma\u00e7\u00e3o.</p>',
+        faqTunerQ: "Quais recursos de afinador est\u00e3o dispon\u00edveis?",
+        faqTunerA: '<p>O MetroTune inclui um afinador crom\u00e1tico completo com detec\u00e7\u00e3o de afina\u00e7\u00e3o em tempo real. Ele exibe o nome da nota detectada e a oitava, um medidor de afina\u00e7\u00e3o em cents e a frequ\u00eancia em Hz. A afina\u00e7\u00e3o de refer\u00eancia \u00e9 configur\u00e1vel (padr\u00e3o L\u00e14 = 440 Hz).</p><p>Modos de sensibilidade ajust\u00e1veis otimizam para seu instrumento: <strong>Est\u00e1vel</strong> para voz e sopros, <strong>M\u00e9dio</strong> para uso equilibrado ou <strong>R\u00e1pido</strong> para cordas.</p><p>O afinador tamb\u00e9m oferece v\u00e1rios perfis de tom de refer\u00eancia incluindo Tom, Clarinete, \u00d3rg\u00e3o, Sino e Metal. Pressione longamente qualquer nota para tocar um <strong>Tom Guia</strong> sustentado como refer\u00eancia.</p>',
+        faqVibrateQ: "Posso usar o metr\u00f4nomo silenciosamente?",
+        faqVibrateA: '<p>Sim. O <strong>Modo Vibra\u00e7\u00e3o</strong> faz seu celular vibrar a cada pulso em vez de reproduzir \u00e1udio \u2014 uma vibra\u00e7\u00e3o mais forte marca o tempo 1. \u00d3timo para ensaios, apresenta\u00e7\u00f5es ao vivo ou onde voc\u00ea precisar de um click track silencioso. O <strong>Modo Mudo</strong> desativa todo som e h\u00e1ptica, exibindo um indicador visual de pulso ampliado.</p>',
+        faqTapQ: "Como defino o tempo batendo?",
+        faqTapA: '<p>Toque repetidamente o bot\u00e3o <strong>TAP</strong> ao lado do display de BPM no tempo desejado. O MetroTune detecta o intervalo m\u00e9dio e mostra o BPM em tempo real. Pressione <strong>Conclu\u00eddo</strong> para aplicar o tempo detectado.</p>',
+        resourcesTitle: "Recursos Adicionais",
+        privacyTitle: "Pol\u00edtica de Privacidade",
+        privacyDesc: "Como o MetroTune lida com seus dados.",
+        termsTitle: "Termos de Servi\u00e7o",
+        termsDesc: "Termos de uso para nossos apps e servi\u00e7os.",
+        privacyHref: "/privacy/metrotune-pt-br.html"
+      },
+      "pt-PT": {
+        pageTitle: "MetroTune Suporte e Feedback",
+        tagline: "Pratique melhor. Toque melhor.",
+        contactTitle: "Precisa de ajuda?",
+        contactDesc: "Para relat\u00f3rios de bugs, pedidos de funcionalidades ou quest\u00f5es sobre o MetroTune, envie um e-mail para",
+        contactResponse: "Normalmente respondemos dentro de 48 horas.",
+        faqTitle: "Perguntas Frequentes",
+        faqClapQ: "Como funciona o Controlo por Palmas?",
+        faqClapA: '<p>Bata palmas duas vezes rapidamente para iniciar ou parar o metr\u00f3nomo sem usar as m\u00e3os. Duas palmas firmes em 0,6 segundos alternam a reprodu\u00e7\u00e3o \u2014 perfeito quando as suas m\u00e3os est\u00e3o no instrumento.</p><p>O MetroTune utiliza processamento avan\u00e7ado de sinal para distinguir palmas reais de outros sons como cliques do metr\u00f3nomo ou ataques de instrumentos. Analisa a assinatura de frequ\u00eancia e a taxa de passagem por zero, adaptando-se automaticamente ao n\u00edvel de ru\u00eddo ambiente.</p><p>Os utilizadores Premium podem ajustar o limiar de dete\u00e7\u00e3o, a propor\u00e7\u00e3o de ru\u00eddo de fundo e a janela temporal da dupla palma (0,5\u20131,0 segundos).</p>',
+        faqTempoQ: "O que s\u00e3o Mapas de Tempo?",
+        faqTempoA: '<p>Os Mapas de Tempo permitem criar uma sequ\u00eancia de altera\u00e7\u00f5es de andamento, comp., padr\u00e3o r\u00edtmico e som que tocam automaticamente. Cada entrada especifica BPM, contagem de tempos, padr\u00e3o, som e n\u00famero de compassos.</p><p>Pode guardar e carregar perfis com nome, definir modos de loop (tocar uma vez, repetir 1\u201399 vezes ou loop infinito) e adicionar tempos de contagem. Prima longamente uma entrada para iniciar a reprodu\u00e7\u00e3o a partir desse ponto.</p><p>Ideal para praticar pe\u00e7as com mudan\u00e7as de tempo, exerc\u00edcios progressivos ou rotinas de aquecimento estruturadas.</p>',
+        faqGapQ: "O que \u00e9 o Gap Click?",
+        faqGapA: '<p>O Gap Click treina o seu rel\u00f3gio interno alternando entre cliques aud\u00edveis e sil\u00eancio. Toque a tempo durante a pausa silenciosa e verifique-se quando o clique regressar.</p><p>Escolha entre os modos integrados: <strong>Iniciante</strong> (3 compassos com clique, 1 silencioso), <strong>Pro</strong> (1 compasso com clique, 3 silenciosos) ou <strong>Aleat\u00f3rio</strong> (divis\u00e3o aleat\u00f3ria por ciclo). Os utilizadores Premium tamb\u00e9m obt\u00eam o modo <strong>Manual</strong> com compassos de som e sil\u00eancio totalmente personaliz\u00e1veis, mais um pulso guia no primeiro tempo de cada compasso silencioso.</p>',
+        faqPitchQ: "Como funciona o Verificador de Afina\u00e7\u00e3o (Check)?",
+        faqPitchA: '<p>O Verificador de Afina\u00e7\u00e3o toca um som de confirma\u00e7\u00e3o quando mant\u00e9m uma nota afinada pelo tempo definido. Monitoriza a sua afina\u00e7\u00e3o em tempo real e dispara quando sustenta uma nota na faixa de toler\u00e2ncia (\u00b15 a \u00b120 cents) pelo tempo necess\u00e1rio (0,25\u20133,0 segundos).</p><p>Escolha um clique, apito ou tom de refer\u00eancia como som de confirma\u00e7\u00e3o. Um anel de progresso mostra o estado de rastreamento e a letra da nota pisca na confirma\u00e7\u00e3o.</p>',
+        faqTunerQ: "Que funcionalidades de afinador est\u00e3o dispon\u00edveis?",
+        faqTunerA: '<p>O MetroTune inclui um afinador crom\u00e1tico completo com dete\u00e7\u00e3o de afina\u00e7\u00e3o em tempo real. Apresenta o nome da nota detetada e a oitava, um medidor de afina\u00e7\u00e3o em cents e a frequ\u00eancia em Hz. A afina\u00e7\u00e3o de refer\u00eancia \u00e9 configur\u00e1vel (padr\u00e3o L\u00e14 = 440 Hz).</p><p>Modos de sensibilidade ajust\u00e1veis otimizam para o seu instrumento: <strong>Est\u00e1vel</strong> para voz e sopros, <strong>M\u00e9dio</strong> para utiliza\u00e7\u00e3o equilibrada ou <strong>R\u00e1pido</strong> para cordas.</p><p>O afinador tamb\u00e9m oferece v\u00e1rios perfis de tom de refer\u00eancia incluindo Tom, Clarinete, \u00d3rg\u00e3o, Sino e Metal. Prima longamente qualquer nota para tocar um <strong>Tom Guia</strong> sustentado como refer\u00eancia.</p>',
+        faqVibrateQ: "Posso usar o metr\u00f3nomo silenciosamente?",
+        faqVibrateA: '<p>Sim. O <strong>Modo Vibra\u00e7\u00e3o</strong> faz o seu telem\u00f3vel vibrar a cada pulso em vez de reproduzir \u00e1udio \u2014 uma vibra\u00e7\u00e3o mais forte marca o tempo 1. \u00d3timo para ensaios, atua\u00e7\u00f5es ao vivo ou onde precisar de um click track silencioso. O <strong>Modo Silencioso</strong> desativa todo o som e h\u00e1ptica, apresentando um indicador visual de pulso ampliado.</p>',
+        faqTapQ: "Como defino o tempo batendo?",
+        faqTapA: '<p>Toque repetidamente no bot\u00e3o <strong>TAP</strong> ao lado do visor de BPM no tempo desejado. O MetroTune deteta o intervalo m\u00e9dio e mostra o BPM em tempo real. Prima <strong>Conclu\u00eddo</strong> para aplicar o tempo detetado.</p>',
+        resourcesTitle: "Recursos Adicionais",
+        privacyTitle: "Pol\u00edtica de Privacidade",
+        privacyDesc: "Como o MetroTune trata os seus dados.",
+        termsTitle: "Termos de Servi\u00e7o",
+        termsDesc: "Termos de utiliza\u00e7\u00e3o para as nossas apps e servi\u00e7os.",
+        privacyHref: "/privacy/metrotune-pt.html"
+      },
+      th: {
+        pageTitle: "MetroTune \u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19\u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e04\u0e34\u0e14\u0e40\u0e2b\u0e47\u0e19",
+        tagline: "\u0e1d\u0e36\u0e01\u0e0b\u0e49\u0e2d\u0e21\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e09\u0e25\u0e32\u0e14 \u0e40\u0e25\u0e48\u0e19\u0e44\u0e14\u0e49\u0e14\u0e35\u0e02\u0e36\u0e49\u0e19",
+        contactTitle: "\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d?",
+        contactDesc: "\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e23\u0e32\u0e22\u0e07\u0e32\u0e19\u0e02\u0e49\u0e2d\u0e1c\u0e34\u0e14\u0e1e\u0e25\u0e32\u0e14 \u0e04\u0e33\u0e02\u0e2d\u0e1f\u0e35\u0e40\u0e08\u0e2d\u0e23\u0e4c \u0e2b\u0e23\u0e37\u0e2d\u0e04\u0e33\u0e16\u0e32\u0e21\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e01\u0e31\u0e1a MetroTune \u0e2a\u0e48\u0e07\u0e2d\u0e35\u0e40\u0e21\u0e25\u0e16\u0e36\u0e07",
+        contactResponse: "\u0e40\u0e23\u0e32\u0e21\u0e31\u0e01\u0e15\u0e2d\u0e1a\u0e01\u0e25\u0e31\u0e1a\u0e20\u0e32\u0e22\u0e43\u0e19 48 \u0e0a\u0e31\u0e48\u0e27\u0e42\u0e21\u0e07",
+        faqTitle: "\u0e04\u0e33\u0e16\u0e32\u0e21\u0e17\u0e35\u0e48\u0e1e\u0e1a\u0e1a\u0e48\u0e2d\u0e22",
+        faqClapQ: "Clap Control \u0e17\u0e33\u0e07\u0e32\u0e19\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e44\u0e23?",
+        faqClapA: '<p>\u0e15\u0e1a\u0e21\u0e37\u0e2d\u0e40\u0e23\u0e47\u0e27\u0e46 2 \u0e04\u0e23\u0e31\u0e49\u0e07\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e40\u0e23\u0e34\u0e48\u0e21\u0e2b\u0e23\u0e37\u0e2d\u0e2b\u0e22\u0e38\u0e14\u0e40\u0e21\u0e42\u0e17\u0e23\u0e42\u0e19\u0e21\u0e41\u0e1a\u0e1a\u0e41\u0e2e\u0e19\u0e14\u0e4c\u0e1f\u0e23\u0e35 \u0e01\u0e32\u0e23\u0e15\u0e1a\u0e21\u0e37\u0e2d 2 \u0e04\u0e23\u0e31\u0e49\u0e07\u0e20\u0e32\u0e22\u0e43\u0e19 0.6 \u0e27\u0e34\u0e19\u0e32\u0e17\u0e35\u0e08\u0e30\u0e2a\u0e25\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e40\u0e25\u0e48\u0e19 \u2014 \u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e40\u0e27\u0e25\u0e32\u0e17\u0e35\u0e48\u0e21\u0e37\u0e2d\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13\u0e2d\u0e22\u0e39\u0e48\u0e01\u0e31\u0e1a\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e14\u0e19\u0e15\u0e23\u0e35</p><p>MetroTune \u0e43\u0e0a\u0e49\u0e01\u0e32\u0e23\u0e1b\u0e23\u0e30\u0e21\u0e27\u0e25\u0e1c\u0e25\u0e2a\u0e31\u0e0d\u0e0d\u0e32\u0e13\u0e02\u0e31\u0e49\u0e19\u0e2a\u0e39\u0e07\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e41\u0e22\u0e01\u0e41\u0e22\u0e30\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e15\u0e1a\u0e21\u0e37\u0e2d\u0e08\u0e23\u0e34\u0e07\u0e08\u0e32\u0e01\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e2d\u0e37\u0e48\u0e19\u0e46 \u0e40\u0e0a\u0e48\u0e19 \u0e40\u0e2a\u0e35\u0e22\u0e07\u0e04\u0e25\u0e34\u0e01\u0e40\u0e21\u0e42\u0e17\u0e23\u0e42\u0e19\u0e21\u0e2b\u0e23\u0e37\u0e2d\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e14\u0e19\u0e15\u0e23\u0e35 \u0e42\u0e14\u0e22\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c\u0e25\u0e31\u0e01\u0e29\u0e13\u0e30\u0e04\u0e27\u0e32\u0e21\u0e16\u0e35\u0e48\u0e41\u0e25\u0e30\u0e2d\u0e31\u0e15\u0e23\u0e32\u0e01\u0e32\u0e23\u0e02\u0e49\u0e32\u0e21\u0e28\u0e39\u0e19\u0e22\u0e4c \u0e41\u0e25\u0e30\u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e15\u0e32\u0e21\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e23\u0e1a\u0e01\u0e27\u0e19\u0e42\u0e14\u0e22\u0e2d\u0e31\u0e15\u0e42\u0e19\u0e21\u0e31\u0e15\u0e34</p><p>\u0e1c\u0e39\u0e49\u0e43\u0e0a\u0e49 Premium \u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e1b\u0e23\u0e31\u0e1a\u0e40\u0e01\u0e13\u0e11\u0e4c\u0e01\u0e32\u0e23\u0e15\u0e23\u0e27\u0e08\u0e08\u0e31\u0e1a \u0e2d\u0e31\u0e15\u0e23\u0e32\u0e2a\u0e48\u0e27\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e2b\u0e25\u0e31\u0e07 \u0e41\u0e25\u0e30\u0e0a\u0e48\u0e27\u0e07\u0e40\u0e27\u0e25\u0e32\u0e01\u0e32\u0e23\u0e15\u0e1a\u0e04\u0e39\u0e48 (0.5\u20131.0 \u0e27\u0e34\u0e19\u0e32\u0e17\u0e35) \u0e44\u0e14\u0e49</p>',
+        faqTempoQ: "Tempo Map \u0e04\u0e37\u0e2d\u0e2d\u0e30\u0e44\u0e23?",
+        faqTempoA: '<p>Tempo Map \u0e0a\u0e48\u0e27\u0e22\u0e43\u0e2b\u0e49\u0e04\u0e38\u0e13\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e25\u0e33\u0e14\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e41\u0e1b\u0e25\u0e07\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30 \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e2b\u0e21\u0e32\u0e22\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30 \u0e23\u0e39\u0e1b\u0e41\u0e1a\u0e1a\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30 \u0e41\u0e25\u0e30\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e17\u0e35\u0e48\u0e40\u0e25\u0e48\u0e19\u0e2d\u0e31\u0e15\u0e42\u0e19\u0e21\u0e31\u0e15\u0e34 \u0e41\u0e15\u0e48\u0e25\u0e30\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e23\u0e30\u0e1a\u0e38 BPM \u0e08\u0e33\u0e19\u0e27\u0e19\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30 \u0e23\u0e39\u0e1b\u0e41\u0e1a\u0e1a \u0e40\u0e2a\u0e35\u0e22\u0e07 \u0e41\u0e25\u0e30\u0e08\u0e33\u0e19\u0e27\u0e19\u0e2b\u0e49\u0e2d\u0e07</p><p>\u0e04\u0e38\u0e13\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e41\u0e25\u0e30\u0e42\u0e2b\u0e25\u0e14\u0e42\u0e1b\u0e23\u0e44\u0e1f\u0e25\u0e4c\u0e17\u0e35\u0e48\u0e15\u0e31\u0e49\u0e07\u0e0a\u0e37\u0e48\u0e2d \u0e15\u0e31\u0e49\u0e07\u0e42\u0e2b\u0e21\u0e14\u0e25\u0e39\u0e1b (\u0e40\u0e25\u0e48\u0e19\u0e04\u0e23\u0e31\u0e49\u0e07\u0e40\u0e14\u0e35\u0e22\u0e27, \u0e27\u0e19\u0e0b\u0e49\u0e33 1\u201399 \u0e04\u0e23\u0e31\u0e49\u0e07, \u0e2b\u0e23\u0e37\u0e2d\u0e25\u0e39\u0e1b\u0e44\u0e21\u0e48\u0e2a\u0e34\u0e49\u0e19\u0e2a\u0e38\u0e14) \u0e41\u0e25\u0e30\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30\u0e19\u0e31\u0e1a\u0e40\u0e02\u0e49\u0e32 \u0e01\u0e14\u0e04\u0e49\u0e32\u0e07\u0e17\u0e35\u0e48\u0e23\u0e32\u0e22\u0e01\u0e32\u0e23\u0e43\u0e14\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e40\u0e23\u0e34\u0e48\u0e21\u0e40\u0e25\u0e48\u0e19\u0e08\u0e32\u0e01\u0e08\u0e38\u0e14\u0e19\u0e31\u0e49\u0e19</p><p>\u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e1d\u0e36\u0e01\u0e0b\u0e49\u0e2d\u0e21\u0e40\u0e1e\u0e25\u0e07\u0e17\u0e35\u0e48\u0e21\u0e35\u0e01\u0e32\u0e23\u0e40\u0e1b\u0e25\u0e35\u0e48\u0e22\u0e19\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30 \u0e2a\u0e23\u0e49\u0e32\u0e07\u0e41\u0e1a\u0e1a\u0e1d\u0e36\u0e01\u0e2b\u0e31\u0e14\u0e41\u0e1a\u0e1a\u0e02\u0e31\u0e49\u0e19\u0e1a\u0e31\u0e19\u0e44\u0e14 \u0e2b\u0e23\u0e37\u0e2d\u0e01\u0e34\u0e08\u0e27\u0e31\u0e15\u0e23\u0e27\u0e2d\u0e23\u0e4c\u0e21\u0e2d\u0e31\u0e1b\u0e41\u0e1a\u0e1a\u0e21\u0e35\u0e42\u0e04\u0e23\u0e07\u0e2a\u0e23\u0e49\u0e32\u0e07</p>',
+        faqGapQ: "Gap Click \u0e04\u0e37\u0e2d\u0e2d\u0e30\u0e44\u0e23?",
+        faqGapA: '<p>Gap Click \u0e1d\u0e36\u0e01\u0e19\u0e32\u0e2c\u0e34\u0e01\u0e32\u0e20\u0e32\u0e22\u0e43\u0e19\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13\u0e42\u0e14\u0e22\u0e2a\u0e25\u0e31\u0e1a\u0e23\u0e30\u0e2b\u0e27\u0e48\u0e32\u0e07\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e04\u0e25\u0e34\u0e01\u0e17\u0e35\u0e48\u0e44\u0e14\u0e49\u0e22\u0e34\u0e19\u0e41\u0e25\u0e30\u0e0a\u0e48\u0e27\u0e07\u0e40\u0e07\u0e35\u0e22\u0e1a \u0e40\u0e25\u0e48\u0e19\u0e43\u0e2b\u0e49\u0e15\u0e23\u0e07\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30\u0e43\u0e19\u0e0a\u0e48\u0e27\u0e07\u0e40\u0e07\u0e35\u0e22\u0e1a \u0e41\u0e25\u0e49\u0e27\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e15\u0e31\u0e27\u0e40\u0e2d\u0e07\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e04\u0e25\u0e34\u0e01\u0e01\u0e25\u0e31\u0e1a\u0e21\u0e32</p><p>\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e42\u0e2b\u0e21\u0e14\u0e43\u0e19\u0e15\u0e31\u0e27: <strong>\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19</strong> (\u0e04\u0e25\u0e34\u0e01 3 \u0e2b\u0e49\u0e2d\u0e07, \u0e40\u0e07\u0e35\u0e22\u0e1a 1 \u0e2b\u0e49\u0e2d\u0e07), <strong>Pro</strong> (\u0e04\u0e25\u0e34\u0e01 1 \u0e2b\u0e49\u0e2d\u0e07, \u0e40\u0e07\u0e35\u0e22\u0e1a 3 \u0e2b\u0e49\u0e2d\u0e07), <strong>\u0e2a\u0e38\u0e48\u0e21</strong> (\u0e41\u0e1a\u0e48\u0e07\u0e2a\u0e38\u0e48\u0e21\u0e41\u0e15\u0e48\u0e25\u0e30\u0e23\u0e2d\u0e1a) \u0e1c\u0e39\u0e49\u0e43\u0e0a\u0e49 Premium \u0e22\u0e31\u0e07\u0e44\u0e14\u0e49\u0e42\u0e2b\u0e21\u0e14 <strong>\u0e01\u0e33\u0e2b\u0e19\u0e14\u0e40\u0e2d\u0e07</strong> \u0e17\u0e35\u0e48\u0e1b\u0e23\u0e31\u0e1a\u0e08\u0e33\u0e19\u0e27\u0e19\u0e2b\u0e49\u0e2d\u0e07\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e41\u0e25\u0e30\u0e40\u0e07\u0e35\u0e22\u0e1a\u0e44\u0e14\u0e49\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e2d\u0e34\u0e2a\u0e23\u0e30 \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30\u0e19\u0e33\u0e17\u0e32\u0e07\u0e17\u0e35\u0e48\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30\u0e41\u0e23\u0e01\u0e02\u0e2d\u0e07\u0e41\u0e15\u0e48\u0e25\u0e30\u0e2b\u0e49\u0e2d\u0e07\u0e40\u0e07\u0e35\u0e22\u0e1a</p>',
+        faqPitchQ: "Pitch Checker (Check) \u0e17\u0e33\u0e07\u0e32\u0e19\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e44\u0e23?",
+        faqPitchA: '<p>Pitch Checker \u0e40\u0e25\u0e48\u0e19\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e04\u0e38\u0e13\u0e23\u0e31\u0e01\u0e29\u0e32\u0e42\u0e19\u0e49\u0e15\u0e43\u0e2b\u0e49\u0e15\u0e23\u0e07\u0e04\u0e35\u0e22\u0e4c\u0e44\u0e14\u0e49\u0e15\u0e32\u0e21\u0e23\u0e30\u0e22\u0e30\u0e40\u0e27\u0e25\u0e32\u0e17\u0e35\u0e48\u0e01\u0e33\u0e2b\u0e19\u0e14 \u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e41\u0e1a\u0e1a\u0e40\u0e23\u0e35\u0e22\u0e25\u0e44\u0e17\u0e21\u0e4c\u0e41\u0e25\u0e30\u0e17\u0e33\u0e07\u0e32\u0e19\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e04\u0e38\u0e13\u0e23\u0e31\u0e01\u0e29\u0e32\u0e42\u0e19\u0e49\u0e15\u0e20\u0e32\u0e22\u0e43\u0e19\u0e0a\u0e48\u0e27\u0e07\u0e04\u0e27\u0e32\u0e21\u0e04\u0e25\u0e32\u0e14\u0e40\u0e04\u0e25\u0e37\u0e48\u0e2d\u0e19 (\u00b15 \u0e16\u0e36\u0e07 \u00b120 \u0e40\u0e0b\u0e47\u0e19\u0e15\u0e4c) \u0e15\u0e32\u0e21\u0e40\u0e27\u0e25\u0e32\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23 (0.25\u20133.0 \u0e27\u0e34\u0e19\u0e32\u0e17\u0e35)</p><p>\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e04\u0e25\u0e34\u0e01 \u0e40\u0e2a\u0e35\u0e22\u0e07\u0e1a\u0e35\u0e4a\u0e1b \u0e2b\u0e23\u0e37\u0e2d\u0e42\u0e17\u0e19\u0e2d\u0e49\u0e32\u0e07\u0e2d\u0e34\u0e07\u0e40\u0e1b\u0e47\u0e19\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19 \u0e27\u0e07\u0e41\u0e2b\u0e27\u0e19\u0e04\u0e27\u0e32\u0e21\u0e04\u0e37\u0e1a\u0e2b\u0e19\u0e49\u0e32\u0e41\u0e2a\u0e14\u0e07\u0e2a\u0e16\u0e32\u0e19\u0e30\u0e01\u0e32\u0e23\u0e15\u0e34\u0e14\u0e15\u0e32\u0e21 \u0e41\u0e25\u0e30\u0e15\u0e31\u0e27\u0e2d\u0e31\u0e01\u0e29\u0e23\u0e42\u0e19\u0e49\u0e15\u0e08\u0e30\u0e01\u0e30\u0e1e\u0e23\u0e34\u0e1a\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e22\u0e37\u0e19\u0e22\u0e31\u0e19</p>',
+        faqTunerQ: "\u0e21\u0e35\u0e1f\u0e35\u0e40\u0e08\u0e2d\u0e23\u0e4c\u0e08\u0e39\u0e19\u0e40\u0e19\u0e2d\u0e23\u0e4c\u0e2d\u0e30\u0e44\u0e23\u0e1a\u0e49\u0e32\u0e07?",
+        faqTunerA: '<p>MetroTune \u0e21\u0e35\u0e08\u0e39\u0e19\u0e40\u0e19\u0e2d\u0e23\u0e4c\u0e42\u0e04\u0e23\u0e21\u0e32\u0e15\u0e34\u0e01\u0e41\u0e1a\u0e1a\u0e40\u0e15\u0e47\u0e21\u0e23\u0e39\u0e1b\u0e41\u0e1a\u0e1a\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e01\u0e32\u0e23\u0e15\u0e23\u0e27\u0e08\u0e08\u0e31\u0e1a\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e41\u0e1a\u0e1a\u0e40\u0e23\u0e35\u0e22\u0e25\u0e44\u0e17\u0e21\u0e4c \u0e41\u0e2a\u0e14\u0e07\u0e0a\u0e37\u0e48\u0e2d\u0e42\u0e19\u0e49\u0e15\u0e41\u0e25\u0e30\u0e2d\u0e47\u0e2d\u0e01\u0e40\u0e17\u0e1f \u0e40\u0e01\u0e08\u0e27\u0e31\u0e14\u0e01\u0e32\u0e23\u0e08\u0e39\u0e19\u0e40\u0e1b\u0e47\u0e19\u0e40\u0e0b\u0e47\u0e19\u0e15\u0e4c \u0e41\u0e25\u0e30\u0e04\u0e27\u0e32\u0e21\u0e16\u0e35\u0e48\u0e40\u0e1b\u0e47\u0e19 Hz \u0e23\u0e30\u0e14\u0e31\u0e1a\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e2d\u0e49\u0e32\u0e07\u0e2d\u0e34\u0e07\u0e1b\u0e23\u0e31\u0e1a\u0e44\u0e14\u0e49 (\u0e04\u0e48\u0e32\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19 A4 = 440 Hz)</p><p>\u0e42\u0e2b\u0e21\u0e14\u0e04\u0e27\u0e32\u0e21\u0e44\u0e27\u0e17\u0e35\u0e48\u0e1b\u0e23\u0e31\u0e1a\u0e44\u0e14\u0e49\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e14\u0e19\u0e15\u0e23\u0e35\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13: <strong>\u0e21\u0e31\u0e48\u0e19\u0e04\u0e07</strong> (\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e23\u0e49\u0e2d\u0e07\u0e41\u0e25\u0e30\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e40\u0e1b\u0e48\u0e32), <strong>\u0e1b\u0e32\u0e19\u0e01\u0e25\u0e32\u0e07</strong> (\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19\u0e2a\u0e21\u0e14\u0e38\u0e25), <strong>\u0e40\u0e23\u0e47\u0e27</strong> (\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e2a\u0e32\u0e22)</p><p>\u0e08\u0e39\u0e19\u0e40\u0e19\u0e2d\u0e23\u0e4c\u0e22\u0e31\u0e07\u0e21\u0e35\u0e42\u0e1b\u0e23\u0e44\u0e1f\u0e25\u0e4c\u0e42\u0e17\u0e19\u0e2d\u0e49\u0e32\u0e07\u0e2d\u0e34\u0e07\u0e2b\u0e25\u0e32\u0e22\u0e41\u0e1a\u0e1a \u0e40\u0e0a\u0e48\u0e19 Tone, Clarinet, Organ, Bell \u0e41\u0e25\u0e30 Brass \u0e01\u0e14\u0e04\u0e49\u0e32\u0e07\u0e42\u0e19\u0e49\u0e15\u0e43\u0e14\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e40\u0e25\u0e48\u0e19 <strong>\u0e42\u0e17\u0e19\u0e19\u0e33\u0e17\u0e32\u0e07</strong> \u0e41\u0e1a\u0e1a\u0e15\u0e48\u0e2d\u0e40\u0e19\u0e37\u0e48\u0e2d\u0e07\u0e40\u0e1b\u0e47\u0e19\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e2d\u0e49\u0e32\u0e07\u0e2d\u0e34\u0e07</p>',
+        faqVibrateQ: "\u0e43\u0e0a\u0e49\u0e40\u0e21\u0e42\u0e17\u0e23\u0e42\u0e19\u0e21\u0e41\u0e1a\u0e1a\u0e40\u0e07\u0e35\u0e22\u0e1a\u0e44\u0e14\u0e49\u0e44\u0e2b\u0e21?",
+        faqVibrateA: '<p>\u0e44\u0e14\u0e49 <strong>\u0e42\u0e2b\u0e21\u0e14\u0e2a\u0e31\u0e48\u0e19</strong> \u0e08\u0e30\u0e2a\u0e31\u0e48\u0e19\u0e42\u0e17\u0e23\u0e28\u0e31\u0e1e\u0e17\u0e4c\u0e17\u0e38\u0e01\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30\u0e41\u0e17\u0e19\u0e01\u0e32\u0e23\u0e40\u0e25\u0e48\u0e19\u0e40\u0e2a\u0e35\u0e22\u0e07 \u2014 \u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30\u0e17\u0e35\u0e48 1 \u0e08\u0e30\u0e2a\u0e31\u0e48\u0e19\u0e41\u0e23\u0e07\u0e02\u0e36\u0e49\u0e19 \u0e40\u0e2b\u0e21\u0e32\u0e30\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e0b\u0e49\u0e2d\u0e21 \u0e41\u0e2a\u0e14\u0e07\u0e2a\u0e14 \u0e2b\u0e23\u0e37\u0e2d\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e04\u0e25\u0e34\u0e01\u0e41\u0e17\u0e23\u0e47\u0e01\u0e41\u0e1a\u0e1a\u0e40\u0e07\u0e35\u0e22\u0e1a <strong>\u0e42\u0e2b\u0e21\u0e14\u0e1b\u0e34\u0e14\u0e40\u0e2a\u0e35\u0e22\u0e07</strong> \u0e08\u0e30\u0e1b\u0e34\u0e14\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e2a\u0e31\u0e48\u0e19\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14 \u0e41\u0e2a\u0e14\u0e07\u0e15\u0e31\u0e27\u0e1a\u0e2d\u0e01\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30\u0e41\u0e1a\u0e1a\u0e02\u0e22\u0e32\u0e22\u0e43\u0e2b\u0e0d\u0e48\u0e41\u0e17\u0e19</p>',
+        faqTapQ: "\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30\u0e14\u0e49\u0e27\u0e22\u0e01\u0e32\u0e23\u0e41\u0e15\u0e30\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e44\u0e23?",
+        faqTapA: '<p>\u0e41\u0e15\u0e30\u0e1b\u0e38\u0e48\u0e21 <strong>TAP</strong> \u0e02\u0e49\u0e32\u0e07\u0e2b\u0e19\u0e49\u0e32\u0e08\u0e2d BPM \u0e0b\u0e49\u0e33\u0e46 \u0e15\u0e32\u0e21\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30\u0e17\u0e35\u0e48\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23 MetroTune \u0e08\u0e30\u0e15\u0e23\u0e27\u0e08\u0e08\u0e31\u0e1a\u0e0a\u0e48\u0e27\u0e07\u0e40\u0e27\u0e25\u0e32\u0e40\u0e09\u0e25\u0e35\u0e48\u0e22\u0e41\u0e25\u0e30\u0e41\u0e2a\u0e14\u0e07 BPM \u0e41\u0e1a\u0e1a\u0e40\u0e23\u0e35\u0e22\u0e25\u0e44\u0e17\u0e21\u0e4c \u0e01\u0e14 <strong>\u0e40\u0e2a\u0e23\u0e47\u0e08</strong> \u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e43\u0e0a\u0e49\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30\u0e17\u0e35\u0e48\u0e15\u0e23\u0e27\u0e08\u0e08\u0e31\u0e1a\u0e44\u0e14\u0e49</p>',
+        resourcesTitle: "\u0e41\u0e2b\u0e25\u0e48\u0e07\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e40\u0e15\u0e34\u0e21",
+        privacyTitle: "\u0e19\u0e42\u0e22\u0e1a\u0e32\u0e22\u0e04\u0e27\u0e32\u0e21\u0e40\u0e1b\u0e47\u0e19\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27",
+        privacyDesc: "MetroTune \u0e08\u0e31\u0e14\u0e01\u0e32\u0e23\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e44\u0e23",
+        termsTitle: "\u0e40\u0e07\u0e37\u0e48\u0e2d\u0e19\u0e44\u0e02\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23",
+        termsDesc: "\u0e40\u0e07\u0e37\u0e48\u0e2d\u0e19\u0e44\u0e02\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e41\u0e2d\u0e1b\u0e41\u0e25\u0e30\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23\u0e02\u0e2d\u0e07\u0e40\u0e23\u0e32",
+        privacyHref: "/privacy/metrotune-th.html"
+      },
+      vi: {
+        pageTitle: "MetroTune H\u1ed7 tr\u1ee3 & Ph\u1ea3n h\u1ed3i",
+        tagline: "Luy\u1ec7n t\u1eadp th\u00f4ng minh h\u01a1n. Ch\u01a1i hay h\u01a1n.",
+        contactTitle: "C\u1ea7n tr\u1ee3 gi\u00fap?",
+        contactDesc: "\u0110\u1ec3 b\u00e1o l\u1ed7i, y\u00eau c\u1ea7u t\u00ednh n\u0103ng ho\u1eb7c b\u1ea5t k\u1ef3 c\u00e2u h\u1ecfi n\u00e0o v\u1ec1 MetroTune, g\u1eedi email cho ch\u00fang t\u00f4i t\u1ea1i",
+        contactResponse: "Ch\u00fang t\u00f4i th\u01b0\u1eddng ph\u1ea3n h\u1ed3i trong v\u00f2ng 48 gi\u1edd.",
+        faqTitle: "C\u00e2u H\u1ecfi Th\u01b0\u1eddng G\u1eb7p",
+        faqClapQ: "Clap Control ho\u1ea1t \u0111\u1ed9ng nh\u01b0 th\u1ebf n\u00e0o?",
+        faqClapA: '<p>V\u1ed7 tay nhanh hai l\u1ea7n \u0111\u1ec3 b\u1eaft \u0111\u1ea7u ho\u1eb7c d\u1eebng m\u00e1y nh\u1ecbp r\u00e3nh tay. Hai ti\u1ebfng v\u1ed7 tay s\u1eafc trong v\u00f2ng 0,6 gi\u00e2y s\u1ebd chuy\u1ec3n \u0111\u1ed5i ph\u00e1t l\u1ea1i \u2014 ho\u00e0n h\u1ea3o khi tay b\u1ea1n \u0111ang c\u1ea7m nh\u1ea1c c\u1ee5.</p><p>MetroTune s\u1eed d\u1ee5ng x\u1eed l\u00fd t\u00edn hi\u1ec7u ti\u00ean ti\u1ebfn \u0111\u1ec3 ph\u00e2n bi\u1ec7t ti\u1ebfng v\u1ed7 tay th\u1eadt v\u1edbi c\u00e1c \u00e2m thanh kh\u00e1c nh\u01b0 ti\u1ebfng click m\u00e1y nh\u1ecbp ho\u1eb7c ti\u1ebfng t\u1ea5n c\u00f4ng nh\u1ea1c c\u1ee5. \u1ee8ng d\u1ee5ng ph\u00e2n t\u00edch \u0111\u1eb7c tr\u01b0ng t\u1ea7n s\u1ed1 v\u00e0 t\u1ef7 l\u1ec7 zero-crossing, v\u00e0 t\u1ef1 \u0111\u1ed9ng th\u00edch \u1ee9ng v\u1edbi m\u1ee9c \u0111\u1ed9 \u1ed3n n\u1ec1n.</p><p>Ng\u01b0\u1eddi d\u00f9ng Premium c\u00f3 th\u1ec3 tinh ch\u1ec9nh ng\u01b0\u1ee1ng ph\u00e1t hi\u1ec7n, t\u1ef7 l\u1ec7 n\u1ec1n v\u00e0 c\u1eeda s\u1ed5 th\u1eddi gian v\u1ed7 tay k\u00e9p (0,5\u20131,0 gi\u00e2y).</p>',
+        faqTempoQ: "Tempo Map l\u00e0 g\u00ec?",
+        faqTempoA: '<p>Tempo Map cho ph\u00e9p b\u1ea1n t\u1ea1o m\u1ed9t chu\u1ed7i thay \u0111\u1ed5i nh\u1ecbp \u0111\u1ed9, nh\u1ecbp ph\u00e1ch, m\u1eabu nh\u1ecbp v\u00e0 \u00e2m thanh \u0111\u01b0\u1ee3c ph\u00e1t t\u1ef1 \u0111\u1ed9ng. M\u1ed7i m\u1ee5c ch\u1ec9 \u0111\u1ecbnh BPM, s\u1ed1 nh\u1ecbp, m\u1eabu, \u00e2m thanh v\u00e0 s\u1ed1 \u00f4 nh\u1ecbp.</p><p>B\u1ea1n c\u00f3 th\u1ec3 l\u01b0u v\u00e0 t\u1ea3i h\u1ed3 s\u01a1 \u0111\u01b0\u1ee3c \u0111\u1eb7t t\u00ean, thi\u1ebft l\u1eadp ch\u1ebf \u0111\u1ed9 l\u1eb7p (ph\u00e1t m\u1ed9t l\u1ea7n, l\u1eb7p 1\u201399 l\u1ea7n, ho\u1eb7c l\u1eb7p v\u00f4 h\u1ea1n) v\u00e0 th\u00eam nh\u1ecbp \u0111\u1ebfm v\u00e0o. Nh\u1ea5n gi\u1eef b\u1ea5t k\u1ef3 m\u1ee5c n\u00e0o \u0111\u1ec3 b\u1eaft \u0111\u1ea7u ph\u00e1t t\u1eeb \u0111i\u1ec3m \u0111\u00f3.</p><p>L\u00fd t\u01b0\u1edfng cho vi\u1ec7c luy\u1ec7n t\u1eadp c\u00e1c b\u1ea3n nh\u1ea1c c\u00f3 thay \u0111\u1ed5i nh\u1ecbp \u0111\u1ed9, b\u00e0i t\u1eadp n\u00e2ng d\u1ea7n ho\u1eb7c chu tr\u00ecnh kh\u1edfi \u0111\u1ed9ng c\u00f3 c\u1ea5u tr\u00fac.</p>',
+        faqGapQ: "Gap Click l\u00e0 g\u00ec?",
+        faqGapA: '<p>Gap Click luy\u1ec7n \u0111\u1ed3ng h\u1ed3 n\u1ed9i t\u1ea1i c\u1ee7a b\u1ea1n b\u1eb1ng c\u00e1ch xen k\u1ebd gi\u1eefa ti\u1ebfng click nghe \u0111\u01b0\u1ee3c v\u00e0 im l\u1eb7ng. Ch\u01a1i \u0111\u00fang nh\u1ecbp trong kho\u1ea3ng im l\u1eb7ng, r\u1ed3i ki\u1ec3m tra b\u1ea3n th\u00e2n khi ti\u1ebfng click tr\u1edf l\u1ea1i.</p><p>Ch\u1ecdn t\u1eeb c\u00e1c ch\u1ebf \u0111\u1ed9 s\u1eb5n c\u00f3: <strong>Ng\u01b0\u1eddi m\u1edbi</strong> (3 \u00f4 nh\u1ecbp click, 1 im l\u1eb7ng), <strong>Pro</strong> (1 \u00f4 nh\u1ecbp click, 3 im l\u1eb7ng), ho\u1eb7c <strong>Ng\u1eabu nhi\u00ean</strong> (chia ng\u1eabu nhi\u00ean m\u1ed7i chu k\u1ef3). Ng\u01b0\u1eddi d\u00f9ng Premium c\u00f2n c\u00f3 ch\u1ebf \u0111\u1ed9 <strong>Th\u1ee7 c\u00f4ng</strong> v\u1edbi s\u1ed1 \u00f4 nh\u1ecbp \u00e2m thanh v\u00e0 im l\u1eb7ng t\u00f9y ch\u1ec9nh ho\u00e0n to\u00e0n, c\u00f9ng nh\u1ecbp d\u1eabn \u1edf ph\u00e1ch \u0111\u1ea7u c\u1ee7a m\u1ed7i \u00f4 nh\u1ecbp im l\u1eb7ng.</p>',
+        faqPitchQ: "T\u00ednh n\u0103ng Ki\u1ec3m tra Cao \u0111\u1ed9 (Check) ho\u1ea1t \u0111\u1ed9ng nh\u01b0 th\u1ebf n\u00e0o?",
+        faqPitchA: '<p>Ki\u1ec3m tra Cao \u0111\u1ed9 ph\u00e1t \u00e2m thanh x\u00e1c nh\u1eadn khi b\u1ea1n gi\u1eef m\u1ed9t n\u1ed1t \u0111\u00fang cao \u0111\u1ed9 trong th\u1eddi gian \u0111\u1eb7t tr\u01b0\u1edbc. N\u00f3 theo d\u00f5i cao \u0111\u1ed9 theo th\u1eddi gian th\u1ef1c v\u00e0 k\u00edch ho\u1ea1t khi b\u1ea1n duy tr\u00ec n\u1ed1t trong ph\u1ea1m vi dung sai (\u00b15 \u0111\u1ebfn \u00b120 cent) trong th\u1eddi gian y\u00eau c\u1ea7u (0,25\u20133,0 gi\u00e2y).</p><p>Ch\u1ecdn ti\u1ebfng click, ti\u1ebfng b\u00edp ho\u1eb7c \u00e2m tham chi\u1ebfu l\u00e0m \u00e2m thanh x\u00e1c nh\u1eadn. V\u00f2ng ti\u1ebfn tr\u00ecnh hi\u1ec3n th\u1ecb tr\u1ea1ng th\u00e1i theo d\u00f5i v\u00e0 ch\u1eef n\u1ed1t nh\u1ea5p nh\u00e1y khi x\u00e1c nh\u1eadn.</p>',
+        faqTunerQ: "C\u00f3 nh\u1eefng t\u00ednh n\u0103ng m\u00e1y l\u00ean d\u00e2y n\u00e0o?",
+        faqTunerA: '<p>MetroTune bao g\u1ed3m m\u00e1y l\u00ean d\u00e2y s\u1eafc \u0111\u1ed9 \u0111\u1ea7y \u0111\u1ee7 v\u1edbi ph\u00e1t hi\u1ec7n cao \u0111\u1ed9 th\u1eddi gian th\u1ef1c. Hi\u1ec3n th\u1ecb t\u00ean n\u1ed1t v\u00e0 qu\u00e3ng t\u00e1m, thang \u0111o l\u00ean d\u00e2y theo cent v\u00e0 t\u1ea7n s\u1ed1 theo Hz. Cao \u0111\u1ed9 tham chi\u1ebfu c\u00f3 th\u1ec3 t\u00f9y ch\u1ec9nh (m\u1eb7c \u0111\u1ecbnh A4 = 440 Hz).</p><p>C\u00e1c ch\u1ebf \u0111\u1ed9 \u0111\u1ed9 nh\u1ea1y \u0111i\u1ec1u ch\u1ec9nh \u0111\u01b0\u1ee3c t\u1ed1i \u01b0u cho nh\u1ea1c c\u1ee5: <strong>\u1ed4n \u0111\u1ecbnh</strong> cho gi\u1ecdng h\u00e1t v\u00e0 k\u00e8n, <strong>Trung b\u00ecnh</strong> cho s\u1eed d\u1ee5ng c\u00e2n b\u1eb1ng, ho\u1eb7c <strong>Nhanh</strong> cho d\u00e2y.</p><p>M\u00e1y l\u00ean d\u00e2y c\u0169ng cung c\u1ea5p nhi\u1ec1u h\u1ed3 s\u01a1 \u00e2m tham chi\u1ebfu bao g\u1ed3m Tone, Clarinet, Organ, Bell v\u00e0 Brass. Nh\u1ea5n gi\u1eef b\u1ea5t k\u1ef3 n\u1ed1t n\u00e0o \u0111\u1ec3 ph\u00e1t <strong>\u00c2m d\u1eabn</strong> li\u00ean t\u1ee5c l\u00e0m tham chi\u1ebfu.</p>',
+        faqVibrateQ: "C\u00f3 th\u1ec3 d\u00f9ng m\u00e1y nh\u1ecbp im l\u1eb7ng kh\u00f4ng?",
+        faqVibrateA: '<p>C\u00f3. <strong>Ch\u1ebf \u0111\u1ed9 Rung</strong> rung \u0111i\u1ec7n tho\u1ea1i m\u1ed7i nh\u1ecbp thay v\u00ec ph\u00e1t \u00e2m thanh \u2014 rung m\u1ea1nh h\u01a1n \u0111\u00e1nh d\u1ea5u nh\u1ecbp 1. Tuy\u1ec7t v\u1eddi cho t\u1eadp luy\u1ec7n, bi\u1ec3u di\u1ec5n tr\u1ef1c ti\u1ebfp ho\u1eb7c b\u1ea5t c\u1ee9 n\u01a1i n\u00e0o c\u1ea7n click track im l\u1eb7ng. <strong>Ch\u1ebf \u0111\u1ed9 T\u1eaft ti\u1ebfng</strong> t\u1eaft m\u1ecdi \u00e2m thanh v\u00e0 rung, hi\u1ec3n th\u1ecb ch\u1ec9 b\u00e1o nh\u1ecbp tr\u1ef1c quan ph\u00f3ng to.</p>',
+        faqTapQ: "C\u00e0i \u0111\u1eb7t nh\u1ecbp \u0111\u1ed9 b\u1eb1ng c\u00e1ch g\u00f5 nh\u01b0 th\u1ebf n\u00e0o?",
+        faqTapA: '<p>G\u00f5 li\u00ean t\u1ee5c n\u00fat <strong>TAP</strong> c\u1ea1nh m\u00e0n h\u00ecnh BPM theo nh\u1ecbp \u0111\u1ed9 mong mu\u1ed1n. MetroTune ph\u00e1t hi\u1ec7n kho\u1ea3ng c\u00e1ch trung b\u00ecnh v\u00e0 hi\u1ec3n th\u1ecb BPM theo th\u1eddi gian th\u1ef1c. Nh\u1ea5n <strong>Xong</strong> \u0111\u1ec3 \u00e1p d\u1ee5ng nh\u1ecbp \u0111\u1ed9 \u0111\u00e3 ph\u00e1t hi\u1ec7n.</p>',
+        resourcesTitle: "T\u00e0i Nguy\u00ean Th\u00eam",
+        privacyTitle: "Ch\u00ednh S\u00e1ch Quy\u1ec1n Ri\u00eang T\u01b0",
+        privacyDesc: "C\u00e1ch MetroTune x\u1eed l\u00fd d\u1eef li\u1ec7u c\u1ee7a b\u1ea1n.",
+        termsTitle: "\u0110i\u1ec1u Kho\u1ea3n D\u1ecbch V\u1ee5",
+        termsDesc: "\u0110i\u1ec1u kho\u1ea3n s\u1eed d\u1ee5ng cho \u1ee9ng d\u1ee5ng v\u00e0 d\u1ecbch v\u1ee5 c\u1ee7a ch\u00fang t\u00f4i.",
+        privacyHref: "/privacy/metrotune-vi.html"
+      }
+    };
+
+    var LANG_MAP = {
+      'de': 'de', 'es': 'es', 'es-mx': 'es-MX', 'es-419': 'es-MX',
+      'fr': 'fr', 'id': 'id', 'it': 'it', 'ja': 'ja', 'ko': 'ko',
+      'pt-br': 'pt-BR', 'pt': 'pt-PT', 'th': 'th', 'vi': 'vi'
+    };
+
+    function detectLang() {
+      var langs = navigator.languages || [navigator.language || 'en'];
+      for (var i = 0; i < langs.length; i++) {
+        var tag = langs[i].toLowerCase();
+        if (T[tag]) return tag;
+        if (LANG_MAP[tag]) return LANG_MAP[tag];
+        var base = tag.split('-')[0];
+        if (T[base]) return base;
+        if (LANG_MAP[base]) return LANG_MAP[base];
+      }
+      return 'en';
+    }
+
+    function applyLang(lang) {
+      var t = T[lang] || T.en;
+      document.documentElement.lang = lang.split('-')[0];
+      document.title = t.pageTitle + ' \u2014 Archet Studio LLC';
+
+      var els = document.querySelectorAll('[data-i18n]');
+      for (var i = 0; i < els.length; i++) {
+        var key = els[i].getAttribute('data-i18n');
+        if (t[key]) els[i].textContent = t[key];
+      }
+
+      var htmlEls = document.querySelectorAll('[data-i18n-html]');
+      for (var j = 0; j < htmlEls.length; j++) {
+        var hkey = htmlEls[j].getAttribute('data-i18n-html');
+        if (t[hkey]) htmlEls[j].innerHTML = t[hkey];
+      }
+
+      var privLink = document.getElementById('privacy-link');
+      if (privLink && t.privacyHref) privLink.href = t.privacyHref;
+
+      document.getElementById('lang-select').value = lang;
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem('mt-support-lang'); } catch(e) {}
+    var lang = saved || detectLang();
+    applyLang(lang);
+
+    document.getElementById('lang-select').addEventListener('change', function() {
+      var v = this.value;
+      applyLang(v);
+      try { localStorage.setItem('mt-support-lang', v); } catch(e) {}
+    });
+  </script>
+
+</body>
+</html>
