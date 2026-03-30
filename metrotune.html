@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MetroTune — Precision Metronome & Tuner | Archet Studio</title>
+  <meta name="description" content="The most feature-complete free metronome and tuner app. Compound meters, custom rhythmic patterns, intelligent practice tools, hands-free clap control, and 14 languages.">
+  <meta name="author" content="Archet Studio LLC">
+  <meta property="og:title" content="MetroTune — Precision Metronome & Tuner">
+  <meta property="og:description" content="Professional metronome and chromatic tuner in one free app. Compound meters, tempo maps, gap click training, double-clap detection, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://archetstudio.com/metrotune">
+  <meta property="og:image" content="https://archetstudio.com/images/metrotune-icon.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MetroTune — Precision Metronome & Tuner">
+  <meta name="twitter:description" content="The most feature-complete free metronome and tuner app.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
+  <meta name="theme-color" content="#111827">
+  <link rel="canonical" href="https://archetstudio.com/metrotune">
+  <link rel="stylesheet" href="css/tailwind.min.css">
+  <style>
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/inter-400.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/inter-500.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url('fonts/inter-600.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url('fonts/inter-700.woff2') format('woff2'); }
+    @font-face { font-family: 'Lato'; font-style: normal; font-weight: 100; font-display: swap; src: url('fonts/lato-100.woff2') format('woff2'); }
+    @font-face { font-family: 'Lato'; font-style: normal; font-weight: 900; font-display: swap; src: url('fonts/lato-900.woff2') format('woff2'); }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .logo-nav { display: inline-flex; align-items: baseline; font-size: 1.125rem; line-height: 1; color: #f3f4f6; opacity: 0.9; transition: all 0.2s ease; text-decoration: none; }
+    .logo-nav:hover { opacity: 1; transform: translateY(-1px); }
+    .logo-archet { font-family: 'Lato', sans-serif; font-weight: 900; letter-spacing: 0.04em; }
+    .logo-studio { font-family: 'Lato', sans-serif; font-weight: 100; letter-spacing: 0.04em; }
+    .logo-gap { width: 0.2em; }
+    @media (min-width: 640px) { .logo-nav { font-size: 1.35rem; } }
+    a:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; border-radius: 4px; }
+    .phone-frame {
+      width: 200px;
+      border-radius: 24px;
+      border: 3px solid #333;
+      overflow: hidden;
+      box-shadow: 0 24px 48px rgba(0,0,0,0.5);
+      flex-shrink: 0;
+      margin: 0 1rem;
+    }
+    .phone-frame img { width: 100%; display: block; }
+    @media (min-width: 640px) { .phone-frame { width: 240px; margin: 0 2rem; } }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-blue-500 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm">Skip to main content</a>
+  <!-- Navigation -->
+  <nav class="border-b border-gray-800">
+    <div class="max-w-5xl mx-auto px-6 sm:px-8 py-5 flex items-center justify-between">
+      <a href="/" class="logo-nav" aria-label="Archet Studio LLC — Home">
+        <span class="logo-archet">ARCHET</span>
+        <span class="logo-gap" aria-hidden="true"></span>
+        <span class="logo-studio">STUDIO</span>
+      </a>
+      <div class="flex items-center gap-5 sm:gap-7 text-sm font-medium tracking-wide text-gray-400">
+        <a href="/" class="hover:text-gray-100 transition-colors">Home</a>
+        <a href="/metrotune-support" class="hover:text-gray-100 transition-colors">Support</a>
+        <a href="/privacy/metrotune.html" class="hover:text-gray-100 transition-colors">Privacy</a>
+      </div>
+    </div>
+  </nav>
+  <main id="main">
+    <!-- Hero -->
+    <section class="max-w-5xl mx-auto px-6 pt-20 pb-16">
+      <div class="flex flex-col sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-5 mb-6">
+            <img src="images/metrotune-icon.png" alt="MetroTune app icon" class="w-20 h-20 rounded-[22.5%] shadow-2xl border border-white/10 shrink-0">
+            <div>
+              <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-100">MetroTune&trade;</h1>
+              <p data-i18n="heroSubtitle" class="text-sm text-gray-500 uppercase tracking-wide font-medium mt-1">Precision Metronome &amp; Tuner</p>
+            </div>
+          </div>
+          <p data-i18n="heroDesc1" class="text-lg text-gray-400 leading-relaxed max-w-xl">The most feature-complete free metronome and tuner app. Build custom rhythmic patterns, train with compound meters, program tempo sequences, and go hands-free with double-clap detection.</p>
+          <p data-i18n="heroDesc2" class="mt-3 text-lg text-gray-400 leading-relaxed max-w-xl">Whether you're a beginner learning time signatures or a professional drilling complex rhythms, MetroTune adapts to your needs.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="https://apps.apple.com/app/metrotune-metronome-tuner/id6760752080" aria-label="Download on the App Store"><img src="images/badge-appstore.svg" alt="Download on the App Store" style="height:40px"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.archetstudio.metrotune" aria-label="Get it on Google Play"><img src="images/badge-googleplay.png" alt="Get it on Google Play" style="height:46px;margin:-3px 0"></a>
+          </div>
+          <p data-i18n="heroPricing" class="mt-4 text-xs text-gray-600">Free with optional rewarded ads &mdash; no subscriptions.</p>
+        </div>
+        <div class="phone-frame">
+          <img src="images/metrotune/ss_01_main.png" alt="MetroTune metronome screen showing 120 BPM in 4/4 time with beat pattern selector and sound options">
+        </div>
+      </div>
+    </section>
+    <div class="border-t border-gray-800"></div>
+    <!-- What Sets MetroTune Apart -->
+    <section class="max-w-5xl mx-auto px-6 py-20">
+      <h2 data-i18n="sectionTitle" class="text-2xl font-bold tracking-tight text-gray-100">What Sets MetroTune Apart</h2>
+      <p data-i18n="sectionDesc" class="mt-4 text-gray-400 leading-relaxed max-w-2xl">Most metronome apps stop at simple 4/4 clicks. MetroTune is a full practice system built for real musicians.</p>
+      <!-- Feature: Compound Meters & Custom Patterns -->
+      <div class="mt-16 pb-12 flex flex-col sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="flex-1 min-w-0">
+          <h3 data-i18n="feat1Title" class="text-lg font-semibold text-gray-100">Compound Meters &amp; Custom Patterns</h3>
+          <p data-i18n="feat1Desc1" class="mt-3 text-sm text-gray-400 leading-relaxed">Play in 6/8, 7/8, 5/8, 9/8, 12/8, and more &mdash; with automatic accent groupings. The beat-unit-aware engine adapts BPM limits and subdivisions to the selected time signature.</p>
+          <p data-i18n="feat1Desc2" class="mt-3 text-sm text-gray-400 leading-relaxed">Tap any beat circle to set custom accents. Tap individual subdivision dots to mute specific positions and create any rhythmic pattern &mdash; a feature no other metronome app offers.</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-500">
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat1Bullet1">12 beat patterns: quarter, eighths, triplets, sixteenths, quintuplets, swing, and more</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat1Bullet2">Beat pattern options that adapt when switching meters</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat1Bullet3">Smart BPM range (20&ndash;320) with dynamic ceiling per pattern</span></li>
+          </ul>
+        </div>
+        <div class="phone-frame">
+          <img src="images/metrotune/ss_05_subdiv_rest.png" alt="MetroTune in 6/8 compound meter showing adapted beat patterns and subdivision controls">
+        </div>
+      </div>
+      <!-- Feature: Tempo Map -->
+      <div class="mt-10 pt-10 pb-12 flex flex-col-reverse sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="phone-frame">
+          <img src="images/metrotune/ss_06_tempo_map.png" alt="Tempo Map showing Beethoven Sym. 9 profile with 6 entries of varying tempos and patterns">
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 data-i18n="feat2Title" class="text-lg font-semibold text-gray-100">Tempo Map</h3>
+          <p data-i18n="feat2Desc" class="mt-3 text-sm text-gray-400 leading-relaxed">Program sequences of tempo, meter, beat pattern, sound, and measure count that play automatically. Perfect for practicing pieces with tempo changes or building structured warm-up routines.</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-500">
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat2Bullet1">Save, load, rename, and favorite named profiles</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat2Bullet2">Tempo Step: auto-generate incrementally increasing or decreasing BPM entries</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat2Bullet3">Export &amp; import as .metrotune.json files to share with students or bandmates</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat2Bullet4">Per-entry loop control and configurable lead-in beats</span></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Feature: Gap Click -->
+      <div class="mt-10 pt-10 pb-12 flex flex-col sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="flex-1 min-w-0">
+          <h3 data-i18n="feat3Title" class="text-lg font-semibold text-gray-100">Gap Click Training</h3>
+          <p data-i18n="feat3Desc" class="mt-3 text-sm text-gray-400 leading-relaxed">Train your internal clock by alternating between audible clicks and silence. Stay in tempo during the gap, then check yourself when the click returns.</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-500">
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat3Bullet1">5 modes: Beginner, Intermediate, Advanced, Expert, Random</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat3Bullet2">Guide Beat: accented downbeat plays even during silent measures</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat3Bullet3">Random per-measure and per-beat muting for unpredictable silence</span></li>
+          </ul>
+        </div>
+        <div class="phone-frame">
+          <img src="images/metrotune/ss_08_gap_1.png" alt="Gap Click training active with GAP indicator and red stop button">
+        </div>
+      </div>
+      <!-- Feature: Chromatic Tuner -->
+      <div class="mt-10 pt-10 pb-12 flex flex-col-reverse sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="phone-frame">
+          <img src="images/metrotune/ss_07_tuner.png" alt="Chromatic tuner detecting B2 at 122.6 Hz with flat/sharp gauge and keyboard layout">
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 data-i18n="feat4Title" class="text-lg font-semibold text-gray-100">Chromatic Tuner &amp; Guide Tone</h3>
+          <p data-i18n="feat4Desc" class="mt-3 text-sm text-gray-400 leading-relaxed">Real-time pitch detection with a flat/sharp gauge, scrollable keyboard layout, and customizable reference pitch (A4 = 440 Hz default).</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-500">
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat4Bullet1">5 synthesized tone profiles: Tone, Clarinet, Organ, Brass, Bell</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat4Bullet2">Guide Tone: sustained reference pitch with loop mode and countdown beeps</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat4Bullet3">Pitch Checker: confirms when you hold a note in-tune for a set duration</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat4Bullet4">Adjustable sensitivity: from Stable (wind/voice) to Fast (strings)</span></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Feature: Hands-Free -->
+      <div class="mt-10 pt-10 pb-12 flex flex-col sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="flex-1 min-w-0">
+          <h3 data-i18n="feat5Title" class="text-lg font-semibold text-gray-100">Hands-Free Control</h3>
+          <p data-i18n="feat5Desc" class="mt-3 text-sm text-gray-400 leading-relaxed">Clap twice to start or stop the metronome without touching the screen. MetroTune uses advanced signal processing to distinguish real claps from metronome clicks and instrument sounds.</p>
+          <ul class="mt-4 space-y-2 text-sm text-gray-500">
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat5Bullet1">Configurable detection threshold and timing window</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat5Bullet2">Auto-adapts to background noise level</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="feat5Bullet3">Works on both metronome and tuner screens</span></li>
+          </ul>
+        </div>
+        <div class="phone-frame">
+          <img src="images/metrotune/ss_14_clap_detect.png" alt="Double-clap detection settings with threshold, background ratio, and timing controls">
+        </div>
+      </div>
+    </section>
+    <div class="border-t border-gray-800"></div>
+    <!-- More Features -->
+    <section class="max-w-5xl mx-auto px-6 py-20">
+      <h2 data-i18n="moreTitle" class="text-2xl font-bold tracking-tight text-gray-100">And More</h2>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+          <h3 data-i18n="card1Title" class="text-sm font-semibold text-gray-100">29 Sound Options</h3>
+          <p data-i18n="card1Desc" class="mt-2 text-xs text-gray-400 leading-relaxed">Click, wood, hi-hat, kick, cowbell, rimshot, claves, beep, keyboard, marimba, xylophone, and more &mdash; plus vibrate and flash modes.</p>
+        </article>
+        <article class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+          <h3 data-i18n="card2Title" class="text-sm font-semibold text-gray-100">Voice Counting</h3>
+          <p data-i18n="card2Desc" class="mt-2 text-xs text-gray-400 leading-relaxed">Female and male voice options count beats aloud. Useful for beginners learning to internalize time signatures.</p>
+        </article>
+        <article class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+          <h3 data-i18n="card3Title" class="text-sm font-semibold text-gray-100">12 Color Themes</h3>
+          <p data-i18n="card3Desc" class="mt-2 text-xs text-gray-400 leading-relaxed">6 base themes (Rose, Ocean, Emerald, Amber, Teal, Grey) and 6 pastel themes (Pink, Sky, Mint, Honey, Aqua, Mono).</p>
+        </article>
+        <article class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+          <h3 data-i18n="card4Title" class="text-sm font-semibold text-gray-100">Tap Tempo</h3>
+          <p data-i18n="card4Desc" class="mt-2 text-xs text-gray-400 leading-relaxed">Tap to detect tempo from live performance. MetroTune averages the interval and shows BPM in real time.</p>
+        </article>
+        <article class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+          <h3 data-i18n="card5Title" class="text-sm font-semibold text-gray-100">14 Languages</h3>
+          <p data-i18n="card5Desc" class="mt-2 text-xs text-gray-400 leading-relaxed">English, Korean, Japanese, Vietnamese, Spanish, French, German, Indonesian, Portuguese, Thai, Chinese (TW/HK), and more.</p>
+        </article>
+        <article class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+          <h3 data-i18n="card6Title" class="text-sm font-semibold text-gray-100">Metronome + Tuner in One</h3>
+          <p data-i18n="card6Desc" class="mt-2 text-xs text-gray-400 leading-relaxed">No need for separate apps. Practice with pitch checking while keeping time, or use guide tone loop alongside the metronome.</p>
+        </article>
+        <article class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+          <h3 data-i18n="card7Title" class="text-sm font-semibold text-gray-100">Pitch Checker</h3>
+          <p data-i18n="card7Desc" class="mt-2 text-xs text-gray-400 leading-relaxed">A unique intonation trainer that confirms when you hold a note in-tune for a configurable duration. Set tolerance, hold time, and confirmation sound.</p>
+        </article>
+        <article class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+          <h3 data-i18n="card8Title" class="text-sm font-semibold text-gray-100">Free with No Subscriptions</h3>
+          <p data-i18n="card8Desc" class="mt-2 text-xs text-gray-400 leading-relaxed">Watch one short ad to unlock all premium features for 24 hours. No recurring charges, no paywalls on core functionality.</p>
+        </article>
+      </div>
+    </section>
+    <div class="border-t border-gray-800"></div>
+    <!-- Help Shape MetroTune -->
+    <section class="max-w-5xl mx-auto px-6 py-16">
+      <h2 data-i18n="shapeTitle" class="text-xl font-bold tracking-tight text-gray-100">Help Shape MetroTune</h2>
+      <p data-i18n="shapeDesc" class="mt-3 text-sm text-gray-400 leading-relaxed max-w-xl">We're actively building. If you have a feature idea, improvement, or something you wish your metronome could do, we'd love to hear it.</p>
+      <div class="mt-5">
+        <a href="mailto:support+metrotune@archetstudio.com?subject=Feature%20Request" data-i18n="shapeBtn" class="inline-block border border-gray-600 text-sm font-medium text-gray-300 px-5 py-2.5 rounded-lg hover:border-gray-400 hover:text-gray-100 transition-colors">Request a Feature</a>
+      </div>
+    </section>
+    <div class="border-t border-gray-800"></div>
+    <!-- Download CTA -->
+    <section class="max-w-5xl mx-auto px-6 py-20 text-center">
+      <h2 data-i18n="ctaTitle" class="text-2xl font-bold tracking-tight text-gray-100">Built for how musicians actually practice.</h2>
+      <p data-i18n="ctaDesc" class="mt-4 text-gray-400 max-w-lg mx-auto">Available now on iOS and Android. Free to download.</p>
+      <div class="mt-8 flex justify-center flex-wrap gap-3">
+        <a href="https://apps.apple.com/app/metrotune-metronome-tuner/id6760752080" aria-label="Download on the App Store"><img src="images/badge-appstore.svg" alt="Download on the App Store" style="height:44px"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.archetstudio.metrotune" aria-label="Get it on Google Play"><img src="images/badge-googleplay.png" alt="Get it on Google Play" style="height:50px;margin:-3px 0"></a>
+      </div>
+      <div class="mt-6">
+        <a href="/metrotune-support" data-i18n="ctaSupport" class="text-sm text-blue-400 hover:underline">Support &amp; FAQ &rarr;</a>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="border-t border-gray-800">
+    <div class="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-gray-400">
+      <div>
+        <p>&copy; 2026 Archet Studio LLC. All rights reserved.</p>
+        <p class="mt-1">MetroTune&trade; is a trademark of Archet Studio LLC.</p>
+        <address class="not-italic mt-1">2261 Market Street STE 79219, San Francisco, CA 94114</address>
+        <a href="mailto:inquiry@archetstudio.com" class="hover:text-gray-100 transition-colors">inquiry@archetstudio.com</a>
+      </div>
+      <div class="flex flex-col sm:items-end gap-2">
+        <a href="/terms.html" class="hover:text-gray-100 transition-colors">Terms of Service</a>
+        <a href="/privacy/metrotune.html" class="hover:text-gray-100 transition-colors">Privacy Policy</a>
+        <a href="/privacy/metrotune.html#do-not-sell" class="hover:text-gray-100 transition-colors">Do Not Sell or Share My Personal Information</a>
+        <a href="mailto:privacy@archetstudio.com?subject=Data%20Deletion%20Request" class="hover:text-gray-100 transition-colors">Data Deletion Request</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    var T = {
+      en: {},
+      de: {
+        heroSubtitle: "Pr\u00e4zisions-Metronom & Stimmger\u00e4t",
+        heroDesc1: "Die funktionsreichste kostenlose Metronom- und Stimmger\u00e4t-App. Erstellen Sie eigene Rhythmusmuster, trainieren Sie mit zusammengesetzten Taktarten, programmieren Sie Tempo-Sequenzen und arbeiten Sie freih\u00e4ndig dank Doppel-Klatsch-Erkennung.",
+        heroDesc2: "Ob Anf\u00e4nger beim Erlernen von Taktarten oder Profi bei komplexen Rhythmen \u2013 MetroTune passt sich Ihren Bed\u00fcrfnissen an.",
+        heroPricing: "Kostenlos durch kurze Werbeclips \u2014 kein Abo erforderlich.",
+        sectionTitle: "Was MetroTune auszeichnet",
+        sectionDesc: "Die meisten Metronom-Apps bieten nur einfache 4/4-Klicks. MetroTune ist ein vollst\u00e4ndiges \u00dcbungssystem f\u00fcr echte Musiker.",
+        feat1Title: "Zusammengesetzte Taktarten & Eigene Muster",
+        feat1Desc1: "Spielen Sie in 6/8, 7/8, 5/8, 9/8, 12/8 und mehr \u2014 mit automatischer Akzentgruppierung. Die Engine passt BPM-Grenzen und Unterteilungen dynamisch an.",
+        feat2Title: "Tempo-Map",
+        feat3Title: "Gap-Click-Training",
+        feat3Desc: "Trainieren Sie Ihr inneres Zeitgef\u00fchl. Das Metronom wechselt zwischen h\u00f6rbaren Klicks und Stille; bleiben Sie im Takt und pr\u00fcfen Sie Ihre Genauigkeit, sobald der Klick zur\u00fcckkehrt.",
+        feat4Title: "Chromatisches Stimmger\u00e4t & Referenzton",
+        feat5Title: "Freih\u00e4ndige Steuerung",
+        card7Title: "Intonations-Pr\u00fcfer",
+        card8Title: "Kostenlos ohne Abonnements",
+        shapeTitle: "MetroTune mitgestalten",
+        shapeDesc: "Wir entwickeln aktiv weiter. Wenn Sie eine Funktionsidee oder einen Verbesserungsvorschlag haben, freuen wir uns \u00fcber Ihre Nachricht.",
+        shapeBtn: "Funktion vorschlagen",
+        ctaTitle: "Entwickelt f\u00fcr echtes Musiker-Training.",
+        ctaDesc: "Jetzt verf\u00fcgbar f\u00fcr iOS und Android. Kostenloser Download.",
+        ctaSupport: "Support & FAQ \u2192"
+      },
+      es: {
+        heroSubtitle: "Metr\u00f3nomo y Afinador de Precisi\u00f3n",
+        heroDesc1: "La aplicaci\u00f3n gratuita de metr\u00f3nomo y afinador m\u00e1s completa. Crea patrones r\u00edtmicos personalizados, entrena con compases compuestos, programa secuencias de tempo y usa el manos libres con detecci\u00f3n de doble aplauso.",
+        heroDesc2: "Ya seas principiante aprendiendo compases o profesional ensayando ritmos complejos, MetroTune se adapta a tus necesidades.",
+        heroPricing: "Gratis con anuncios recompensados \u2014 sin suscripciones.",
+        sectionTitle: "Lo que distingue a MetroTune",
+        sectionDesc: "La mayor\u00eda de apps de metr\u00f3nomo se limitan a clics en 4/4. MetroTune es un sistema de pr\u00e1ctica completo para m\u00fasicos reales.",
+        feat1Title: "Compases Compuestos y Patrones",
+        feat1Desc1: "Toca en 6/8, 7/8, 5/8, 9/8, 12/8 y m\u00e1s. El motor inteligente adapta los l\u00edmites de BPM y las subdivisiones seg\u00fan el comp\u00e1s seleccionado.",
+        feat2Title: "Mapa de Tempo",
+        feat3Title: "Entrenamiento de Pulso Interno (Gap Click)",
+        feat5Title: "Control por Gestos (Manos Libres)",
+        card7Title: "Verificador de Entonaci\u00f3n",
+        card8Title: "Gratis y sin suscripciones",
+        shapeTitle: "Ayuda a mejorar MetroTune",
+        shapeDesc: "Estamos construyendo activamente. Si tienes una idea de funci\u00f3n o mejora, nos encantar\u00eda escucharla.",
+        shapeBtn: "Solicitar una funci\u00f3n",
+        ctaTitle: "Dise\u00f1ado para c\u00f3mo practican los m\u00fasicos de verdad.",
+        ctaDesc: "Disponible en iOS y Android. Descarga gratuita.",
+        ctaSupport: "Soporte y FAQ \u2192"
+      },
+      "es-MX": {
+        heroSubtitle: "Metr\u00f3nomo y Afinador de Precisi\u00f3n",
+        heroDesc1: "La app gratuita de metr\u00f3nomo y afinador m\u00e1s completa. Crea patrones r\u00edtmicos personalizados, entrena con compases compuestos, programa secuencias de tempo y \u00fasalo manos libres con detecci\u00f3n de doble aplauso.",
+        heroDesc2: "Ya seas un principiante aprendiendo compases o un profesional ensayando ritmos complejos, MetroTune se adapta a ti.",
+        heroPricing: "Gratis con anuncios recompensados \u2014 sin suscripciones.",
+        sectionTitle: "Lo que distingue a MetroTune",
+        sectionDesc: "La mayor\u00eda de apps de metr\u00f3nomo se limitan a clics en 4/4. MetroTune es un sistema de pr\u00e1ctica completo para m\u00fasicos reales.",
+        feat1Title: "Compases Compuestos y Patrones a Medida",
+        feat2Title: "Mapa de Tempo",
+        feat3Title: "Entrenamiento de Pulso Interno (Gap Click)",
+        feat5Title: "Control Manos Libres",
+        card7Title: "Verificador de Entonaci\u00f3n",
+        card8Title: "Gratis y sin suscripciones",
+        card8Desc: "Mira un anuncio corto para desbloquear todo lo premium por 24 horas. Sin cobros recurrentes ni trucos.",
+        shapeTitle: "Ayuda a mejorar MetroTune",
+        shapeDesc: "Estamos construyendo activamente. Si tienes una idea de funci\u00f3n o mejora, nos encantar\u00eda escucharla.",
+        shapeBtn: "Solicitar una funci\u00f3n",
+        ctaTitle: "Dise\u00f1ado para c\u00f3mo practican los m\u00fasicos de verdad.",
+        ctaDesc: "Disponible en iOS y Android. Descarga gratuita.",
+        ctaSupport: "Soporte y FAQ \u2192"
+      },
+      fr: {
+        heroSubtitle: "M\u00e9tronome et Accordeur de Pr\u00e9cision",
+        heroDesc1: "L\u2019application de m\u00e9tronome et d\u2019accordeur gratuite la plus compl\u00e8te. Cr\u00e9ez des motifs rythmiques personnalis\u00e9s, travaillez les mesures compos\u00e9es, programmez des s\u00e9quences de tempo et passez en mains libres gr\u00e2ce \u00e0 la d\u00e9tection de double clap.",
+        heroDesc2: "Que vous soyez d\u00e9butant ou professionnel, MetroTune s\u2019adapte \u00e0 vos besoins.",
+        heroPricing: "Gratuit avec publicit\u00e9s r\u00e9compens\u00e9es \u2014 sans abonnement.",
+        sectionTitle: "Ce qui distingue MetroTune",
+        sectionDesc: "La plupart des apps de m\u00e9tronome se limitent \u00e0 des clics en 4/4. MetroTune est un syst\u00e8me de pratique complet pour les vrais musiciens.",
+        feat1Title: "Mesures Compos\u00e9es & Motifs Sur Mesure",
+        feat2Title: "Carte de Tempo",
+        feat3Title: "Entra\u00eenement Gap Click",
+        feat3Desc: "Travaillez votre horloge interne en alternant clics et silences. Maintenez la cadence pendant le silence et v\u00e9rifiez votre pr\u00e9cision au retour du son.",
+        feat4Title: "Accordeur Chromatique & Ton Guide",
+        feat5Title: "Contr\u00f4le Mains Libres",
+        card7Title: "Contr\u00f4leur de Justesse",
+        card8Title: "Gratuit sans abonnement",
+        shapeTitle: "Contribuez \u00e0 MetroTune",
+        shapeDesc: "Nous d\u00e9veloppons activement. Si vous avez une id\u00e9e de fonctionnalit\u00e9 ou d\u2019am\u00e9lioration, nous aimerions en entendre parler.",
+        shapeBtn: "Proposer une fonctionnalit\u00e9",
+        ctaTitle: "Con\u00e7u pour la fa\u00e7on dont les musiciens pratiquent vraiment.",
+        ctaDesc: "Disponible sur iOS et Android. T\u00e9l\u00e9chargement gratuit.",
+        ctaSupport: "Support & FAQ \u2192"
+      },
+      id: {
+        heroSubtitle: "Metronom & Penala Presisi",
+        heroDesc2: "Baik pemula yang belajar tanda birama maupun profesional yang melatih ritme kompleks, MetroTune menyesuaikan kebutuhan Anda.",
+        heroPricing: "Gratis dengan iklan opsional \u2014 tanpa biaya langganan.",
+        sectionTitle: "Keunggulan MetroTune",
+        sectionDesc: "Kebanyakan aplikasi metronom hanya menawarkan klik 4/4 sederhana. MetroTune adalah sistem latihan lengkap untuk musisi sungguhan.",
+        feat1Title: "Birama Kompleks & Pola Kustom",
+        feat2Title: "Peta Tempo",
+        feat3Title: "Latihan Ketukan Internal (Gap Click)",
+        feat4Title: "Penala Kromatik & Nada Panduan",
+        feat5Title: "Kontrol Bebas Genggam",
+        card7Title: "Pemeriksa Nada",
+        card8Title: "Gratis Tanpa Langganan",
+        shapeTitle: "Bantu Bentuk MetroTune",
+        shapeDesc: "Kami terus membangun. Jika Anda punya ide fitur atau perbaikan, kami ingin mendengarnya.",
+        shapeBtn: "Minta Fitur",
+        ctaTitle: "Dibuat untuk cara musisi benar-benar berlatih.",
+        ctaDesc: "Tersedia di iOS dan Android. Gratis untuk diunduh.",
+        ctaSupport: "Dukungan & FAQ \u2192"
+      },
+      it: {
+        heroSubtitle: "Metronomo e Accordatore di Precisione",
+        heroDesc2: "Che tu sia un principiante o un professionista, MetroTune si adatta alle tue esigenze.",
+        heroPricing: "Gratis con annunci premio \u2014 nessun abbonamento.",
+        sectionTitle: "Cosa rende unico MetroTune",
+        sectionDesc: "La maggior parte delle app metronomo si limita a clic in 4/4. MetroTune \u00e8 un sistema di pratica completo per musicisti veri.",
+        feat1Title: "Tempi Composti e Pattern Personalizzati",
+        feat2Title: "Mappa Tempo",
+        feat3Title: "Allenamento Tempo Interno (Gap Click)",
+        feat3Desc: "Allena il tuo orologio interno alternando clic e silenzio. Mantieni il tempo durante la pausa e verifica la tua precisione al ritorno del suono.",
+        feat4Title: "Accordatore Cromatico & Tono Guida",
+        feat5Title: "Controllo Mani Libere",
+        card7Title: "Verificatore di Intonazione",
+        card8Title: "Gratis senza costi fissi",
+        shapeTitle: "Aiuta a migliorare MetroTune",
+        shapeDesc: "Stiamo sviluppando attivamente. Se hai un\u2019idea per una funzione o un miglioramento, ci piacerebbe sentirla.",
+        shapeBtn: "Richiedi una funzione",
+        ctaTitle: "Progettato per come i musicisti praticano davvero.",
+        ctaDesc: "Disponibile su iOS e Android. Download gratuito.",
+        ctaSupport: "Supporto & FAQ \u2192"
+      },
+      ja: {
+        heroSubtitle: "\u9ad8\u7cbe\u5ea6\u30e1\u30c8\u30ed\u30ce\u30fc\u30e0\uff06\u30c1\u30e5\u30fc\u30ca\u30fc",
+        heroDesc1: "\u6700\u3082\u591a\u6a5f\u80fd\u306a\u7121\u6599\u30e1\u30c8\u30ed\u30ce\u30fc\u30e0\uff06\u30c1\u30e5\u30fc\u30ca\u30fc\u30a2\u30d7\u30ea\u3002\u30ab\u30b9\u30bf\u30e0\u30ea\u30ba\u30e0\u30d1\u30bf\u30fc\u30f3\u306e\u4f5c\u6210\u3001\u8907\u5408\u62cd\u5b50\u306e\u7df4\u7fd2\u3001\u30c6\u30f3\u30dd\u30b7\u30fc\u30b1\u30f3\u30b9\u306e\u30d7\u30ed\u30b0\u30e9\u30e0\u3001\u3055\u3089\u306b\u30c0\u30d6\u30eb\u30af\u30e9\u30c3\u30d7\u691c\u77e5\u306b\u3088\u308b\u30cf\u30f3\u30ba\u30d5\u30ea\u30fc\u64cd\u4f5c\u304c\u53ef\u80fd\u3067\u3059\u3002",
+        heroDesc2: "\u521d\u5fc3\u8005\u304b\u3089\u30d7\u30ed\u307e\u3067\u3001MetroTune\u306f\u3042\u306a\u305f\u306e\u30cb\u30fc\u30ba\u306b\u5408\u308f\u305b\u307e\u3059\u3002",
+        heroPricing: "\u7121\u6599\uff08\u30ea\u30ef\u30fc\u30c9\u5e83\u544a\u3067\u5168\u6a5f\u80fd\u89e3\u653e\uff09\u2014 \u30b5\u30d6\u30b9\u30af\u306a\u3057",
+        sectionTitle: "MetroTune\u306e\u7279\u5fb4",
+        sectionDesc: "\u307b\u3068\u3093\u3069\u306e\u30e1\u30c8\u30ed\u30ce\u30fc\u30e0\u30a2\u30d7\u30ea\u306f\u5358\u7d14\u306a4/4\u62cd\u5b50\u3060\u3051\u3002MetroTune\u306f\u672c\u683c\u7684\u306a\u97f3\u697d\u5bb6\u306e\u305f\u3081\u306e\u7df4\u7fd2\u30b7\u30b9\u30c6\u30e0\u3067\u3059\u3002",
+        feat1Title: "\u8907\u5408\u62cd\u5b50\u3068\u30ab\u30b9\u30bf\u30e0\u30d1\u30bf\u30fc\u30f3",
+        feat1Desc1: "6/8, 7/8, 5/8, 9/8, 12/8\u62cd\u5b50\u306a\u3069\u306b\u5bfe\u5fdc\u3002\u62cd\u5b50\u306b\u5408\u308f\u305b\u3066BPM\u7bc4\u56f2\u3084\u97f3\u7b26\u306e\u7d30\u5206\u5316\u304c\u81ea\u52d5\u3067\u6700\u9069\u5316\u3055\u308c\u307e\u3059\u3002",
+        feat2Title: "\u30c6\u30f3\u30dd\u30de\u30c3\u30d7",
+        feat3Title: "\u30ae\u30e3\u30c3\u30d7\u30fb\u30af\u30ea\u30c3\u30af\uff08\u4f53\u5185\u6642\u8a08\u30c8\u30ec\u30fc\u30cb\u30f3\u30b0\uff09",
+        feat4Title: "\u30af\u30ed\u30de\u30c1\u30c3\u30af\u30c1\u30e5\u30fc\u30ca\u30fc & \u30ac\u30a4\u30c9\u30c8\u30fc\u30f3",
+        feat5Title: "\u30cf\u30f3\u30ba\u30d5\u30ea\u30fc\u64cd\u4f5c\uff08\u30cf\u30f3\u30c9\u30af\u30e9\u30c3\u30d7\uff09",
+        card7Title: "\u30d4\u30c3\u30c1\u30c1\u30a7\u30c3\u30ab\u30fc\uff08\u97f3\u7a0b\u5224\u5b9a\uff09",
+        card8Title: "\u5b8c\u5168\u7121\u6599\u3067\u30b5\u30d6\u30b9\u30af\u306a\u3057",
+        shapeTitle: "MetroTune\u3092\u4e00\u7dd2\u306b\u4f5c\u308a\u307e\u3057\u3087\u3046",
+        shapeDesc: "\u7d99\u7d9a\u7684\u306b\u958b\u767a\u4e2d\u3067\u3059\u3002\u6a5f\u80fd\u306e\u30a2\u30a4\u30c7\u30a2\u3084\u6539\u5584\u70b9\u304c\u3042\u308c\u3070\u3001\u305c\u3072\u304a\u805e\u304b\u305b\u304f\u3060\u3055\u3044\u3002",
+        shapeBtn: "\u6a5f\u80fd\u3092\u30ea\u30af\u30a8\u30b9\u30c8",
+        ctaTitle: "\u97f3\u697d\u5bb6\u304c\u5b9f\u969b\u306b\u7df4\u7fd2\u3059\u308b\u65b9\u6cd5\u306e\u305f\u3081\u306b\u4f5c\u3089\u308c\u307e\u3057\u305f\u3002",
+        ctaDesc: "iOS\u3068Android\u3067\u5229\u7528\u53ef\u80fd\u3002\u7121\u6599\u30c0\u30a6\u30f3\u30ed\u30fc\u30c9\u3002",
+        ctaSupport: "\u30b5\u30dd\u30fc\u30c8 & FAQ \u2192"
+      },
+      ko: {
+        heroSubtitle: "\uc815\ubc00 \uba54\ud2b8\ub85c\ub188 & \ud29c\ub108",
+        heroDesc1: "\uac00\uc7a5 \uc644\ubcbd\ud55c \uae30\ub2a5\uc744 \uac16\ucd98 \ubb34\ub8cc \uba54\ud2b8\ub85c\ub188 \ubc0f \ud29c\ub108 \uc571\uc785\ub2c8\ub2e4. \ucee4\uc2a4\ud140 \ub9ac\ub4ec \ud328\ud134 \uc0dd\uc131, \ubcf5\ud569 \ubc15\uc790 \uc5f0\uc2b5, \ud15c\ud3ec \uc2dc\ud000\uc2a4 \ud504\ub85c\uadf8\ub798\ubc0d, \uadf8\ub9ac\uace0 \ubc15\uc218 \uac10\uc9c0\ub97c \ud1b5\ud55c \ud578\uc988\ud504\ub9ac \uc81c\uc5b4\ub97c \uacbd\ud5d8\ud574 \ubcf4\uc138\uc694.",
+        heroDesc2: "\ucd08\ubcf4\uc790\ubd80\ud130 \ud504\ub85c\uae4c\uc9c0, MetroTune\uc740 \ub2f9\uc2e0\uc758 \ub2c8\uc988\uc5d0 \ub9de\ucda5\ub2c8\ub2e4.",
+        heroPricing: "\ubb34\ub8cc (\ub9ac\uc6cc\ub4dc \uad11\uace0\ub85c \uae30\ub2a5 \ud574\uc81c) \u2014 \uc815\uae30 \uacb0\uc81c \uc5c6\uc74c",
+        sectionTitle: "MetroTune\uc758 \ucc28\ubcc4\uc810",
+        sectionDesc: "\ub300\ubd80\ubd84\uc758 \uba54\ud2b8\ub85c\ub188 \uc571\uc740 \ub2e8\uc21c\ud55c 4/4 \ud074\ub9ad\ub9cc \uc81c\uacf5\ud569\ub2c8\ub2e4. MetroTune\uc740 \uc9c4\uc9c0\ud55c \uc74c\uc545\uac00\ub97c \uc704\ud55c \uc644\uc804\ud55c \uc5f0\uc2b5 \uc2dc\uc2a4\ud15c\uc785\ub2c8\ub2e4.",
+        feat1Title: "\ubcf5\ud569 \ubc15\uc790 \ubc0f \ucee4\uc2a4\ud140 \ub9ac\ub4ec",
+        feat2Title: "\ud15c\ud3ec \ub9f5",
+        feat3Title: "\uac6d \ud074\ub9ad(Gap Click) \ud6c8\ub828",
+        feat3Desc: "\ud074\ub9ad\uc74c\uacfc \ubb34\uc74c\uc744 \uad50\ucc28\ud558\uc5ec \uc0ac\uc6a9\uc790\uc758 '\uc18d\ub3c4\uac10'\uc744 \ud6c8\ub828\ud569\ub2c8\ub2e4. \ubb34\uc74c \uc0c1\ud0dc\uc5d0\uc11c\ub3c4 \uc815\ud655\ud55c \ud15c\ud3ec\ub97c \uc720\uc9c0\ud558\ub294 \uc5f0\uc2b5\uc744 \ud574\ubcf4\uc138\uc694.",
+        feat4Title: "\ud06c\ub85c\ub9e4\ud2f1 \ud29c\ub108 & \uac00\uc774\ub4dc \ud1a4",
+        feat5Title: "\ud578\uc988\ud504\ub9ac \uc81c\uc5b4",
+        card7Title: "\ud53c\uce58 \uccb4\ucee4 (\uc74c\uc815 \uac80\uc0ac)",
+        card8Title: "\uad6c\ub3c5 \uc5c6\ub294 \uc644\uc804 \ubb34\ub8cc",
+        shapeTitle: "MetroTune\uc744 \ud568\uaed8 \ub9cc\ub4e4\uc5b4 \uac00\uc138\uc694",
+        shapeDesc: "\uc9c0\uc18d\uc801\uc73c\ub85c \uac1c\ubc1c \uc911\uc785\ub2c8\ub2e4. \uae30\ub2a5 \uc544\uc774\ub514\uc5b4\ub098 \uac1c\uc120 \uc0ac\ud56d\uc774 \uc788\ub2e4\uba74 \uc54c\ub824\uc8fc\uc138\uc694.",
+        shapeBtn: "\uae30\ub2a5 \uc694\uccad",
+        ctaTitle: "\uc74c\uc545\uac00\uac00 \uc2e4\uc81c\ub85c \uc5f0\uc2b5\ud558\ub294 \ubc29\uc2dd\uc5d0 \ub9de\ucdb0 \uc124\uacc4\ub418\uc5c8\uc2b5\ub2c8\ub2e4.",
+        ctaDesc: "iOS\uc640 Android\uc5d0\uc11c \uc774\uc6a9 \uac00\ub2a5. \ubb34\ub8cc \ub2e4\uc6b4\ub85c\ub4dc.",
+        ctaSupport: "\uc9c0\uc6d0 & FAQ \u2192"
+      },
+      "pt-BR": {
+        heroSubtitle: "Metr\u00f4nomo e Afinador de Precis\u00e3o",
+        heroDesc2: "Seja voc\u00ea um iniciante ou um profissional, o MetroTune se adapta \u00e0s suas necessidades.",
+        heroPricing: "Gr\u00e1tis com an\u00fancios de recompensa \u2014 sem assinaturas.",
+        sectionTitle: "O que diferencia o MetroTune",
+        sectionDesc: "A maioria dos apps de metr\u00f4nomo se limita a cliques em 4/4. O MetroTune \u00e9 um sistema de pr\u00e1tica completo para m\u00fasicos de verdade.",
+        feat1Title: "Compassos Compostos e Ritmos Personalizados",
+        feat2Title: "Mapa de Tempo",
+        feat3Title: "Treino de Rel\u00f3gio Interno (Gap Click)",
+        feat4Title: "Afinador Crom\u00e1tico & Tom Guia",
+        feat5Title: "Controle M\u00e3os Livres",
+        card7Title: "Verificador de Afina\u00e7\u00e3o (Pitch Checker)",
+        card8Title: "Gr\u00e1tis e sem assinaturas",
+        shapeTitle: "Ajude a moldar o MetroTune",
+        shapeDesc: "Estamos construindo ativamente. Se voc\u00ea tem uma ideia de recurso ou melhoria, adorar\u00edamos ouvir.",
+        shapeBtn: "Solicitar um recurso",
+        ctaTitle: "Feito para como os m\u00fasicos realmente praticam.",
+        ctaDesc: "Dispon\u00edvel para iOS e Android. Download gratuito.",
+        ctaSupport: "Suporte & FAQ \u2192"
+      },
+      "pt-PT": {
+        heroSubtitle: "Metr\u00f3nomo e Afinador de Precis\u00e3o",
+        heroDesc1: "A aplica\u00e7\u00e3o gratuita de metr\u00f3nomo e afinador mais completa. Crie padr\u00f5es r\u00edtmicos personalizados, treine com compassos compostos e utilize o modo m\u00e3os livres com dete\u00e7\u00e3o de duplo aplauso.",
+        heroDesc2: "Quer seja principiante ou profissional, o MetroTune adapta-se \u00e0s suas necessidades.",
+        heroPricing: "Gr\u00e1tis com an\u00fancios de recompensa \u2014 sem subscri\u00e7\u00f5es.",
+        sectionTitle: "O que distingue o MetroTune",
+        sectionDesc: "A maioria das apps de metr\u00f3nomo limita-se a cliques em 4/4. O MetroTune \u00e9 um sistema de pr\u00e1tica completo para m\u00fasicos a s\u00e9rio.",
+        feat1Title: "Compassos Compostos e Padr\u00f5es Personalizados",
+        feat2Title: "Mapa de Tempo",
+        feat3Title: "Treino de Rel\u00f3gio Interno (Gap Click)",
+        feat4Title: "Afinador Crom\u00e1tico & Tom Guia",
+        feat5Title: "Controlo M\u00e3os Livres",
+        feat5Desc: "Aplaudir duas vezes para iniciar ou parar o metr\u00f3nomo sem tocar no ecr\u00e3.",
+        card7Title: "Verificador de Afina\u00e7\u00e3o",
+        card8Title: "Gr\u00e1tis e sem subscri\u00e7\u00f5es",
+        shapeTitle: "Ajude a moldar o MetroTune",
+        shapeDesc: "Estamos a construir ativamente. Se tem uma ideia de funcionalidade ou melhoria, gostar\u00edamos de ouvir.",
+        shapeBtn: "Solicitar funcionalidade",
+        ctaTitle: "Feito para como os m\u00fasicos realmente praticam.",
+        ctaDesc: "Dispon\u00edvel para iOS e Android. Download gratuito.",
+        ctaSupport: "Suporte & FAQ \u2192"
+      },
+      th: {
+        heroSubtitle: "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e43\u0e2b\u0e49\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30\u0e41\u0e25\u0e30\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e15\u0e31\u0e49\u0e07\u0e2a\u0e32\u0e22\u0e17\u0e35\u0e48\u0e21\u0e35\u0e04\u0e27\u0e32\u0e21\u0e41\u0e21\u0e48\u0e19\u0e22\u0e33\u0e2a\u0e39\u0e07",
+        heroDesc2: "\u0e44\u0e21\u0e48\u0e27\u0e48\u0e32\u0e04\u0e38\u0e13\u0e08\u0e30\u0e40\u0e1b\u0e47\u0e19\u0e21\u0e37\u0e2d\u0e43\u0e2b\u0e21\u0e48\u0e2b\u0e23\u0e37\u0e2d\u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e MetroTune \u0e1b\u0e23\u0e31\u0e1a\u0e15\u0e31\u0e27\u0e15\u0e32\u0e21\u0e04\u0e27\u0e32\u0e21\u0e15\u0e49\u0e2d\u0e07\u0e01\u0e32\u0e23\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13",
+        heroPricing: "\u0e1f\u0e23\u0e35 \u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e42\u0e06\u0e29\u0e13\u0e32\u0e17\u0e32\u0e07\u0e40\u0e25\u0e37\u0e2d\u0e01 \u2014 \u0e44\u0e21\u0e48\u0e21\u0e35\u0e23\u0e30\u0e1a\u0e1a\u0e2a\u0e21\u0e31\u0e04\u0e23\u0e2a\u0e21\u0e32\u0e0a\u0e34\u0e01",
+        sectionTitle: "\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e17\u0e33\u0e43\u0e2b\u0e49 MetroTune \u0e41\u0e15\u0e01\u0e15\u0e48\u0e32\u0e07",
+        sectionDesc: "\u0e41\u0e2d\u0e1b\u0e40\u0e21\u0e42\u0e17\u0e23\u0e42\u0e19\u0e21\u0e2a\u0e48\u0e27\u0e19\u0e43\u0e2b\u0e0d\u0e48\u0e21\u0e35\u0e41\u0e04\u0e48\u0e04\u0e25\u0e34\u0e01 4/4 \u0e18\u0e23\u0e23\u0e21\u0e14\u0e32 MetroTune \u0e04\u0e37\u0e2d\u0e23\u0e30\u0e1a\u0e1a\u0e1d\u0e36\u0e01\u0e0b\u0e49\u0e2d\u0e21\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e19\u0e31\u0e01\u0e14\u0e19\u0e15\u0e23\u0e35\u0e15\u0e31\u0e27\u0e08\u0e23\u0e34\u0e07",
+        feat1Title: "\u0e2d\u0e31\u0e15\u0e23\u0e32\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30\u0e1c\u0e2a\u0e21\u0e41\u0e25\u0e30\u0e41\u0e1e\u0e17\u0e40\u0e17\u0e34\u0e23\u0e4c\u0e19\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27",
+        feat2Title: "\u0e41\u0e1c\u0e19\u0e17\u0e35\u0e48\u0e40\u0e17\u0e21\u0e42\u0e1b",
+        feat3Title: "\u0e01\u0e32\u0e23\u0e1d\u0e36\u0e01\u0e41\u0e1a\u0e1a Gap Click (\u0e1d\u0e36\u0e01\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e30\u0e43\u0e19\u0e43\u0e08)",
+        feat4Title: "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e15\u0e31\u0e49\u0e07\u0e2a\u0e32\u0e22\u0e42\u0e04\u0e23\u0e21\u0e32\u0e15\u0e34\u0e01 & \u0e42\u0e17\u0e19\u0e19\u0e33\u0e17\u0e32\u0e07",
+        feat5Title: "\u0e01\u0e32\u0e23\u0e04\u0e27\u0e1a\u0e04\u0e38\u0e21\u0e41\u0e1a\u0e1a\u0e41\u0e2e\u0e19\u0e14\u0e4c\u0e1f\u0e23\u0e35",
+        card7Title: "\u0e15\u0e31\u0e27\u0e15\u0e23\u0e27\u0e08\u0e2a\u0e2d\u0e1a\u0e23\u0e30\u0e14\u0e31\u0e1a\u0e40\u0e2a\u0e35\u0e22\u0e07",
+        card8Title: "\u0e1f\u0e23\u0e35\u0e41\u0e25\u0e30\u0e44\u0e21\u0e48\u0e21\u0e35\u0e23\u0e30\u0e1a\u0e1a\u0e2a\u0e21\u0e32\u0e0a\u0e34\u0e01",
+        shapeTitle: "\u0e0a\u0e48\u0e27\u0e22\u0e1e\u0e31\u0e12\u0e19\u0e32 MetroTune",
+        shapeDesc: "\u0e40\u0e23\u0e32\u0e01\u0e33\u0e25\u0e31\u0e07\u0e1e\u0e31\u0e12\u0e19\u0e32\u0e2d\u0e22\u0e48\u0e32\u0e07\u0e15\u0e48\u0e2d\u0e40\u0e19\u0e37\u0e48\u0e2d\u0e07 \u0e2b\u0e32\u0e01\u0e04\u0e38\u0e13\u0e21\u0e35\u0e44\u0e2d\u0e40\u0e14\u0e35\u0e22\u0e2b\u0e23\u0e37\u0e2d\u0e02\u0e49\u0e2d\u0e40\u0e2a\u0e19\u0e2d\u0e41\u0e19\u0e30 \u0e40\u0e23\u0e32\u0e22\u0e34\u0e19\u0e14\u0e35\u0e23\u0e31\u0e1a\u0e1f\u0e31\u0e07",
+        shapeBtn: "\u0e02\u0e2d\u0e1f\u0e35\u0e40\u0e08\u0e2d\u0e23\u0e4c",
+        ctaTitle: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e02\u0e36\u0e49\u0e19\u0e40\u0e1e\u0e37\u0e48\u0e2d\u0e27\u0e34\u0e18\u0e35\u0e17\u0e35\u0e48\u0e19\u0e31\u0e01\u0e14\u0e19\u0e15\u0e23\u0e35\u0e1d\u0e36\u0e01\u0e0b\u0e49\u0e2d\u0e21\u0e08\u0e23\u0e34\u0e07\u0e46",
+        ctaDesc: "\u0e1e\u0e23\u0e49\u0e2d\u0e21\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19\u0e41\u0e25\u0e49\u0e27\u0e1a\u0e19 iOS \u0e41\u0e25\u0e30 Android \u0e14\u0e32\u0e27\u0e19\u0e4c\u0e42\u0e2b\u0e25\u0e14\u0e1f\u0e23\u0e35",
+        ctaSupport: "\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19 & FAQ \u2192"
+      },
+      tr: {
+        heroSubtitle: "Hassas Metronom ve Akort Aleti",
+        heroDesc2: "Yeni ba\u015flayan veya profesyonel olun, MetroTune ihtiya\u00e7lar\u0131n\u0131za uyum sa\u011flar.",
+        heroPricing: "\u00dccretsiz (\u00d6d\u00fcll\u00fc reklamlar ile) \u2014 Abonelik yok.",
+        sectionTitle: "MetroTune\u2019u farkl\u0131 k\u0131lan",
+        sectionDesc: "\u00c7o\u011fu metronom uygulamas\u0131 basit 4/4 t\u0131klamalarla s\u0131n\u0131rl\u0131d\u0131r. MetroTune, ger\u00e7ek m\u00fczisyenler i\u00e7in eksiksiz bir pratik sistemidir.",
+        feat1Title: "Birle\u015fik \u00d6l\u00e7\u00fcler ve \u00d6zel Kal\u0131plar",
+        feat2Title: "Tempo Haritas\u0131",
+        feat3Title: "\u0130\u00e7sel Saat E\u011fitimi (Gap Click)",
+        feat3Desc: "Metronom sesini belirli aral\u0131klarla susturarak i\u00e7sel saatinizi geli\u015ftirin. Sessizlikte tempoyu koruyun ve ses geri geldi\u011finde kendinizi test edin.",
+        feat4Title: "Kromatik Akort Aleti & Referans Ton",
+        feat5Title: "Eller Serbest Kontrol",
+        card7Title: "Entonasyon Kontrol\u00fc",
+        card8Title: "Abonelik Yok, Tamamen \u00dccretsiz",
+        shapeTitle: "MetroTune\u2019u \u015fekillendirin",
+        shapeDesc: "Aktif olarak geli\u015ftiriyoruz. Bir \u00f6zellik fikriniz veya iyile\u015ftirme \u00f6neriniz varsa duymak isteriz.",
+        shapeBtn: "\u00d6zellik talep et",
+        ctaTitle: "M\u00fczisyenlerin ger\u00e7ekten pratik yapma bi\u00e7imine g\u00f6re tasarland\u0131.",
+        ctaDesc: "iOS ve Android\u2019de mevcut. \u00dccretsiz indirin.",
+        ctaSupport: "Destek & SSS \u2192"
+      },
+      vi: {
+        heroSubtitle: "M\u00e1y \u0110\u1ebfm Nh\u1ecbp & M\u00e1y L\u00ean D\u00e2y Ch\u00ednh X\u00e1c",
+        heroDesc2: "D\u00f9 b\u1ea1n l\u00e0 ng\u01b0\u1eddi m\u1edbi hay chuy\u00ean nghi\u1ec7p, MetroTune th\u00edch \u1ee9ng v\u1edbi nhu c\u1ea7u c\u1ee7a b\u1ea1n.",
+        heroPricing: "Mi\u1ec5n ph\u00ed v\u1edbi qu\u1ea3ng c\u00e1o t\u1eb7ng th\u01b0\u1edfng \u2014 kh\u00f4ng ph\u00ed thu\u00ea bao.",
+        sectionTitle: "\u0110i\u1ec3m n\u1ed5i b\u1eadt c\u1ee7a MetroTune",
+        sectionDesc: "H\u1ea7u h\u1ebft c\u00e1c \u1ee9ng d\u1ee5ng m\u00e1y nh\u1ecbp ch\u1ec9 cung c\u1ea5p nh\u1ecbp 4/4 \u0111\u01a1n gi\u1ea3n. MetroTune l\u00e0 h\u1ec7 th\u1ed1ng luy\u1ec7n t\u1eadp \u0111\u1ea7y \u0111\u1ee7 cho nh\u1ea1c s\u0129 th\u1ef1c th\u1ee5.",
+        feat1Title: "Nh\u1ecbp H\u1ee3p Ch\u1ea5t & M\u1eabu T\u00f9y Ch\u1ec9nh",
+        feat2Title: "B\u1ea3n \u0110\u1ed3 Tempo",
+        feat3Title: "Luy\u1ec7n T\u1eadp Gap Click",
+        feat4Title: "M\u00e1y L\u00ean D\u00e2y S\u1eafc \u0110\u1ed9 & \u00c2m Tham Chi\u1ebfu",
+        feat5Title: "\u0110i\u1ec1u Khi\u1ec3n Kh\u00f4ng Ch\u1ea1m",
+        card7Title: "Ki\u1ec3m Tra Cao \u0110\u1ed9",
+        card8Title: "Mi\u1ec5n Ph\u00ed & Kh\u00f4ng Thu\u00ea Bao",
+        shapeTitle: "G\u00f3p ph\u1ea7n x\u00e2y d\u1ef1ng MetroTune",
+        shapeDesc: "Ch\u00fang t\u00f4i \u0111ang t\u00edch c\u1ef1c ph\u00e1t tri\u1ec3n. N\u1ebfu b\u1ea1n c\u00f3 \u00fd t\u01b0\u1edfng t\u00ednh n\u0103ng ho\u1eb7c c\u1ea3i ti\u1ebfn, ch\u00fang t\u00f4i r\u1ea5t mu\u1ed1n nghe.",
+        shapeBtn: "Y\u00eau c\u1ea7u t\u00ednh n\u0103ng",
+        ctaTitle: "X\u00e2y d\u1ef1ng cho c\u00e1ch nh\u1ea1c s\u0129 th\u1ef1c s\u1ef1 luy\u1ec7n t\u1eadp.",
+        ctaDesc: "C\u00f3 s\u1eb5n tr\u00ean iOS v\u00e0 Android. T\u1ea3i mi\u1ec5n ph\u00ed.",
+        ctaSupport: "H\u1ed7 tr\u1ee3 & FAQ \u2192"
+      }
+    };
+    var LANG_MAP = {
+      'de':'de','es':'es','es-mx':'es-MX','es-419':'es-MX',
+      'fr':'fr','id':'id','it':'it','ja':'ja','ko':'ko',
+      'pt-br':'pt-BR','pt':'pt-PT','th':'th','tr':'tr','vi':'vi'
+    };
+    function detectLang() {
+      var langs = navigator.languages || [navigator.language || 'en'];
+      for (var i = 0; i < langs.length; i++) {
+        var tag = langs[i].toLowerCase();
+        if (T[tag]) return tag;
+        if (LANG_MAP[tag]) return LANG_MAP[tag];
+        var base = tag.split('-')[0];
+        if (T[base]) return base;
+        if (LANG_MAP[base]) return LANG_MAP[base];
+      }
+      return 'en';
+    }
+    function applyLang(lang) {
+      var t = T[lang] || {};
+      var en = T.en;
+      document.documentElement.lang = lang.split('-')[0];
+      var els = document.querySelectorAll('[data-i18n]');
+      for (var i = 0; i < els.length; i++) {
+        var key = els[i].getAttribute('data-i18n');
+        if (t[key]) els[i].textContent = t[key];
+      }
+    }
+    applyLang(detectLang());
+  </script>
+</body>
+</html>
