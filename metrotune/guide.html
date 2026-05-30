@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="guide.meta.title">MetroTune Guide — Archet Studio</title>
+  <meta name="description" data-i18n-content="guide.meta.description" content="User guide for MetroTune — metronome, chromatic tuner, and scale trainer. Learn how to use Score View, Echo Mode, Tempo Map, and more.">
+  <meta name="author" content="Archet Studio LLC">
+  <meta property="og:title" content="MetroTune Guide — Archet Studio">
+  <meta property="og:description" content="User guide for MetroTune — metronome, chromatic tuner, and scale trainer.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://archetstudio.com/metrotune/guide">
+  <meta property="og:image" content="https://archetstudio.com/images/metrotune/v141/score.png">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/icon.png">
+  <meta name="theme-color" content="#111827">
+  <link rel="canonical" href="https://archetstudio.com/metrotune/guide">
+  <link rel="alternate" hreflang="en" href="https://archetstudio.com/metrotune/guide">
+  <link rel="alternate" hreflang="x-default" href="https://archetstudio.com/metrotune/guide">
+  <link rel="stylesheet" href="../css/tailwind.min.css">
+  <style>
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/inter-400.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/inter-500.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/inter-600.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url('../fonts/inter-700.woff2') format('woff2'); }
+    @font-face { font-family: 'Lato'; font-style: normal; font-weight: 100; font-display: swap; src: url('../fonts/lato-100.woff2') format('woff2'); }
+    @font-face { font-family: 'Lato'; font-style: normal; font-weight: 900; font-display: swap; src: url('../fonts/lato-900.woff2') format('woff2'); }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .logo-nav { display: inline-flex; align-items: baseline; font-size: 1.125rem; line-height: 1; color: #f3f4f6; opacity: 0.9; transition: all 0.2s ease; text-decoration: none; }
+    .logo-nav:hover { opacity: 1; transform: translateY(-1px); }
+    .logo-archet { font-family: 'Lato', sans-serif; font-weight: 900; letter-spacing: 0.04em; }
+    .logo-studio { font-family: 'Lato', sans-serif; font-weight: 100; letter-spacing: 0.04em; }
+    .logo-gap { width: 0.2em; }
+    @media (min-width: 640px) { .logo-nav { font-size: 1.35rem; } }
+    a:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; border-radius: 4px; }
+    /* Utility classes not in the static Tailwind build */
+    .w-12 { width: 3rem; }
+    .h-12 { height: 3rem; }
+    .w-48 { width: 12rem; }
+    .flex-1 { flex: 1 1 0%; }
+    .flex-shrink-0 { flex-shrink: 0; }
+    .hidden { display: none; }
+    .sticky { position: sticky; }
+    .top-0 { top: 0; }
+    .top-24 { top: 6rem; }
+    .z-40 { z-index: 40; }
+    .mb-2 { margin-bottom: 0.5rem; }
+    .mb-12 { margin-bottom: 3rem; }
+    .mb-14 { margin-bottom: 3.5rem; }
+    .ml-1 { margin-left: 0.25rem; }
+    .py-10 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+    .pt-10 { padding-top: 2.5rem; }
+    .gap-10 { gap: 2.5rem; }
+    .tracking-widest { letter-spacing: 0.1em; }
+    .align-middle { vertical-align: middle; }
+    @media (min-width: 1024px) {
+      .lg\:block { display: block; }
+      .lg\:gap-16 { gap: 4rem; }
+    }
+    /* Sidebar nav active state */
+    .guide-nav-link { display: block; padding: 0.25rem 0.75rem; border-radius: 0.375rem; font-size: 0.8125rem; color: #9ca3af; transition: color 0.15s, background 0.15s; text-decoration: none; }
+    .guide-nav-link:hover { color: #f3f4f6; background: rgba(255,255,255,0.05); }
+    .guide-nav-link.active { color: #60a5fa; background: rgba(96,165,250,0.08); }
+    /* Section status badges */
+    .guide-nav-link[data-status="stub"]::after,
+    .guide-nav-link[data-status="in-progress"]::after {
+      font-size: 0.6875rem; color: #6b7280; font-weight: 400; margin-left: 0.375rem; font-style: italic;
+    }
+    .guide-nav-link[data-status="stub"]::after { content: "(stub)"; }
+    .guide-nav-link[data-status="in-progress"]::after { content: "(in progress)"; }
+    /* One-section-at-a-time: hide all sections, show only the active one */
+    .guide-section { display: none; }
+    .guide-section.active { display: block; }
+    /* Mobile section dropdown */
+    .mobile-section-nav { display: block; margin-bottom: 1.5rem; }
+    @media (min-width: 1024px) { .mobile-section-nav { display: none; } }
+    .mobile-section-nav select { width: 100%; background: #1f2937; color: #f3f4f6; border: 1px solid #374151; border-radius: 0.5rem; padding: 0.625rem 0.875rem; font-size: 0.875rem; font-family: inherit; }
+    /* Next/Prev buttons */
+    .guide-pager { display: flex; gap: 0.75rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid #1f2937; }
+    .guide-pager-btn { flex: 1; display: flex; flex-direction: column; padding: 0.875rem 1rem; border: 1px solid #374151; border-radius: 0.625rem; background: transparent; color: #9ca3af; text-decoration: none; transition: border-color 0.15s, color 0.15s; font-size: 0.875rem; }
+    .guide-pager-btn:hover { border-color: #60a5fa; color: #f3f4f6; }
+    .guide-pager-btn.next { text-align: right; }
+    .guide-pager-btn .label { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.08em; color: #6b7280; }
+    .guide-pager-btn .title { margin-top: 0.25rem; color: #f3f4f6; font-weight: 500; }
+    .guide-pager-btn[hidden] { visibility: hidden; pointer-events: none; }
+    /* 3-up screenshots with callouts */
+    .guide-3up { display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-top: 1.5rem; }
+    @media (min-width: 768px) { .guide-3up { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; } }
+    .guide-3up figure { margin: 0; display: flex; flex-direction: column; align-items: center; }
+    .guide-3up .phone-frame { width: 180px; margin: 0; }
+    .guide-3up figcaption { margin-top: 1rem; text-align: center; width: 100%; }
+    .guide-3up figcaption .title { font-size: 0.875rem; font-weight: 600; color: #f3f4f6; }
+    .guide-3up figcaption .callout { margin-top: 0.5rem; font-size: 0.75rem; color: #9ca3af; line-height: 1.5; }
+    .guide-3up figcaption .callout strong { color: #60a5fa; font-weight: 600; }
+    /* Subsection pill row + sub-headings */
+    .subsection-toc { margin: 1rem 0 1.75rem; }
+    .subsection-toc-label { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.08em; color: #6b7280; font-weight: 600; margin-bottom: 0.5rem; }
+    .subsection-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .subsection-pill { display: inline-block; padding: 0.3rem 0.75rem; border-radius: 999px; font-size: 0.75rem; color: #9ca3af; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); text-decoration: none; transition: color 0.15s, background 0.15s, border-color 0.15s; }
+    .subsection-pill:hover { color: #f3f4f6; background: rgba(96,165,250,0.1); border-color: rgba(96,165,250,0.3); }
+    .subsection-heading { scroll-margin-top: 5rem; font-size: 0.9375rem; font-weight: 600; color: #f3f4f6; margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(96,165,250,0.2); }
+    .subsection-heading:first-of-type { margin-top: 0.5rem; }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-blue-500 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="border-b border-gray-800 sticky top-0 bg-gray-900 z-40">
+    <div class="max-w-5xl mx-auto px-6 sm:px-8 py-5 flex items-center justify-between">
+      <a href="/" class="logo-nav" aria-label="Archet Studio LLC — Home">
+        <span class="logo-archet">ARCHET</span>
+        <span class="logo-gap" aria-hidden="true"></span>
+        <span class="logo-studio">STUDIO</span>
+      </a>
+      <div class="flex items-center gap-5 sm:gap-7 text-sm font-medium tracking-wide text-gray-400">
+        <a href="/metrotune" class="hover:text-gray-100 transition-colors" data-i18n="guide.nav.app">MetroTune</a>
+        <a href="/metrotune-support" class="hover:text-gray-100 transition-colors" data-i18n="nav.support">Support</a>
+        <a href="/privacy/metrotune.html" class="hover:text-gray-100 transition-colors" data-i18n="nav.privacy">Privacy</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="max-w-5xl mx-auto px-6 sm:px-8 py-10" id="main">
+    <div class="flex gap-10 lg:gap-16">
+
+      <!-- Sidebar -->
+      <aside class="hidden lg:block w-48 flex-shrink-0">
+        <div class="sticky top-24">
+          <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 px-3 mb-3">Guide</p>
+          <nav aria-label="Guide sections">
+            <a href="#getting-started" class="guide-nav-link" data-i18n="guide.nav.gettingStarted">Getting Started</a>
+            <a href="#metronome" class="guide-nav-link" data-status="in-progress" data-i18n="guide.nav.metronome">Metronome</a>
+            <a href="#tuner" class="guide-nav-link" data-status="stub" data-i18n="guide.nav.tuner">Tuner</a>
+            <a href="#scale-trainer" class="guide-nav-link" data-status="stub" data-i18n="guide.nav.scaleTrainer">Scale Trainer</a>
+            <a href="#score-view" class="guide-nav-link" data-status="stub" data-i18n="guide.nav.scoreView">Score View</a>
+            <a href="#echo-mode" class="guide-nav-link" data-status="stub" data-i18n="guide.nav.echoMode">Echo Mode</a>
+            <a href="#tempo-map" class="guide-nav-link" data-status="complete" data-i18n="guide.nav.tempoMap">Tempo Map</a>
+            <a href="#clap-control" class="guide-nav-link" data-status="stub" data-i18n="guide.nav.clapControl">Clap Control</a>
+            <a href="#themes" class="guide-nav-link" data-i18n="guide.nav.themes">Themes &amp; Languages</a>
+            <a href="#premium" class="guide-nav-link" data-status="stub" data-i18n="guide.nav.premium">Premium</a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <main class="flex-1 min-w-0">
+
+        <!-- Header -->
+        <div class="mb-12">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="../images/metrotune-icon.png" alt="MetroTune app icon" class="w-12 h-12 rounded-[22.5%] border border-white/10 flex-shrink-0">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-widest text-blue-400" data-i18n="guide.eyebrow">User Guide</p>
+              <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-gray-100">MetroTune&trade;</h1>
+            </div>
+          </div>
+          <p class="text-gray-400 leading-relaxed max-w-2xl" data-i18n="guide.intro">Everything you need to get the most out of MetroTune — metronome, chromatic tuner, and scale trainer.</p>
+        </div>
+
+        <!-- Work-in-progress banner -->
+        <div style="margin-bottom:1.5rem;border-radius:0.5rem;border:1px solid rgba(96,165,250,0.25);background-color:rgba(59,130,246,0.08);padding:0.875rem 1.125rem;">
+          <p class="text-xs uppercase text-blue-400 font-semibold" style="letter-spacing:0.1em;" data-i18n="guide.devNotice.eyebrow">Work in progress</p>
+          <p class="mt-1 text-sm text-gray-300 leading-relaxed" data-i18n="guide.devNotice.body">This guide is being actively built &mdash; some sections are placeholders while we fill in details, screenshots, and videos.</p>
+        </div>
+
+        <!-- Mobile section selector (shown when sidebar is hidden) -->
+        <div class="mobile-section-nav" role="navigation" aria-label="Guide section selector">
+          <label for="mobile-section-select" class="sr-only">Choose section</label>
+          <select id="mobile-section-select"></select>
+        </div>
+
+        <!-- Getting Started -->
+        <section id="getting-started" class="guide-section mb-14">
+          <h2 class="text-xl font-bold text-gray-100 mb-4" data-i18n="guide.gettingStarted.title">Getting Started</h2>
+          <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 space-y-4 text-sm text-gray-400 leading-relaxed">
+            <p data-i18n="guide.gettingStarted.p1">Open MetroTune and tap <strong class="text-gray-200">START</strong> — the metronome plays immediately at 120 BPM in 4/4. No account, no setup, no permissions required.</p>
+            <p data-i18n="guide.gettingStarted.p2">Three views are one tap apart: <strong class="text-gray-200">Metronome</strong>, <strong class="text-gray-200">Tuner</strong>, and <strong class="text-gray-200">Score View</strong>. They share the same sounds, themes, and settings.</p>
+          </div>
+
+          <div class="guide-3up">
+            <figure>
+              <div class="phone-frame"><img src="../images/metrotune/guide/metronome.png" alt="Metronome view"></div>
+              <figcaption>
+                <div class="title">Metronome</div>
+                <p class="callout">Tap <strong>TUNE</strong> (bottom left) to open the Tuner.</p>
+              </figcaption>
+            </figure>
+            <figure>
+              <div class="phone-frame"><img src="../images/metrotune/guide/tuner-scales.png" alt="Tuner view with scales enabled, showing the SCORE button at the top of the screen"></div>
+              <figcaption>
+                <div class="title">Tuner</div>
+                <p class="callout">Tap <strong>SCALE</strong> and configure a scale pattern, then tap <strong>SCORE</strong> up top to open Score View.</p>
+              </figcaption>
+            </figure>
+            <figure>
+              <div class="phone-frame"><img src="../images/metrotune/guide/score.png" alt="Score View showing a B-flat minor arpeggio on a grand staff with five-flat key signature"></div>
+              <figcaption>
+                <div class="title">Score View</div>
+                <p class="callout">Real notation with clefs, key signature, and accidentals. Tap <strong>TUNER</strong> to return.</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 mt-6 text-sm text-gray-400 leading-relaxed">
+            <p><strong class="text-gray-200">Contextual navigation.</strong> The buttons around the big <strong class="text-gray-200">START</strong> circle change based on the current view — they're always the next tap away. From the Tuner, for example, <strong class="text-gray-200">METRO</strong> takes you back to the Metronome, and <strong class="text-gray-200">SCALE</strong> toggles scale mode on.</p>
+          </div>
+        </section>
+
+        <!-- Metronome -->
+        <section id="metronome" class="guide-section mb-14">
+          <h2 class="text-xl font-bold text-gray-100 mb-4" data-i18n="guide.metronome.title">Metronome</h2>
+          <p class="text-sm text-gray-400 leading-relaxed mb-4" data-i18n="guide.metronome.intro">Tap the big <strong class="text-gray-200">START</strong> circle to play, again to stop. Everything else on this screen &mdash; tempo, time signature, beat pattern, sound &mdash; adjusts the metronome before or while it plays. For multi-step practice (different tempos and meters in sequence), the <strong class="text-gray-200">MAP</strong> button at the bottom-right opens <a href="#tempo-map" class="text-blue-400 hover:underline">Tempo Map</a>.</p>
+          <div class="subsection-toc">
+            <p class="subsection-toc-label" data-i18n="guide.metronome.toc.label">On this page</p>
+            <nav class="subsection-pills" aria-label="Metronome topics">
+              <a href="#metronome-basics" class="subsection-pill">The basics</a>
+              <a href="#metronome-tempo" class="subsection-pill">Tempo</a>
+              <a href="#metronome-meter" class="subsection-pill">Meter</a>
+              <a href="#metronome-sound" class="subsection-pill">Sound</a>
+              <a href="#metronome-beat-pattern" class="subsection-pill">Beat Pattern</a>
+              <a href="#metronome-gap-click" class="subsection-pill">Gap Click</a>
+            </nav>
+          </div>
+          <div class="space-y-4 text-sm text-gray-400 leading-relaxed">
+            <h3 id="metronome-basics" class="subsection-heading" data-i18n="guide.metronome.subsection.basics">The basics</h3>
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 space-y-4">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.metronome.basics.title">Time signature and sound</h3>
+              <p data-i18n="guide.metronome.basics.timeSig"><strong class="text-gray-200">Time signature.</strong> A time signature is two numbers: the <strong class="text-gray-200">top</strong> tells you how many beats are in each measure; the <strong class="text-gray-200">bottom</strong> tells you the note value of each beat (4 = quarter notes, 8 = eighth notes).</p>
+              <p data-i18n="guide.metronome.basics.beats"><strong class="text-gray-200">Number of beats (top number).</strong> Tap the chevrons (<strong class="text-gray-200">&lsaquo;</strong> / <strong class="text-gray-200">&rsaquo;</strong>) on either side of the beat indicators to add or remove beats. Whatever you set here becomes the numerator of the time signature shown later in Score View.</p>
+              <ul class="space-y-1 ml-1 mt-2">
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.basics.beats.ex2"><strong class="text-gray-200">2 beats</strong> &rarr; 2/4 (march)</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.basics.beats.ex3"><strong class="text-gray-200">3 beats</strong> &rarr; 3/4 (waltz)</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.basics.beats.ex4"><strong class="text-gray-200">4 beats</strong> &rarr; 4/4 (common time)</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.basics.beats.ex5"><strong class="text-gray-200">5 beats</strong> &rarr; 5/4 (irregular &mdash; Holst&rsquo;s <em>Mars</em>, Brubeck&rsquo;s <em>Take Five</em>)</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.basics.beats.ex6"><strong class="text-gray-200">6 beats</strong> &rarr; 6/4 or 6/8 depending on the Meter setting</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.basics.beats.ex7"><strong class="text-gray-200">7+ beats</strong> &rarr; 7/4, 7/8, 9/8, 12/8&hellip; for odd or compound meters</span></li>
+              </ul>
+              <div style="margin-top:0.75rem;border-radius:0.5rem;overflow:hidden;border:1px solid #374151;background:#000;">
+                <video autoplay muted loop playsinline preload="metadata" style="width:100%;display:block;">
+                  <source src="../images/metrotune/guide/beats.webm" type="video/webm">
+                  <source src="../images/metrotune/guide/beats.mp4" type="video/mp4">
+                </video>
+              </div>
+              <p data-i18n="guide.metronome.basics.meter"><strong class="text-gray-200">Beat unit (bottom number).</strong> Tap the <strong class="text-gray-200">Meter</strong> row to switch between quarter-note (4) and eighth-note (8) beats. Compound meters &mdash; 6/8, 7/8, 9/8, 12/8 &mdash; are accessible from here.</p>
+              <p data-i18n="guide.metronome.basics.sounds"><strong class="text-gray-200">Sound.</strong> Choose from 17 sound profiles including Click, Wood, Hi-Hat, Beep, Keyboard, and more. See the <em>Sound profiles</em> card below for the full picture.</p>
+            </div>
+            <h3 id="metronome-tempo" class="subsection-heading" data-i18n="guide.metronome.subsection.tempo">Tempo</h3>
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 space-y-4">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.metronome.tempo.title">Setting tempo</h3>
+              <p data-i18n="guide.metronome.tempo.intro">Three ways to dial in BPM, each suited to a different need:</p>
+              <ul class="space-y-2 ml-1">
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.tempo.arrows"><strong class="text-gray-200">Left / right arrows</strong> (<strong class="text-gray-200">+</strong> / <strong class="text-gray-200">&minus;</strong>) &mdash; nudge tempo by 1 BPM at a time. Best for fine adjustments while playing.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.tempo.slider"><strong class="text-gray-200">Horizontal slider</strong> &mdash; drag the white dot for broad changes across the full BPM range.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.tempo.tap"><strong class="text-gray-200">TAP button</strong> &mdash; tap repeatedly in time with the music; the metronome averages the interval and locks to that tempo.</span></li>
+              </ul>
+              <div style="margin-top:0.75rem;border-radius:0.5rem;overflow:hidden;border:1px solid #374151;background:#000;">
+                <video autoplay muted loop playsinline preload="metadata" style="width:100%;display:block;">
+                  <source src="../images/metrotune/guide/tempo.webm" type="video/webm">
+                  <source src="../images/metrotune/guide/tempo.mp4" type="video/mp4">
+                </video>
+              </div>
+              <p data-i18n="guide.metronome.tempo.marking">The Italian tempo marking (<em>Largo</em>, <em>Adagio</em>, <em>Andante</em>, <em>Moderato</em>, <em>Allegro</em>, <em>Presto</em>, <em>Prestissimo</em>&hellip;) above the BPM updates automatically as you change tempo.</p>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 space-y-3">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.metronome.recent.title">Recent tempos</h3>
+              <p data-i18n="guide.metronome.recent.body">The tick marks on the slider track are your <strong class="text-gray-200">recent tempos</strong> &mdash; every BPM you&rsquo;ve used since opening the app. Tap any tick to jump back to that tempo in one move.</p>
+              <p data-i18n="guide.metronome.recent.cross">It works across all three input methods. Drag the slider to a fresh BPM, nudge with <strong class="text-gray-200">+</strong> / <strong class="text-gray-200">&minus;</strong>, set a tempo with <strong class="text-gray-200">TAP</strong> &mdash; each becomes a tick mark you can return to without retyping or re-tapping.</p>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 space-y-3">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.metronome.history.title">Recent configurations</h3>
+              <p data-i18n="guide.metronome.history.body">Tap the circular icon next to the BPM to open a row of pills below it &mdash; your <strong class="text-gray-200">recent setups</strong>. Each pill captures the full metronome state (tempo, sound profile, beat pattern, accents, meter) so you can return to a configuration you used earlier without rebuilding it.</p>
+              <p data-i18n="guide.metronome.history.suffix">When you've used the same tempo with different setups, a letter suffix distinguishes them &mdash; <strong class="text-gray-200">120</strong>, <strong class="text-gray-200">120a</strong>, <strong class="text-gray-200">120b</strong>, etc. Tap any pill to recall that exact configuration.</p>
+              <div style="display:flex;justify-content:center;margin-top:1.25rem;">
+                <div class="phone-frame" style="margin:0;width:180px;">
+                  <video autoplay muted loop playsinline preload="metadata" style="width:100%;display:block;">
+                    <source src="../images/metrotune/guide/recent-configs.webm" type="video/webm">
+                    <source src="../images/metrotune/guide/recent-configs.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <p style="font-size:0.6875rem;color:#6b7280;font-style:italic;text-align:center;margin-top:0.625rem;" data-i18n="guide.metronome.history.videoNote">Video condensed &mdash; empty space between the controls and the START button has been removed to keep both in frame.</p>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 space-y-3">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.metronome.tempoMapLink.title">Multi-step tempo sequences</h3>
+              <p data-i18n="guide.metronome.tempoMapLink.body">When practice calls for tempo ramps, mixed-meter pieces, or any sequence where the metronome needs to change at fixed intervals, tap the <strong class="text-gray-200">MAP</strong> button at the bottom-right to open <a href="#tempo-map" class="text-blue-400 hover:underline">Tempo Map</a>. Each step is a full metronome configuration &mdash; tempo, time signature, beat pattern, sound, measures &mdash; that plays for a set number of bars before advancing to the next. The Tempo Step option also lets you auto-increment BPM by a fixed amount or percentage as you add patterns.</p>
+            </div>
+            <h3 id="metronome-meter" class="subsection-heading" data-i18n="guide.metronome.subsection.meter">Meter</h3>
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 space-y-3">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.metronome.meter.title">Meter presets</h3>
+              <p data-i18n="guide.metronome.meter.body">Tap the <strong class="text-gray-200">Meter &#x25BE;</strong> button under the BPM to open a list of compound and irregular meters. Each preset configures the beat unit, number of beats, and accent pattern in one move.</p>
+              <ul class="space-y-2 ml-1">
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.meter.ex68"><strong class="text-gray-200">6/8</strong> &mdash; 6 eighth-note beats, accents on 1 and 4 (compound duple).</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.meter.ex78"><strong class="text-gray-200">7/8 (2+2+3)</strong> vs <strong class="text-gray-200">7/8 (2+3+2)</strong> &mdash; same 7 eighth-note beats, different grouping shifts which beats get the accent.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.meter.ex58"><strong class="text-gray-200">5/8 (2+3)</strong> vs <strong class="text-gray-200">5/8 (3+2)</strong> &mdash; same total beats, different accent placement.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.meter.ex22"><strong class="text-gray-200">2/2</strong>, <strong class="text-gray-200">9/8</strong>, <strong class="text-gray-200">12/8</strong>, <strong class="text-gray-200">3/8</strong> &mdash; classical compound meters, each with its standard accent pattern.</span></li>
+              </ul>
+              <p data-i18n="guide.metronome.meter.tip">Use the preset to set up the click pattern, then change just the tempo &mdash; the meter and accents stay consistent through tempo changes.</p>
+              <div style="display:flex;justify-content:center;margin-top:1.25rem;">
+                <div class="phone-frame" style="margin:0;width:180px;">
+                  <img src="../images/metrotune/guide/meter-popup.png" alt="Meter Presets popup showing compound and irregular meters: Standard 4/4, 3/8, 6/8, 9/8, 12/8, 2/2, 5/8 (2+3), 5/8 (3+2), 7/8 (2+2+3), 7/8 (2+3+2). Each entry shows the beat unit, number of beats, and accent pattern.">
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 space-y-3">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.metronome.beatUnit.title">Beat unit, in depth</h3>
+              <p data-i18n="guide.metronome.beatUnit.intro">Beat unit is the bottom number of the time signature &mdash; quarter (4), eighth (8), or half (2). It changes more than the label suggests.</p>
+              <ul class="space-y-2 ml-1">
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.beatUnit.bpm"><strong class="text-gray-200">What &ldquo;BPM&rdquo; refers to depends on it.</strong> In 4/4, 120 BPM means 120 quarter notes per minute. In 6/8, 120 BPM means 120 <em>eighth</em> notes per minute &mdash; a denser pulse for the same number. In 2/2 (cut time), it&rsquo;s half notes. The same BPM can feel very different across meters.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.beatUnit.hidden"><strong class="text-gray-200">Some beat patterns aren&rsquo;t available in every meter.</strong> When the beat unit is already an eighth (6/8, 9/8, 12/8), denser patterns &mdash; sixteenths, quintuplets, sextuplets, 32nds &mdash; are hidden from the picker. They&rsquo;d produce 32nd-level density against the underlying quarter-note pulse, unreadable in practice. Switch back to a quarter-unit meter and they reappear.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.beatUnit.reset"><strong class="text-gray-200">Meter switches reset the beat pattern.</strong> If you had sixteenths selected in 4/4 and switched to 6/8 (where sixteenths aren&rsquo;t available), the pattern would land in an undefined state. So the app always resets to the &ldquo;quarter&rdquo; pattern after a meter change &mdash; pick a denser pattern again if the new meter supports it.</span></li>
+              </ul>
+            </div>
+            <h3 id="metronome-sound" class="subsection-heading" data-i18n="guide.metronome.subsection.sound">Sound</h3>
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 space-y-3">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.metronome.sound.title">Sound profiles</h3>
+              <p data-i18n="guide.metronome.sound.intro">MetroTune offers 17 sound profiles. Tap any tile in the <strong class="text-gray-200">Sound</strong> row to switch; scroll right for more.</p>
+              <p data-i18n="guide.metronome.sound.kit">Most are drum-kit and pitched timbres &mdash; Click, Beep, Hi-Hat, Snap, Cowbell, Rimshot, Kick, Wood, Bamboo, Marimba, Rosewood, Keyboard, and more. Every profile is synthesized from scratch (no recorded samples), so each has its own attack character. Accents are reinforced through pitch shifts, brighter transients, and slightly longer decay rather than pure loudness &mdash; they stay recognizable even at low volume.</p>
+              <p data-i18n="guide.metronome.sound.muted"><strong class="text-gray-200">Muted</strong> is the one special profile &mdash; selecting it silences audio and triggers Silent Practice mode. The screen collapses to a single beat flash; everything else is hidden for distraction-free practice.</p>
+              <p data-i18n="guide.metronome.sound.balance">Across all profiles, MetroTune keeps the overall loudness consistent &mdash; switching from Hi-Hat to Beep to Marimba changes the timbre, not how loud the metronome is.</p>
+              <p data-i18n="guide.metronome.sound.voice"><strong class="text-gray-200">Voice counting</strong> is a separate toggle, not a sound profile. Look for the round button in the top-right of the bottom button cluster &mdash; it shows <strong class="text-gray-200">OFF</strong> when voice is disabled and switches to <strong class="text-gray-200">VOICE</strong> with a green highlight when enabled. Tap to toggle it, and the metronome speaks the beat numbers aloud (&ldquo;1, 2, 3, 4&rdquo;&hellip;). Useful for counting drills or when a click is hard to hear over your instrument.</p>
+              <div style="display:flex;justify-content:center;margin-top:0.75rem;">
+                <div style="border-radius:0.5rem;overflow:hidden;border:1px solid #374151;background:#000;width:220px;">
+                  <video autoplay muted loop playsinline preload="metadata" style="width:100%;display:block;">
+                    <source src="../images/metrotune/guide/voice-toggle.webm" type="video/webm">
+                    <source src="../images/metrotune/guide/voice-toggle.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <h3 id="metronome-beat-pattern" class="subsection-heading" data-i18n="guide.metronome.subsection.beatPattern">Beat Pattern</h3>
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 space-y-3">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.metronome.beatPattern.title">Beat Pattern</h3>
+              <p data-i18n="guide.metronome.beatPattern.body">Choose a subdivision shape &mdash; quarters, duplets, triplets, sixteenths, quintuplets, sextuplets, or 32nds &mdash; then shape the click with two interactions:</p>
+              <ul class="space-y-2 ml-1">
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.beatPattern.accent"><strong class="text-gray-200">Tap a beat circle</strong> (the numbered &ldquo;1, 2, 3, 4&rdquo; row at the top) to accent it. The first subdivision of an accented beat plays louder or with a different timbre.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.beatPattern.muteDot"><strong class="text-gray-200">Tap a subdivision dot</strong> (the smaller dots beneath each beat) to mute <em>just that subdivision</em>. Combine mutes across beats to build asymmetric grooves &mdash; e.g. a triplet pattern with the middle subdivision silenced (&ldquo;tah&hellip;tah&rdquo;), or sixteenths with positions 2 and 4 muted for syncopation.</span></li>
+              </ul>
+              <div style="display:flex;justify-content:center;margin-top:1.25rem;">
+                <div class="phone-frame" style="margin:0;width:180px;">
+                  <video autoplay muted loop playsinline preload="metadata" style="width:100%;display:block;">
+                    <source src="../images/metrotune/guide/beat-pattern.webm" type="video/webm">
+                    <source src="../images/metrotune/guide/beat-pattern.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <p style="font-size:0.6875rem;color:#6b7280;font-style:italic;text-align:center;margin-top:0.625rem;" data-i18n="guide.metronome.beatPattern.videoNote">Video condensed &mdash; empty space between the controls and the START button has been removed to keep both in frame.</p>
+              <div style="margin-top:1.5rem;border-radius:0.5rem;border:1px solid rgba(250,204,21,0.25);background-color:rgba(250,204,21,0.06);padding:0.875rem 1rem;">
+                <p style="font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.08em;color:#facc15;font-weight:600;margin-bottom:0.375rem;" data-i18n="guide.metronome.beatPattern.gotchaLabel">Heads-up &mdash; accent gotcha</p>
+                <p data-i18n="guide.metronome.beatPattern.gotcha"><strong class="text-gray-200">If the first subdivision of a beat is muted, the accent on that beat won&rsquo;t be heard.</strong> The accent rides on the first subdivision; mute it, and the accent goes silent with it. If you want the accent to land, leave the first subdivision sounding and mute later subdivisions instead.</p>
+              </div>
+              <div style="display:flex;justify-content:center;margin-top:1.25rem;">
+                <div class="phone-frame" style="margin:0;width:180px;">
+                  <video autoplay muted loop playsinline preload="metadata" style="width:100%;display:block;">
+                    <source src="../images/metrotune/guide/beat-mute.webm" type="video/webm">
+                    <source src="../images/metrotune/guide/beat-mute.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <p style="font-size:0.6875rem;color:#6b7280;font-style:italic;text-align:center;margin-top:0.625rem;" data-i18n="guide.metronome.beatPattern.muteNote">Muted subdivision dots stay outlined as the metronome ticks past them; sounding ones light up. Pattern shown: sextuplets (6 subdivisions per beat) with selective mutes across each beat. Video condensed to keep both controls and START button in frame.</p>
+            </div>
+            <h3 id="metronome-gap-click" class="subsection-heading" data-i18n="guide.metronome.subsection.gapClick">Gap Click</h3>
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 space-y-3">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.metronome.gapClick.title">Gap Click &mdash; train your internal clock</h3>
+              <p data-i18n="guide.metronome.gapClick.intro">Most metronomes click on every beat forever. <strong class="text-gray-200">Gap Click</strong> alternates clicking measures with silent measures &mdash; you have to hold tempo through the silence. When the click returns, you hear instantly whether you drifted ahead or behind. The gap <em>exposes</em> timing drift instead of letting the click <em>mask</em> it.</p>
+              <p data-i18n="guide.metronome.gapClick.pedagogy">This isn&rsquo;t a novelty mode. Silent-bar practice is a long-standing pedagogical tool in jazz, classical, and drum education &mdash; Wilcoxon&rsquo;s drum books, Tommy Igoe&rsquo;s drills, and countless jazz teachers have used it to build students&rsquo; <strong class="text-gray-200">internal pulse</strong>: the ability to keep tempo without external reference.</p>
+              <p data-i18n="guide.metronome.gapClick.indicator"><strong class="text-gray-200">Visual feedback during silence.</strong> When the metronome enters a silent stretch, a rotating-border <strong class="text-gray-200">GAP Active</strong> indicator appears in the status strip &mdash; so you know the silence is intentional, not a glitch.</p>
+              <div style="display:flex;justify-content:center;margin-top:0.75rem;">
+                <div class="phone-frame" style="margin:0;width:180px;">
+                  <video autoplay muted loop playsinline preload="metadata" style="width:100%;display:block;">
+                    <source src="../images/metrotune/guide/gap-active.webm" type="video/webm">
+                    <source src="../images/metrotune/guide/gap-active.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <p style="font-size:0.6875rem;color:#6b7280;font-style:italic;text-align:center;margin-top:0.625rem;" data-i18n="guide.metronome.gapClick.videoNote">Pro mode (1:3) running. The first measure clicks; the next three are silent with the rotating <em>GAP Active</em> indicator above the tempo. Empty space between controls and START removed for framing.</p>
+              <div style="margin-top:0.75rem;border-radius:0.5rem;border:1px solid rgba(96,165,250,0.25);background-color:rgba(59,130,246,0.06);padding:0.875rem 1rem;">
+                <p style="font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.08em;color:#60a5fa;font-weight:600;margin-bottom:0.375rem;" data-i18n="guide.metronome.gapClick.tipLabel">Tip &mdash; quick toggle</p>
+                <p data-i18n="guide.metronome.gapClick.button"><strong class="text-gray-200">The GAP button is dual-purpose.</strong> A short <strong class="text-gray-200">tap</strong> toggles the last-used mode on or off. A <strong class="text-gray-200">long-press</strong> (~1 second) opens the configuration modal. First-time users with no previous setup &mdash; a tap opens the modal too.</p>
+              </div>
+              <h4 class="text-sm font-semibold text-gray-100 mt-6 mb-2" data-i18n="guide.metronome.gapModes.title">The four modes</h4>
+              <p data-i18n="guide.metronome.gapModes.intro">Each mode controls the click-to-silent ratio differently. They scale from beginner-friendly to demanding.</p>
+              <ul class="space-y-3 ml-1">
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.gapModes.beginner"><strong class="text-gray-200">Beginner &mdash; 3:1.</strong> Three click bars, one silent bar. Plenty of click reinforcement; one silent bar is enough to test without getting lost. Start here if you&rsquo;ve never done gap practice.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.gapModes.pro"><strong class="text-gray-200">Pro &mdash; 1:3.</strong> One click bar, three silent. One bar to lock in the tempo, three bars to hold it without help. Demanding &mdash; most musicians struggle here at first. Transformational after a week.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.gapModes.random"><strong class="text-gray-200">Random</strong> <em class="not-italic text-gray-500 text-xs">(premium)</em> <strong class="text-gray-200">&mdash; coin flip per measure.</strong> The metronome decides per measure (and optionally per beat) whether to mute. You can&rsquo;t anticipate the gap, so you have to stay locked in continuously.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.metronome.gapModes.manual"><strong class="text-gray-200">Manual</strong> <em class="not-italic text-gray-500 text-xs">(premium)</em> <strong class="text-gray-200">&mdash; custom 1&ndash;16 sound, 1&ndash;16 silent.</strong> Configure any ratio for specific drills: 1:7 for ballad-tempo work, 4:4 for symmetric subdivision exercises, etc.</span></li>
+              </ul>
+              <p data-i18n="guide.metronome.gapModes.guideBeat"><strong class="text-gray-200">Guide Beat option</strong> <em class="not-italic text-gray-500 text-xs">(premium)</em>. When enabled, the downbeat (beat 1) plays even during silent measures &mdash; gives you an anchor at the start of each silent bar so you don&rsquo;t lose the form, while you stay responsible for beats 2, 3, 4. Use it as training wheels with Beginner or Pro; turn it off when you&rsquo;re ready for full silence.</p>
+              <div style="display:flex;justify-content:center;margin-top:0.75rem;">
+                <div class="phone-frame" style="margin:0;width:180px;">
+                  <img src="../images/metrotune/guide/gap-modal.png" alt="Gap Click configuration modal showing the four mode options (Beginner 3:1, Pro 1:3, Random, Manual) with Pro selected, plus the Guide Beat checkbox option below.">
+                </div>
+              </div>
+              <div style="margin-top:1.5rem;border-radius:0.5rem;border:1px solid rgba(74,222,128,0.3);background-color:rgba(34,197,94,0.07);padding:1.125rem 1.25rem;">
+                <p style="font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.08em;color:#4ade80;font-weight:600;margin-bottom:0.75rem;" data-i18n="guide.metronome.gapDrills.title">Try this &mdash; drills</p>
+                <ol class="space-y-3 ml-1 list-decimal list-inside">
+                  <li data-i18n="guide.metronome.gapDrills.scales"><strong class="text-gray-200">Beginner mode + scales.</strong> Run a major scale up and down across 4 measures &mdash; the 4th is silent. Keep the scale moving at the same tempo through the silence. When the click returns on the next downbeat, you&rsquo;ll hear immediately if you sped up or slowed down. Builds awareness without high failure rate.</li>
+                  <li data-i18n="guide.metronome.gapDrills.pro"><strong class="text-gray-200">Pro mode + a memorized passage.</strong> Click bar 1, you play bars 1&ndash;4. Devastating at first; transformational after a week. Most students discover they push the tempo when they&rsquo;re not being clicked at.</li>
+                  <li data-i18n="guide.metronome.gapDrills.random"><strong class="text-gray-200">Random mode + improvisation.</strong> Improvise over a chord progression at a fixed tempo. The metronome randomly mutes 50% of measures. Trains you to hold time even when you can&rsquo;t anticipate the click.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tuner -->
+        <section id="tuner" class="guide-section mb-14">
+          <h2 class="text-xl font-bold text-gray-100 mb-4" data-i18n="guide.tuner.title">Tuner</h2>
+          <div class="space-y-4 text-sm text-gray-400 leading-relaxed">
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.tuner.profiles.title">Tone Profiles</h3>
+              <p data-i18n="guide.tuner.profiles.body">Choose from five synthesized profiles — Tone, Clarinet, Organ, Brass, Bell — each built with the correct overtone series for that instrument family. The reference pitch sounds like your instrument, not a generic sine wave.</p>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.tuner.guideTone.title">Guide Tone</h3>
+              <p data-i18n="guide.tuner.guideTone.body">Hold a note and the tuner plays it back as a sustained reference tone. Use Loop to repeat it while you match pitch. Lock the octave so the reference stays on the note you set even if your playing drifts to a different register.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Scale Trainer -->
+        <section id="scale-trainer" class="guide-section mb-14">
+          <h2 class="text-xl font-bold text-gray-100 mb-4" data-i18n="guide.scaleTrainer.title">Scale Trainer</h2>
+          <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 text-sm text-gray-400 leading-relaxed">
+            <p data-i18n="guide.scaleTrainer.body">Build a scale queue by selecting scales in any key. Set count-in beats, loop count, and gap between scales. Save the queue as a named profile and reload it the next day. 28 built-in templates cover Hanon, circle of fifths, arpeggios, and common drills — load any as a starting point, then customize.</p>
+          </div>
+        </section>
+
+        <!-- Score View -->
+        <section id="score-view" class="guide-section mb-14">
+          <h2 class="text-xl font-bold text-gray-100 mb-2" data-i18n="guide.scoreView.title">Score View <span class="inline-block text-xs font-semibold uppercase tracking-wide text-blue-400 bg-blue-400/10 border border-blue-400/20 rounded-full px-2 py-0.5 ml-1 align-middle">v1.41</span></h2>
+          <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 text-sm text-gray-400 leading-relaxed">
+            <p data-i18n="guide.scoreView.body">Switch to Score View in the Scale Trainer to see a real music staff — clef, key signature, ledger lines, accidentals, rests — the same notation you'd read in a method book. Notes highlight in sequence as the metronome plays them. Use it alongside the metronome to read and keep time simultaneously.</p>
+          </div>
+        </section>
+
+        <!-- Echo Mode -->
+        <section id="echo-mode" class="guide-section mb-14">
+          <h2 class="text-xl font-bold text-gray-100 mb-2" data-i18n="guide.echoMode.title">Echo Mode <span class="inline-block text-xs font-semibold uppercase tracking-wide text-blue-400 bg-blue-400/10 border border-blue-400/20 rounded-full px-2 py-0.5 ml-1 align-middle">v1.41</span></h2>
+          <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 text-sm text-gray-400 leading-relaxed">
+            <p data-i18n="guide.echoMode.body">Echo Mode plays a note from your current scale, then listens through the microphone. Match the pitch within the tolerance window and the next note plays. Miss it and the app re-prompts, incrementing the attempt counter. Work through an entire scale as a call-and-response ear training session without switching apps.</p>
+          </div>
+        </section>
+
+        <!-- Tempo Map -->
+        <section id="tempo-map" class="guide-section mb-14">
+          <h2 class="text-xl font-bold text-gray-100 mb-4" data-i18n="guide.tempoMap.title">Tempo Map</h2>
+          <div class="space-y-4 text-sm text-gray-400 leading-relaxed">
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+              <p data-i18n="guide.tempoMap.body">Build a multi-step metronome sequence. <strong class="text-gray-200">Each step is a full metronome configuration</strong> &mdash; its own tempo, time signature, beat pattern, sound, accents, and measure count &mdash; so you can move between fundamentally different feels (a driving 4/4 section into a swung 6/8 into a 3/4 waltz) without leaving the map. Steps play in order and loop if enabled. The Beethoven 9th, Mvt. 4 profile ships pre-loaded &mdash; six entries across shifting tempos and meters &mdash; so you can see how a real piece lays out before building your own.</p>
+              <p class="mt-3" data-i18n="guide.tempoMap.openHow">Open the Tempo Map dialog from the <strong class="text-gray-200">MAP</strong> button at the bottom-right of the metronome screen.</p>
+            </div>
+
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.tempoMap.build.title">Building a sequence</h3>
+              <p data-i18n="guide.tempoMap.build.intro">Tap <strong class="text-gray-200">+</strong> to add a new pattern. The Add Pattern dialog mirrors the main metronome screen &mdash; the same BPM slider, time-signature row, beat-pattern selection, and sound profile are all available per pattern. Patterns are independent, so any combination can change between rows: just the tempo, just the meter, just the sound, or all at once. The dialog opens with the previous row&rsquo;s settings copied so you only adjust what differs.</p>
+              <ul class="mt-3 space-y-2 ml-1">
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.tempoMap.build.measures">Set <strong class="text-gray-200">Measures</strong> to choose how many bars play before advancing to the next pattern.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.tempoMap.build.loopBox">Each row has a <strong class="text-gray-200">Loop checkbox</strong>. Checked rows play on every loop pass; unchecked rows play only on the first pass through the map.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.tempoMap.build.delete">Tap the <strong class="text-gray-200">&times;</strong> on a row to remove it.</span></li>
+              </ul>
+              <div style="display:flex;justify-content:center;margin-top:1.25rem;">
+                <div class="phone-frame" style="margin:0;width:200px;">
+                  <video autoplay muted loop playsinline preload="metadata" style="width:100%;display:block;">
+                    <source src="../images/metrotune/guide/tempo-map.webm" type="video/webm">
+                    <source src="../images/metrotune/guide/tempo-map.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+              <p class="mt-3 text-xs text-gray-500 text-center" data-i18n="guide.tempoMap.build.videoCaption">Adding patterns with Tempo Step set to <strong class="text-gray-300">+10%</strong> &mdash; each new pattern auto-increments BPM from the previous one.</p>
+            </div>
+
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.tempoMap.tempoStep.title">Tempo Step &mdash; auto-incrementing tempo</h3>
+              <p data-i18n="guide.tempoMap.tempoStep.intro">Practicing a passage at progressively faster (or slower) tempos? Turn on <strong class="text-gray-200">Tempo Step</strong> and each new pattern you add will inherit the previous pattern&rsquo;s settings with the BPM adjusted automatically. Three controls shape the step:</p>
+              <ul class="mt-3 space-y-2 ml-1">
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.tempoMap.tempoStep.direction"><strong class="text-gray-200">Direction</strong> &mdash; Up (faster) or Down (slower).</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.tempoMap.tempoStep.mode"><strong class="text-gray-200">Mode</strong> &mdash; Fixed (a constant BPM amount) or Percent (a percentage of the previous tempo).</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.tempoMap.tempoStep.amount"><strong class="text-gray-200">Amount</strong> &mdash; how much each new pattern shifts.</span></li>
+              </ul>
+              <p class="mt-3" data-i18n="guide.tempoMap.tempoStep.example">Example: Direction <em>Up</em>, Mode <em>Percent</em>, Amount <em>+10%</em>, starting at 120 BPM. Tapping + three times gives you 132, 145, 160. The Add Pattern dialog still opens at the calculated BPM, and you can override the BPM &mdash; or any other setting (meter, beat pattern, sound, measures) &mdash; before tapping Add.</p>
+            </div>
+
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.tempoMap.playback.title">Loop, Start From, Count-In</h3>
+              <ul class="space-y-2 ml-1">
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.tempoMap.playback.loop"><strong class="text-gray-200">Loop</strong> &mdash; off plays the map once and stops. On, the first pass plays every row; subsequent passes only play rows with the Loop checkbox enabled.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.tempoMap.playback.startFrom"><strong class="text-gray-200">Start From</strong> &mdash; long-press a row to set it as the starting point (default: Row 1). Useful when rehearsing a piece from a specific section.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.tempoMap.playback.countIn"><strong class="text-gray-200">Count-In Beats</strong> &mdash; beats played at the starting tempo before the map begins.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.tempoMap.playback.allowChange"><strong class="text-gray-200">Allow Tempo Change to Update Profile</strong> &mdash; when on, changing BPM during playback updates the current pattern&rsquo;s saved tempo.</span></li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.tempoMap.profiles.title">Saving and loading profiles</h3>
+              <p data-i18n="guide.tempoMap.profiles.body">The Tempo Map dialog has <strong class="text-gray-200">Save</strong>, <strong class="text-gray-200">Load</strong>, and <strong class="text-gray-200">New</strong> at the top. Save names the current map and stores it. Load reopens any saved profile. New clears the map to start over. The current profile name appears at the top-right (<em>Untitled</em> until you save).</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Clap Control -->
+        <section id="clap-control" class="guide-section mb-14">
+          <h2 class="text-xl font-bold text-gray-100 mb-4" data-i18n="guide.clapControl.title">Double-Clap Control</h2>
+          <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 text-sm text-gray-400 leading-relaxed">
+            <p data-i18n="guide.clapControl.body">Enable Clap Control in settings. Two sharp claps in quick succession toggle playback on or off. Use it when your hands are busy — bow, drumsticks, keys — so you never have to reach for the screen mid-practice. Adjust sensitivity, background ratio, and timing window if detection is too eager or too slow in your room.</p>
+          </div>
+        </section>
+
+        <!-- Themes & Languages -->
+        <section id="themes" class="guide-section mb-14">
+          <h2 class="text-xl font-bold text-gray-100 mb-4" data-i18n="guide.themes.title">Themes &amp; Languages</h2>
+          <div class="space-y-4 text-sm text-gray-400 leading-relaxed">
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 space-y-3">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.themes.theme.title">Theme &mdash; long-press to swap</h3>
+              <p data-i18n="guide.themes.theme.intro">MetroTune ships with <strong class="text-gray-200">12 themes</strong> &mdash; six base color schemes plus six pastel variants. The theme applies app-wide: Metronome, Tuner, Scale Trainer, and Score View all use the same palette.</p>
+              <p data-i18n="guide.themes.theme.howto">To change the theme without leaving the metronome screen, <strong class="text-gray-200">long-press the START/STOP button for about one second</strong>. A color palette pops up around the button.</p>
+              <ul class="space-y-2 ml-1">
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.themes.theme.tap"><strong class="text-gray-200">Tap any color</strong> to switch the theme instantly.</span></li>
+                <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="guide.themes.theme.cancel"><strong class="text-gray-200">Tap outside the popup</strong> to cancel without changing.</span></li>
+              </ul>
+              <div style="display:flex;justify-content:center;margin-top:1.25rem;">
+                <div class="phone-frame" style="margin:0;width:180px;">
+                  <video autoplay muted loop playsinline preload="metadata" style="width:100%;display:block;">
+                    <source src="../images/metrotune/v141/scene9-themes.webm" type="video/webm">
+                    <source src="../images/metrotune/v141/scene9-themes.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 space-y-3">
+              <h3 class="text-sm font-semibold text-gray-100 mb-2" data-i18n="guide.themes.language.title">Languages</h3>
+              <p data-i18n="guide.themes.language.intro">MetroTune is available in <strong class="text-gray-200">14 interface languages</strong>: English, German, Spanish (Spain &amp; Mexico), French, Indonesian, Italian, Japanese, Korean, Portuguese (Brazil &amp; Portugal), Thai, Turkish, and Vietnamese.</p>
+              <p data-i18n="guide.themes.language.locale">The app follows your device locale automatically &mdash; open MetroTune on a phone set to Korean and you&rsquo;ll see the Korean interface. Override the choice in Settings if you want a language different from your device default.</p>
+              <p data-i18n="guide.themes.language.terms"><strong class="text-gray-200">Music terminology may stay in its conventional form.</strong> Some well-known music terms keep their universal form across all languages because musicians worldwide recognize them at a glance &mdash; Italian tempo markings (<em>Largo</em>, <em>Adagio</em>, <em>Andante</em>, <em>Allegro</em>, <em>Presto</em>&hellip;) are the most common example. Translating them risks losing meaning that&rsquo;s already shared across the music world.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Premium -->
+        <section id="premium" class="guide-section mb-14">
+          <h2 class="text-xl font-bold text-gray-100 mb-4" data-i18n="guide.premium.title">Premium Features</h2>
+          <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 text-sm text-gray-400 leading-relaxed">
+            <p data-i18n="guide.premium.body">Core features are free forever with no account required. Watch one short rewarded ad to unlock all premium features for 24 hours. No subscription, no recurring charges. If you skip the ad, the metronome, tuner, and scale trainer all continue to work exactly as described in this guide.</p>
+          </div>
+        </section>
+
+        <!-- Next / Previous pager -->
+        <nav class="guide-pager" aria-label="Section navigation">
+          <a id="guide-prev" class="guide-pager-btn prev" href="#">
+            <span class="label">&larr; Previous</span>
+            <span class="title"></span>
+          </a>
+          <a id="guide-next" class="guide-pager-btn next" href="#">
+            <span class="label">Next &rarr;</span>
+            <span class="title"></span>
+          </a>
+        </nav>
+
+        <!-- Support link -->
+        <div class="border-t border-gray-800 pt-10 mt-10">
+          <p class="text-sm text-gray-400" data-i18n="guide.support.text">Have a question not covered here?</p>
+          <a href="/metrotune-support" class="mt-2 inline-block text-sm text-blue-400 hover:underline" data-i18n="guide.support.cta">Visit the support &amp; FAQ page &rarr;</a>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-800 mt-16">
+    <div class="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-gray-400">
+      <div>
+        <p data-i18n="footer.copyright">&copy; 2026 Archet Studio LLC. All rights reserved.</p>
+        <p data-i18n="footer.trademark" class="mt-1">MetroTune&trade; is a trademark of Archet Studio LLC.</p>
+        <address class="not-italic mt-1">2261 Market Street STE 79219, San Francisco, CA 94114</address>
+        <a href="mailto:inquiry@archetstudio.com" class="hover:text-gray-100 transition-colors">inquiry@archetstudio.com</a>
+      </div>
+      <div class="flex flex-col sm:items-end gap-2">
+        <a href="/terms.html" data-i18n="footer.terms" class="hover:text-gray-100 transition-colors">Terms of Service</a>
+        <a href="/privacy/metrotune.html" data-i18n="footer.privacy" class="hover:text-gray-100 transition-colors">Privacy Policy</a>
+        <a href="/privacy/metrotune.html#do-not-sell" data-i18n="footer.doNotSell" class="hover:text-gray-100 transition-colors">Do Not Sell or Share My Personal Information</a>
+        <a href="mailto:privacy@archetstudio.com?subject=Data%20Deletion%20Request" data-i18n="footer.dataDeletion" class="hover:text-gray-100 transition-colors">Data Deletion Request</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../translations/metrotune-v141.js"></script>
+  <script>
+    (function () {
+      var T = window.METROTUNE_I18N || {};
+      var ALIAS = { 'es-419':'es-MX', 'pt':'pt-PT', 'pt-pt':'pt-PT', 'pt-br':'pt-BR', 'es-mx':'es-MX' };
+      function pick() {
+        var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+        for (var i = 0; i < langs.length; i++) {
+          var raw = langs[i];
+          if (!raw) continue;
+          var lower = raw.toLowerCase();
+          if (T[raw]) return raw;
+          if (T[lower]) return lower;
+          if (ALIAS[lower] && T[ALIAS[lower]]) return ALIAS[lower];
+          var base = lower.split('-')[0];
+          if (T[base]) return base;
+          if (ALIAS[base] && T[ALIAS[base]]) return ALIAS[base];
+        }
+        return 'en';
+      }
+      function apply(lang) {
+        var t = T[lang];
+        if (!t) return;
+        document.documentElement.lang = lang.split('-')[0];
+        var nodes = document.querySelectorAll('[data-i18n]');
+        for (var i = 0; i < nodes.length; i++) {
+          var k = nodes[i].getAttribute('data-i18n');
+          if (t[k]) nodes[i].textContent = t[k];
+        }
+        var metas = document.querySelectorAll('[data-i18n-content]');
+        for (var j = 0; j < metas.length; j++) {
+          var mk = metas[j].getAttribute('data-i18n-content');
+          if (t[mk]) metas[j].setAttribute('content', t[mk]);
+        }
+        if (t['guide.meta.title']) document.title = t['guide.meta.title'];
+      }
+      apply(pick());
+
+      // Section routing: show one section at a time, driven by window.location.hash
+      var sections = Array.prototype.slice.call(document.querySelectorAll('.guide-section'));
+      var links = document.querySelectorAll('.guide-nav-link');
+      var mobileSelect = document.getElementById('mobile-section-select');
+      var prevBtn = document.getElementById('guide-prev');
+      var nextBtn = document.getElementById('guide-next');
+
+      // Populate mobile dropdown from sidebar links
+      if (mobileSelect) {
+        for (var i = 0; i < links.length; i++) {
+          var opt = document.createElement('option');
+          opt.value = links[i].getAttribute('href').slice(1);
+          var status = links[i].getAttribute('data-status');
+          var suffix = status === 'stub' ? ' (stub)' : status === 'in-progress' ? ' (in progress)' : '';
+          opt.textContent = links[i].textContent + suffix;
+          mobileSelect.appendChild(opt);
+        }
+        mobileSelect.addEventListener('change', function () {
+          window.location.hash = mobileSelect.value;
+        });
+      }
+
+      function pauseMediaIn(section) {
+        section.querySelectorAll('video').forEach(function (v) { try { v.pause(); } catch (e) {} });
+      }
+      function playMediaIn(section) {
+        section.querySelectorAll('video[autoplay]').forEach(function (v) { try { v.play().catch(function () {}); } catch (e) {} });
+      }
+
+      function updatePager(idx) {
+        var prevSection = idx > 0 ? sections[idx - 1] : null;
+        var nextSection = idx < sections.length - 1 ? sections[idx + 1] : null;
+        if (prevSection) {
+          prevBtn.hidden = false;
+          prevBtn.href = '#' + prevSection.id;
+          prevBtn.querySelector('.title').textContent = prevSection.querySelector('h2').textContent.trim();
+        } else {
+          prevBtn.hidden = true;
+        }
+        if (nextSection) {
+          nextBtn.hidden = false;
+          nextBtn.href = '#' + nextSection.id;
+          nextBtn.querySelector('.title').textContent = nextSection.querySelector('h2').textContent.trim();
+        } else {
+          nextBtn.hidden = true;
+        }
+      }
+
+      function show(id) {
+        var rawTarget = document.getElementById(id);
+        var subAnchor = null;
+        var target;
+        if (rawTarget && rawTarget.classList.contains('guide-section')) {
+          target = rawTarget;
+        } else if (rawTarget && rawTarget.closest && rawTarget.closest('.guide-section')) {
+          target = rawTarget.closest('.guide-section');
+          subAnchor = rawTarget;
+        } else {
+          target = sections[0];
+        }
+        for (var i = 0; i < sections.length; i++) {
+          if (sections[i] === target) {
+            sections[i].classList.add('active');
+            playMediaIn(sections[i]);
+          } else {
+            sections[i].classList.remove('active');
+            pauseMediaIn(sections[i]);
+          }
+        }
+        for (var j = 0; j < links.length; j++) {
+          if (links[j].getAttribute('href') === '#' + target.id) links[j].classList.add('active');
+          else links[j].classList.remove('active');
+        }
+        if (mobileSelect) mobileSelect.value = target.id;
+        updatePager(sections.indexOf(target));
+        if (subAnchor) {
+          setTimeout(function () { subAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 0);
+        } else {
+          window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+        }
+      }
+
+      function handleHash() {
+        var id = window.location.hash.slice(1) || (sections[0] && sections[0].id) || '';
+        show(id);
+      }
+
+      window.addEventListener('hashchange', handleHash);
+      handleHash();
+    })();
+  </script>
+</body>
+</html>

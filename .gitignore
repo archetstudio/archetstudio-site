@@ -1,0 +1,22 @@
+# Internal docs
+MARKETING.md
+METROTUNE_DEPLOYMENT.md
+TRANSLATION_PROMPT_v141.md
+
+# Marketing/design assets (not part of website)
+MetroTune_*.png
+archetstudio_logo_*.png
+browser.png
+error.png
+graphic.png
+logo.svg
+metrotune-512.png
+metrotune.png
+
+# App build assets
+images/adaptive-icon.png
+images/splash-icon.png
+images/logo-navy.png
+
+# Translation source notes (internal only; deployed i18n JS stays tracked)
+translations/*.txt
