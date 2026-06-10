@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="meta.title">MetroTune — Free Metronome, Tuner & Scale Trainer | ARCHET STUDIO</title>
+  <meta name="description" data-i18n-content="meta.description" content="Free metronome with per-beat and per-subdivision sound customization, a chromatic tuner with transpose, and a scale trainer with real music notation and Echo Mode ear training. No account required. iOS & Android.">
+  <meta name="author" content="Archet Studio LLC">
+  <meta property="og:title" data-i18n-content="og.title" content="MetroTune — Free Metronome, Tuner & Scale Trainer">
+  <meta property="og:description" data-i18n-content="og.description" content="Practice scales from real notation, customize every beat and subdivision, and train your ear with Echo Mode. Free core tools, no account required.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://archetstudio.com/metrotune">
+  <meta property="og:image" content="https://archetstudio.com/images/metrotune/v141/score.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" data-i18n-content="og.title" content="MetroTune — Free Metronome, Tuner & Scale Trainer">
+  <meta name="twitter:description" data-i18n-content="twitter.description" content="Metronome, Tuner & Scale Trainer — in one free app.">
+  <meta name="twitter:image" content="https://archetstudio.com/images/metrotune/v141/score.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png">
+  <meta name="theme-color" content="#111827">
+  <link rel="canonical" href="https://archetstudio.com/metrotune">
+  <link rel="stylesheet" href="css/tailwind.min.css">
+  <!-- Reddit Pixel (skipped for bots/crawlers/automation) -->
+  <script>
+  (function () {
+    var ua = navigator.userAgent || '';
+    var botRe = /bot|crawl|spider|headless|phantom|slurp|lighthouse|webdriver|googlebot|bingbot|baiduspider|yandex|duckduckgo|facebookexternalhit|twitterbot|linkedinbot|telegrambot|whatsapp|skypeuripreview|prerender|pingdom|gtmetrix|pagespeed|googleimageproxy|insightappsec|nuclei|zgrab|scrapy|python-requests|curl|wget|go-http-client|axios|node-fetch/i;
+    if (navigator.webdriver === true || botRe.test(ua)) {
+      window._rdtIsBot = true;
+      return;
+    }
+    !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js?pixel_id=a2_iv5y30gphtqq",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
+    rdt('init','a2_iv5y30gphtqq');
+    rdt('track', 'PageVisit');
+    window._rdtContent = new URLSearchParams(window.location.search).get('utm_content') || '';
+  })();
+  // Helper for download badge clicks — routes to Reddit campaign event or organic WebPage_Visitor event.
+  // Defers navigation by ~200ms so the pixel HTTP request flushes before the browser unloads the page.
+  window._rdtTrackDownload = function (platform, evt) {
+    if (window._rdtIsBot) return;
+    var fire = function () {
+      if (typeof window.rdt !== 'function') return;
+      try {
+        var isReddit = new URLSearchParams(window.location.search).get('utm_source') === 'reddit';
+        var eventName;
+        if (isReddit) {
+          eventName = (platform === 'iOS' ? 'AppStoreRedirect_iOS' : 'AppStoreRedirect_Android')
+            + (window._rdtContent ? '_' + window._rdtContent : '');
+        } else {
+          eventName = platform === 'iOS' ? 'WebPage_Visitor_Apple' : 'WebPage_Visitor_Android';
+        }
+        window.rdt('track', 'SignUp');
+        window.rdt('track', 'Custom', { customEventName: eventName, utm_content: window._rdtContent });
+      } catch (e) {}
+    };
+    fire();
+    // If we have access to the event + the link's href, defer navigation so pixel can flush
+    if (evt && typeof evt.preventDefault === 'function') {
+      var anchor = evt.currentTarget || evt.target;
+      while (anchor && anchor.tagName !== 'A') anchor = anchor.parentNode;
+      if (anchor && anchor.href) {
+        evt.preventDefault();
+        setTimeout(function () { window.location.href = anchor.href; }, 250);
+      }
+    }
+  };
+  </script>
+  <!-- End Reddit Pixel -->
+  <script>
+    (function() {
+      if (window._rdtIsBot) return;
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('utm_source') === 'reddit') {
+        var ua = navigator.userAgent;
+        var isIOS = /iPhone|iPad|iPod/i.test(ua);
+        var isAndroid = /Android/i.test(ua);
+        if (isIOS || isAndroid) {
+          // UTM passthrough
+          var utmSource   = params.get('utm_source')   || '';
+          var utmMedium   = params.get('utm_medium')   || '';
+          var utmCampaign = params.get('utm_campaign') || '';
+          var utmContent  = params.get('utm_content')  || '';
+          var storeUrl;
+          if (isIOS) {
+            var ctParts = [utmCampaign, utmContent, utmMedium].filter(Boolean);
+            var ct = ctParts.length ? encodeURIComponent(ctParts.join('_')) : '';
+            storeUrl = 'https://apps.apple.com/app/metrotune-metronome-tuner/id6760752080' + (ct ? '?ct=' + ct : '');
+          } else {
+            var ref = [];
+            if (utmSource)   ref.push('utm_source='   + encodeURIComponent(utmSource));
+            if (utmMedium)   ref.push('utm_medium='   + encodeURIComponent(utmMedium));
+            if (utmCampaign) ref.push('utm_campaign=' + encodeURIComponent(utmCampaign));
+            if (utmContent)  ref.push('utm_content='  + encodeURIComponent(utmContent));
+            storeUrl = 'https://play.google.com/store/apps/details?id=com.archetstudio.metrotune' + (ref.length ? '&referrer=' + encodeURIComponent(ref.join('&')) : '');
+          }
+          var badgeSrc   = isIOS ? 'images/badge-appstore.svg' : 'images/badge-googleplay.png';
+          var badgeStyle = isIOS ? 'height:34px' : 'height:40px;margin:-2px 0';
+          window._rdtPlatform = isIOS ? 'AppStoreRedirect_iOS' : 'AppStoreRedirect_Android';
+          var banner = document.createElement('div');
+          banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#1f2937;border-top:1px solid #374151;padding:0.75rem 1.25rem;display:flex;align-items:center;gap:0.75rem;z-index:9999;box-shadow:0 -4px 16px rgba(0,0,0,0.4);';
+          banner.innerHTML =
+            '<img src="images/metrotune-icon.png" style="width:44px;height:44px;border-radius:11px;flex-shrink:0;">'
+            + '<div style="flex:1;min-width:0;">'
+            + '<div style="color:#f3f4f6;font-family:system-ui,sans-serif;font-size:0.875rem;font-weight:600;">MetroTune\u2122</div>'
+            + '<div style="color:#9ca3af;font-family:system-ui,sans-serif;font-size:0.7rem;">Free \u00b7 Metronome, Tuner &amp; Scale Trainer</div>'
+            + '</div>'
+            + '<a href="' + storeUrl + '" onclick="_rdtTrackDownload(\'' + (isIOS ? 'iOS' : 'Android') + '\', event)" style="flex-shrink:0;display:block;">'
+            + '<img src="' + badgeSrc + '" style="' + badgeStyle + ';display:block;">'
+            + '</a>'
+            + '<button onclick="this.parentElement.style.display=\'none\'" style="background:none;border:none;color:#6b7280;font-size:1.25rem;line-height:1;padding:4px;cursor:pointer;flex-shrink:0;">\u00d7</button>';
+          document.documentElement.appendChild(banner);
+          // Auto-forward Reddit mobile visitors — currently PAUSED.
+          // To re-enable: uncomment the setTimeout block below.
+          // setTimeout(function () {
+          //   try {
+          //     var autoEvent = window._rdtPlatform + '_Auto' + (window._rdtContent ? '_' + window._rdtContent : '');
+          //     rdt('track', 'SignUp');
+          //     rdt('track', 'Custom', { customEventName: autoEvent, utm_content: window._rdtContent });
+          //   } catch (e) {}
+          //   window.location.href = storeUrl;
+          // }, 3000);
+        }
+      }
+    })();
+  </script>
+  <style>
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/inter-400.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/inter-500.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url('fonts/inter-600.woff2') format('woff2'); }
+    @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url('fonts/inter-700.woff2') format('woff2'); }
+    @font-face { font-family: 'Lato'; font-style: normal; font-weight: 100; font-display: swap; src: url('fonts/lato-100.woff2') format('woff2'); }
+    @font-face { font-family: 'Lato'; font-style: normal; font-weight: 900; font-display: swap; src: url('fonts/lato-900.woff2') format('woff2'); }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+    .logo-nav { display: inline-flex; align-items: baseline; font-size: 1.125rem; line-height: 1; color: #f3f4f6; opacity: 0.9; transition: all 0.2s ease; text-decoration: none; }
+    .logo-nav:hover { opacity: 1; transform: translateY(-1px); }
+    .logo-archet { font-family: 'Lato', sans-serif; font-weight: 900; letter-spacing: 0.04em; }
+    .logo-studio { font-family: 'Lato', sans-serif; font-weight: 100; letter-spacing: 0.04em; }
+    .logo-gap { width: 0.2em; }
+    @media (min-width: 640px) { .logo-nav { font-size: 1.35rem; } }
+    a:focus-visible { outline: 2px solid #60a5fa; outline-offset: 2px; border-radius: 4px; }
+    .phone-frame {
+      width: 200px;
+      border-radius: 24px;
+      border: 3px solid #333;
+      overflow: hidden;
+      box-shadow: 0 24px 48px rgba(0,0,0,0.5);
+      flex-shrink: 0;
+      margin: 0 1rem;
+    }
+    .phone-frame img { width: 100%; display: block; }
+    @media (min-width: 640px) { .phone-frame { width: 240px; margin: 0 2rem; } }
+    .phone-frame-lg { width: 240px; }
+    @media (min-width: 640px) { .phone-frame-lg { width: 280px; } }
+    .new-badge { display: inline-block; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; color: #93c5fd; background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.25); margin-left: 0.5rem; vertical-align: middle; }
+    /* Tailwind class fill-ins (not in the static build) */
+    .flex-col-reverse { flex-direction: column-reverse; }
+    /* Whats-new pagination */
+    #whatsnew-callout .whatsnew-more { display: none; }
+    #whatsnew-callout.expanded .whatsnew-more { display: flex; }
+    /* 3-up screenshots layout */
+    .apps-3up { display: grid; grid-template-columns: 1fr; gap: 3rem; margin-top: 3rem; }
+    @media (min-width: 768px) { .apps-3up { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; } }
+    .apps-3up article { display: flex; flex-direction: column; align-items: center; }
+    .apps-3up .phone-frame { width: 200px; margin: 0; }
+    .apps-3up h3 { margin-top: 1.5rem; text-align: center; }
+    .apps-3up ul { margin-top: 1rem; width: 100%; max-width: 18rem; }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-blue-500 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm">Skip to main content</a>
+  <!-- Navigation -->
+  <nav class="border-b border-gray-800">
+    <div class="max-w-5xl mx-auto px-6 sm:px-8 py-5 flex items-center justify-between">
+      <a href="/" class="logo-nav" aria-label="Archet Studio LLC — Home">
+        <span class="logo-archet">ARCHET</span>
+        <span class="logo-gap" aria-hidden="true"></span>
+        <span class="logo-studio">STUDIO</span>
+      </a>
+      <div class="flex items-center gap-5 sm:gap-7 text-sm font-medium tracking-wide text-gray-400">
+        <a href="/" class="hover:text-gray-100 transition-colors" data-i18n="nav.home">Home</a>
+        <a href="/metrotune-support" class="hover:text-gray-100 transition-colors" data-i18n="nav.support">Support</a>
+        <a href="/privacy/metrotune.html" class="hover:text-gray-100 transition-colors" data-i18n="nav.privacy">Privacy</a>
+      </div>
+    </div>
+  </nav>
+  <main id="main">
+    <!-- Hero -->
+    <section class="max-w-5xl mx-auto px-6 pt-20 pb-16">
+      <div class="flex flex-col sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-5 mb-6">
+            <img src="images/metrotune-icon.png" alt="MetroTune app icon" class="w-20 h-20 rounded-[22.5%] shadow-2xl border border-white/10 shrink-0">
+            <div>
+              <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-gray-100">MetroTune&trade;</h1>
+            </div>
+          </div>
+          <p data-i18n="hero.headline" class="text-xl sm:text-2xl text-gray-100 leading-snug font-semibold max-w-xl">Metronome, tuner, and scale practice on one screen.</p>
+          <p data-i18n="hero.body" class="mt-4 text-base text-gray-400 leading-relaxed max-w-xl">Real notation, live pitch detection, and a click track working together &mdash; so you can build timing and intonation in the same practice loop. Free core tools. No account required.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="https://apps.apple.com/app/metrotune-metronome-tuner/id6760752080" aria-label="Download on the App Store" onclick="_rdtTrackDownload('iOS', event)"><img src="images/badge-appstore.svg" alt="Download on the App Store" style="height:40px"></a>
+            <a href="https://play.google.com/store/apps/details?id=com.archetstudio.metrotune" aria-label="Get it on Google Play" onclick="_rdtTrackDownload('Android', event)"><img src="images/badge-googleplay.png" alt="Get it on Google Play" style="height:46px;margin:-3px 0"></a>
+          </div>
+          <p data-i18n="hero.pricing" class="mt-4 text-xs text-gray-600">Free core tools stay usable without an account. Optional premium unlocks add extra practice tools and ad-free time.</p>
+        </div>
+        <div class="phone-frame phone-frame-lg">
+          <video autoplay muted loop playsinline style="width:100%;display:block;">
+            <source src="images/metrotune/v141/hero.webm" type="video/webm">
+            <source src="images/metrotune/v141/hero.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div id="whatsnew-callout" style="margin-top:3rem;border-radius:0.75rem;border:1px solid rgba(96,165,250,0.25);background-color:rgba(59,130,246,0.08);padding:1.25rem 1.5rem;">
+        <p class="text-xs uppercase text-blue-400 font-semibold" style="letter-spacing:0.1em;" data-i18n="whatsnew.eyebrow">What&rsquo;s new &amp; improved in v1.46 &middot; June 2026</p>
+        <ul class="mt-3 space-y-3 text-sm text-gray-300 leading-relaxed">
+          <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#x2022;</span><span><strong class="text-gray-100">Polyrhythm support</strong> <em class="not-italic text-blue-400 text-xs">(new)</em> &mdash; Add a second rhythm line at the same BPM, with its own pattern, Sound Profile, rests, and per-note customization.</span></li>
+          <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#x2022;</span><span><strong class="text-gray-100">Better tablet landscape layouts</strong> <em class="not-italic text-gray-500 text-xs">(improved)</em> &mdash; Refined landscape layouts for iPad and Android tablets across Metronome, Tuner, and Score View.</span></li>
+          <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#x2022;</span><span><strong class="text-gray-100">Smoother playback &amp; notation</strong> <em class="not-italic text-gray-500 text-xs">(improved)</em> &mdash; Better playback timing, scale audio starts, Score View notation, and overall practice stability.</span></li>
+          <li class="whatsnew-more pt-2"><span class="text-xs uppercase tracking-wider text-gray-500 font-semibold">v1.45 &middot; May 2026</span></li>
+          <li class="flex items-start gap-2 whatsnew-more"><span class="text-blue-400 mt-0.5">&#x2022;</span><span><strong class="text-gray-100">Per-beat &amp; per-subdivision sounds</strong> <em class="not-italic text-blue-400 text-xs">(new)</em> &mdash; customize individual beats and subdivision notes, assigning a different sound or muting them directly from the metronome pattern, while the BPM stays consistent.</span></li>
+          <li class="flex items-start gap-2 whatsnew-more"><span class="text-blue-400 mt-0.5">&#x2022;</span><span><strong class="text-gray-100">Clearer sound customization</strong> <em class="not-italic text-gray-500 text-xs">(improved)</em> &mdash; a long-press/edit workflow, reset controls, easier cancellation, and sharper visual indicators for custom and muted notes.</span></li>
+          <li class="flex items-start gap-2 whatsnew-more"><span class="text-blue-400 mt-0.5">&#x2022;</span><span><strong class="text-gray-100">More reliable voice + click playback</strong> <em class="not-italic text-gray-500 text-xs">(improved)</em> &mdash; combined voice and click setups now wait for samples to be ready, so notes no longer drop.</span></li>
+          <li class="flex items-start gap-2 whatsnew-more"><span class="text-blue-400 mt-0.5">&#x2022;</span><span><strong class="text-gray-100">Sharper Score View key signatures</strong> <em class="not-italic text-gray-500 text-xs">(improved)</em> &mdash; improved minor-key, arpeggio, and key-cycle notation, with cancellation naturals where appropriate.</span></li>
+          <li class="flex items-start gap-2 whatsnew-more"><span class="text-blue-400 mt-0.5">&#x2022;</span><span><strong class="text-gray-100">Smoother scale playback on Android</strong> <em class="not-italic text-gray-500 text-xs">(improved)</em> &mdash; audio-startup tuning to reduce weak first notes and playback inconsistency.</span></li>
+          <li class="flex items-start gap-2 whatsnew-more"><span class="text-blue-400 mt-0.5">&#x2022;</span><span><strong class="text-gray-100">More robust rewarded-ad premium flow</strong> <em class="not-italic text-gray-500 text-xs">(improved)</em> &mdash; premium recovers more reliably when an ad close callback is delayed or missing.</span></li>
+        </ul>
+        <button type="button" id="whatsnew-toggle" class="mt-3 text-xs text-blue-400 font-semibold hover:underline" data-i18n="whatsnew.showMore" data-key-show="whatsnew.showMore" data-key-hide="whatsnew.showFewer" data-fallback-show="Show v1.45 updates" data-fallback-hide="Show fewer">Show v1.45 updates</button>
+        <p class="mt-3 text-xs text-gray-400 leading-relaxed" data-i18n="whatsnew.updateCta">Already have MetroTune? Update on the App Store or Google Play to get everything new.</p>
+      </div>
+    </section>
+    <div class="border-t border-gray-800"></div>
+
+    <!-- What you won't find elsewhere -->
+    <section class="max-w-5xl mx-auto px-6 py-20">
+      <h2 data-i18n="unique.title" class="text-2xl font-bold tracking-tight text-gray-100">What makes MetroTune stand out.</h2>
+      <div class="mt-10 grid sm:grid-cols-2 gap-5">
+        <article class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+          <h3 data-i18n="unique.card1.title" class="text-sm font-semibold text-gray-100">Real notation, not tab-style grids</h3>
+          <p data-i18n="unique.card1.body" class="mt-2 text-xs text-gray-400 leading-relaxed">Score View renders a real staff with clefs, key signatures, ledger lines, and accidentals &mdash; so practice feels like reading music, not configuring an app.</p>
+        </article>
+        <article class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+          <h3 class="text-sm font-semibold text-gray-100"><span data-i18n="unique.cardTranspose.title">Transpose tuning, built in</span></h3>
+          <p data-i18n="unique.cardTranspose.body" class="mt-2 text-xs text-gray-400 leading-relaxed">Read your written notes on a B&flat; clarinet, E&flat; alto sax, F horn, or A clarinet &mdash; tap-to-play and Scale Practice automatically sound concert pitch.</p>
+        </article>
+        <article class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+          <h3 data-i18n="unique.card2.title" class="text-sm font-semibold text-gray-100">Ear training built in</h3>
+          <p data-i18n="unique.card2.body" class="mt-2 text-xs text-gray-400 leading-relaxed">Echo Mode turns the tuner into a call-and-response ear trainer. No separate app to download.</p>
+        </article>
+        <article class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+          <h3 class="text-sm font-semibold text-gray-100"><span data-i18n="unique.card3.title">Per-beat and per-subdivision sound control</span><span class="new-badge" data-i18n="walkthrough.newBadgeV145">New in v1.45</span></h3>
+          <p data-i18n="unique.card3.body" class="mt-2 text-xs text-gray-400 leading-relaxed">Give individual beats and subdivision notes their own sound profile &mdash; or mute them outright. Long-press a note to edit it, with clear indicators for custom and muted notes, and the BPM stays put while you shape the pattern.</p>
+        </article>
+        <article class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+          <h3 data-i18n="unique.card4.title" class="text-sm font-semibold text-gray-100">A composer&rsquo;s tempo map</h3>
+          <p data-i18n="unique.card4.body" class="mt-2 text-xs text-gray-400 leading-relaxed">Beethoven&rsquo;s 9th, Mvt. 4 ships as a seed profile &mdash; six entries with shifting BPMs and meters &mdash; so new users see what a real tempo map looks like.</p>
+        </article>
+      </div>
+    </section>
+    <div class="border-t border-gray-800"></div>
+
+    <!-- Score View spotlight -->
+    <section class="max-w-5xl mx-auto px-6 py-20">
+      <div class="flex flex-col sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="flex-1 min-w-0">
+          <p class="text-xs uppercase tracking-widest text-blue-400 font-semibold">Score View</p>
+          <h2 class="mt-3 text-2xl sm:text-3xl font-bold tracking-tight text-gray-100">Practice scales from real notation, not configuration menus.</h2>
+          <p class="mt-4 text-base text-gray-400 leading-relaxed">Switch to Score View and the staff appears: clefs, key signature, ledger lines, accidentals, rests &mdash; the closest thing to opening a method book inside the app. Notes light up as the metronome plays them, so you read and keep time at the same time.</p>
+          <blockquote class="mt-6 border-l-2 border-blue-500/50 pl-4">
+            <p class="text-sm text-gray-300 italic leading-relaxed">&ldquo;I specifically wanted a way to check my pitch while working at varying tempos &mdash; ensuring my intonation stayed rock-solid as I increased speed.&rdquo;</p>
+          </blockquote>
+        </div>
+        <div class="phone-frame phone-frame-lg">
+          <img src="images/metrotune/v141/score.png" alt="Score View showing a B-flat minor arpeggio on a grand staff with treble and bass clefs, five-flat key signature, tempo 120, and the current note D-flat 4 highlighted in blue">
+        </div>
+      </div>
+    </section>
+    <div class="border-t border-gray-800"></div>
+
+    <!-- Walkthrough: A Day With MetroTune -->
+    <section class="max-w-5xl mx-auto px-6 py-20">
+      <div class="max-w-2xl">
+        <p data-i18n="walkthrough.eyebrow" class="text-xs uppercase tracking-widest text-blue-400 font-semibold">A Day With MetroTune</p>
+        <h2 data-i18n="walkthrough.headline" class="mt-3 text-2xl sm:text-3xl font-bold tracking-tight text-gray-100">Open the app, hit START &mdash; and practice the way you actually practice.</h2>
+        <p data-i18n="walkthrough.intro" class="mt-4 text-gray-400 leading-relaxed">Ten steps through a real practice session. No setup. No account. No permissions wall.</p>
+      </div>
+
+      <!-- Scene 1 -->
+      <div class="mt-16 pb-12 flex flex-col sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="flex-1 min-w-0">
+          <h3 data-i18n="scene1.headline" class="text-lg font-semibold text-gray-100">Practice in one tap. No account, no setup.</h3>
+          <p data-i18n="scene1.body" class="mt-3 text-sm text-gray-400 leading-relaxed">Tap START and a click plays at 120 BPM in 4/4. Everything else is one tap away from this screen. No account, no permissions wall.</p>
+        </div>
+        <div class="phone-frame">
+          <video autoplay muted loop playsinline style="width:100%;display:block;">
+            <source src="images/metrotune/v141/scene1-metronome.webm" type="video/webm">
+            <source src="images/metrotune/v141/scene1-metronome.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Scene 2 -->
+      <div class="mt-10 pt-10 pb-12 flex flex-col-reverse sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="phone-frame">
+          <video autoplay muted loop playsinline style="width:100%;display:block;">
+            <source src="images/metrotune/v141/scene2-beatpattern.webm" type="video/webm">
+            <source src="images/metrotune/v141/scene2-beatpattern.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 data-i18n="scene2.headline" class="text-lg font-semibold text-gray-100">Shape grooves presets don&rsquo;t ship with.</h3>
+          <p data-i18n="scene2.body" class="mt-3 text-sm text-gray-400 leading-relaxed">Pick a subdivision shape &mdash; quarters, duplets, triplets, sixteenths &mdash; then long-press any beat or subdivision note to give it its own sound or mute it. Shape a groove no preset ships with, in seconds, while the BPM stays put.</p>
+        </div>
+      </div>
+
+      <!-- Scene 4 (Score View covered in the spotlight section above) -->
+      <div class="mt-10 pt-10 pb-12 flex flex-col sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="flex-1 min-w-0">
+          <h3 class="text-lg font-semibold text-gray-100"><span data-i18n="scene4.headline">Build a scale workout in 30 seconds.</span></h3>
+          <p data-i18n="scene4.body" class="mt-3 text-sm text-gray-400 leading-relaxed">Add scales to the queue in any key. Set count-in beats, loop count, gap between scales. Save the queue as a profile and reload it tomorrow.</p>
+        </div>
+        <div class="phone-frame">
+          <video autoplay muted loop playsinline style="width:100%;display:block;">
+            <source src="images/metrotune/v141/scene4-scale.webm" type="video/webm">
+            <source src="images/metrotune/v141/scene4-scale.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Scene 5 -->
+      <div class="mt-10 pt-10 pb-12 flex flex-col-reverse sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="phone-frame">
+          <img src="images/metrotune/v141/templates.png" alt="28 practice templates organized by category with a favorites row at the top">
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="text-lg font-semibold text-gray-100"><span data-i18n="scene5.headline">Hanon, circle of fifths, arpeggios &mdash; already built.</span></h3>
+          <p data-i18n="scene5.body" class="mt-3 text-sm text-gray-400 leading-relaxed">Six categories: Foundations, Major Scales, Minor Scales, Arpeggios, Genre Scales, Drills. Tap any template to load it as a starting point, then customize.</p>
+        </div>
+      </div>
+
+      <!-- Scene 6 -->
+      <div class="mt-10 pt-10 pb-12 flex flex-col sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="flex-1 min-w-0">
+          <h3 class="text-lg font-semibold text-gray-100"><span data-i18n="scene6.headline">Train your ear without leaving the app.</span></h3>
+          <p data-i18n="scene6.body" class="mt-3 text-sm text-gray-400 leading-relaxed">Echo Mode plays a note, then listens. Match it within tolerance and the next note plays. Miss it and the app re-prompts with the attempt counter. Real ear training, no extra app.</p>
+        </div>
+        <div class="phone-frame">
+          <img src="images/metrotune/v141/echo.png" alt="Echo Mode prompting the user to play E6, with an active listening indicator and attempt counter">
+        </div>
+      </div>
+
+      <!-- Scene 6.5: Transpose tuning -->
+      <div class="mt-10 pt-10 pb-12 flex flex-col-reverse sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="phone-frame">
+          <img src="images/metrotune/guide/tuner-scales.png" alt="MetroTune Tuner page where the transpose feature lives — same screen, with a TX pill on the reference row when transpose is active">
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 class="text-lg font-semibold text-gray-100"><span data-i18n="sceneTranspose.headline">Read your written notes, sound concert pitch.</span></h3>
+          <p data-i18n="sceneTranspose.body" class="mt-3 text-sm text-gray-400 leading-relaxed">Transpose the tuner for B&flat;, E&flat;, F, A, or &plusmn;octave instruments &mdash; clarinets, trumpets, saxes, French horns, piccolos, basses. The score stays in your written key, tap-to-play and Scale Practice automatically sound concert pitch, and a TX pill on the reference row shows the active transposition at a glance.</p>
+        </div>
+      </div>
+
+      <!-- Scene 7 -->
+      <div class="mt-10 pt-10 pb-12 flex flex-col sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="flex-1 min-w-0">
+          <h3 data-i18n="scene7.headline" class="text-lg font-semibold text-gray-100">Tune to the harmonics of your actual instrument family.</h3>
+          <p data-i18n="scene7.body" class="mt-3 text-sm text-gray-400 leading-relaxed">Five lifelike instrument voices &mdash; Tone, Clarinet, Brass, Organ, Bell &mdash; each with the correct overtone series and instrument character (bell hum, brass breath, Hammond drawbars). Set A4 anywhere from 392 to 470 Hz with one-tap presets for baroque (415), 430, 432, 440, 442, 444. Choose how long a tapped note plays: 1 s, 5 s, or hold forever.</p>
+        </div>
+        <div class="phone-frame">
+          <video autoplay muted loop playsinline style="width:100%;display:block;">
+            <source src="images/metrotune/v141/scene7-tuner.webm" type="video/webm">
+            <source src="images/metrotune/v141/scene7-tuner.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Scene 8 -->
+      <div class="mt-10 pt-10 pb-12 flex flex-col-reverse sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="phone-frame">
+          <img src="images/metrotune/v141/tempo-map.png" alt="Tempo Map with six entries showing varying BPMs, meters, sounds, and loop checkboxes — a Beethoven 9th Mvt. 4 profile">
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 data-i18n="scene8.headline" class="text-lg font-semibold text-gray-100">Practice complex pieces the way they&rsquo;re written.</h3>
+          <p data-i18n="scene8.body" class="mt-3 text-sm text-gray-400 leading-relaxed">Multi-entry sequencer with per-step tempo, meter, beat pattern, sound, accents, and measures. The 4th movement of Beethoven&rsquo;s 9th ships as a seed profile &mdash; six entries across shifting BPMs and meters &mdash; so you can see how a real piece lays out before building your own.</p>
+        </div>
+      </div>
+
+      <!-- Scene 9 -->
+      <div class="mt-10 pt-10 pb-12 flex flex-col sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="flex-1 min-w-0">
+          <h3 data-i18n="scene9.headline" class="text-lg font-semibold text-gray-100">Easier on the eyes for long sessions.</h3>
+          <p data-i18n="scene9.body" class="mt-3 text-sm text-gray-400 leading-relaxed">Six base themes plus six pastel variants. Long-press the play button to swap. Pick the language that fits your daily life.</p>
+        </div>
+        <div class="phone-frame">
+          <video autoplay muted loop playsinline style="width:100%;display:block;">
+            <source src="images/metrotune/v141/scene9-themes.webm" type="video/webm">
+            <source src="images/metrotune/v141/scene9-themes.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Scene 10 -->
+      <div class="mt-10 pt-10 pb-12 flex flex-col-reverse sm:flex-row items-center gap-12 sm:gap-20">
+        <div class="phone-frame">
+          <img src="images/metrotune/ss_14_clap_detect.png" alt="Double-clap detection settings with threshold, background ratio, and timing controls">
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 data-i18n="scene10.headline" class="text-lg font-semibold text-gray-100">Double-clap to start. Double-clap to stop.</h3>
+          <p data-i18n="scene10.body" class="mt-3 text-sm text-gray-400 leading-relaxed">The microphone listens for two sharp claps in quick succession and toggles playback. Use it when your hands are full &mdash; bow, sticks, keys.</p>
+        </div>
+      </div>
+    </section>
+    <div class="border-t border-gray-800"></div>
+
+    <!-- Feature grid: Metronome / Tuner / Scale Trainer -->
+    <section class="max-w-5xl mx-auto px-6 py-20">
+      <h2 data-i18n="grid.title" class="text-2xl font-bold tracking-tight text-gray-100">Three apps. One tap apart.</h2>
+      <p data-i18n="grid.intro" class="mt-4 text-gray-400 leading-relaxed max-w-2xl">MetroTune is a metronome, a chromatic tuner, and a scale trainer that share the same engine, sounds, themes, and settings.</p>
+      <div class="apps-3up">
+        <article>
+          <div class="phone-frame"><img src="images/metrotune/guide/metronome.png" alt="MetroTune Metronome view showing tempo, beat pattern, and sound controls"></div>
+          <h3 data-i18n="grid.col1.title" class="text-base font-semibold text-gray-100">Metronome</h3>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="grid.col1.b1">Compound meters: 6/8, 7/8, 5/8, 9/8, 12/8 and more</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="grid.col1.b2">Customize individual beats &amp; subdivisions &mdash; assign sounds or mute</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="grid.col1.b4">Tempo Map with on-screen countdown for the lead-in</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="grid.col1.b6">17 sound profiles, all loudness-balanced</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="grid.col1.b7">Silent practice mode &mdash; screen collapses to a beat flash</span></li>
+          </ul>
+        </article>
+        <article>
+          <div class="phone-frame"><img src="images/metrotune/guide/tuner.png" alt="MetroTune Tuner view showing pitch gauge and note grid"></div>
+          <h3 class="text-base font-semibold text-gray-100"><span data-i18n="grid.col2.title">Tuner</span></h3>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="grid.col2.b1">Transpose for B&flat; / E&flat; / F / A / &plusmn;octave instruments</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="grid.col2.b2">A4 reference 392&ndash;470 Hz with presets: 415 (baroque), 432, 440, 442</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="grid.col2.b3">Tap duration: 1 s / 5 s / hold forever</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="grid.col2.b4">Five lifelike instrument voices: Tone, Clarinet, Brass, Organ, Bell</span></li>
+          </ul>
+        </article>
+        <article>
+          <div class="phone-frame"><img src="images/metrotune/guide/score.png" alt="MetroTune Score View showing real music notation with grand staff and key signature"></div>
+          <h3 class="text-base font-semibold text-gray-100" data-i18n="grid.col3.title">Scale Trainer</h3>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="grid.col3.b1">Score View: real notation with staff, clefs, accidentals</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="grid.col3.b4">Echo Mode: app plays, you match, it listens and evaluates</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="grid.col3.b3">28 templates: Hanon, circle of fifths, arpeggios, drills</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <div class="border-t border-gray-800"></div>
+
+    <!-- Free without compromise -->
+    <section class="max-w-5xl mx-auto px-6 py-20">
+      <div class="max-w-2xl">
+        <h2 data-i18n="free.title" class="text-2xl font-bold tracking-tight text-gray-100">Start free. Upgrade only if it helps your practice.</h2>
+        <p data-i18n="free.body" class="mt-4 text-gray-400 leading-relaxed">The metronome, tuner, and scale trainer stay useful on their own &mdash; no account, no sign-up. Want the premium extras? Unlock them temporarily by watching a short rewarded ad, or through optional paid access where it&rsquo;s available. Either way, the core practice tools above keep working.</p>
+        <ul class="mt-6 space-y-2 text-sm text-gray-400">
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="free.b1">No account required</span></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="free.b2">No data collection beyond standard app analytics</span></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="free.b3">No microphone access unless you use the tuner, Echo Mode, or double-clap</span></li>
+          <li class="flex items-start gap-2"><span class="text-blue-500 mt-0.5">&#x2022;</span><span data-i18n="free.b4">Premium is optional &mdash; never required to use the core tools</span></li>
+        </ul>
+      </div>
+    </section>
+    <div class="border-t border-gray-800"></div>
+
+    <!-- Help Shape MetroTune -->
+    <section class="max-w-5xl mx-auto px-6 py-16">
+      <h2 data-i18n="shape.title" class="text-xl font-bold tracking-tight text-gray-100">Help shape MetroTune.</h2>
+      <p data-i18n="shape.body" class="mt-3 text-sm text-gray-400 leading-relaxed max-w-xl">We&rsquo;re actively building. If you have a feature idea, improvement, or something you wish your metronome could do, we&rsquo;d love to hear it.</p>
+      <div class="mt-5">
+        <a href="mailto:support+metrotune@archetstudio.com?subject=Feature%20Request" data-i18n="shape.cta" class="inline-block border border-gray-600 text-sm font-medium text-gray-300 px-5 py-2.5 rounded-lg hover:border-gray-400 hover:text-gray-100 transition-colors">Request a feature</a>
+      </div>
+    </section>
+    <div class="border-t border-gray-800"></div>
+
+    <!-- Founder's Note -->
+    <section class="max-w-5xl mx-auto px-6 py-16">
+      <div class="max-w-2xl relative bg-gray-800/40 border border-gray-700/50 rounded-2xl px-6 py-6 sm:px-8 sm:py-7">
+        <div class="absolute -top-3 left-6 flex items-center bg-gray-900 px-2 py-0.5">
+          <span class="text-xs font-semibold uppercase tracking-widest text-blue-400">Founder&rsquo;s Note</span>
+        </div>
+        <h2 data-i18n="founders.title" class="text-base font-bold text-gray-100 leading-snug mt-1">Built for musicians, by a musician.</h2>
+        <p data-i18n="founders.p1" class="mt-3 text-sm text-gray-400 leading-relaxed">I built MetroTune because I wanted a more effective way to practice. I was tired of jumping between separate apps and frustrated by hitting paywalls on the essential tools I needed.</p>
+        <p data-i18n="founders.p2" class="mt-3 text-sm text-gray-400 leading-relaxed"><strong class="text-gray-100">&ldquo;I specifically wanted a way to check my pitch while working at varying tempos &mdash; ensuring my intonation stayed rock-solid as I increased speed.&rdquo;</strong> I also needed a guide to help me master scale intonation, with a reliable reference for every note.</p>
+        <p data-i18n="founders.p3" class="mt-3 text-sm text-gray-400 leading-relaxed">MetroTune is the result: a seamless 3-in-1 tool where the modules work together &mdash; on the Tuner page, the metronome ticks, pitch detection runs, and scale notes play in the same session. The essential tools work without an account or a paywall, and any premium extras stay optional. Built to help you master your craft, not manage your apps.</p>
+      </div>
+    </section>
+    <div class="border-t border-gray-800"></div>
+
+    <!-- Download CTA -->
+    <section class="max-w-5xl mx-auto px-6 py-20 text-center">
+      <h2 data-i18n="cta.title" class="text-2xl font-bold tracking-tight text-gray-100">Everything above. Free to start. No account.</h2>
+      <p data-i18n="cta.body" class="mt-4 text-gray-400 max-w-lg mx-auto">Free with ads on iOS and Android. An optional ad-free subscription is on the way for those who want it.</p>
+      <div class="mt-8 flex justify-center flex-wrap gap-3">
+        <a href="https://apps.apple.com/app/metrotune-metronome-tuner/id6760752080" aria-label="Download on the App Store" onclick="_rdtTrackDownload('iOS', event)"><img src="images/badge-appstore.svg" alt="Download on the App Store" style="height:44px"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.archetstudio.metrotune" aria-label="Get it on Google Play" onclick="_rdtTrackDownload('Android', event)"><img src="images/badge-googleplay.png" alt="Get it on Google Play" style="height:50px;margin:-3px 0"></a>
+      </div>
+      <div class="mt-6">
+        <a href="/metrotune-support" data-i18n="cta.support" class="text-sm text-blue-400 hover:underline">Support &amp; FAQ &rarr;</a>
+      </div>
+      <p data-i18n="cta.version" class="mt-10 text-xs text-gray-600">MetroTune v1.45 &middot; Updated May 2026</p>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="border-t border-gray-800">
+    <div class="max-w-5xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-gray-400">
+      <div>
+        <p data-i18n="footer.copyright">&copy; 2026 Archet Studio LLC. All rights reserved.</p>
+        <p data-i18n="footer.trademark" class="mt-1">MetroTune&trade; is a trademark of Archet Studio LLC.</p>
+        <address class="not-italic mt-1">2261 Market Street STE 79219, San Francisco, CA 94114</address>
+        <a href="mailto:inquiry@archetstudio.com" class="hover:text-gray-100 transition-colors">inquiry@archetstudio.com</a>
+      </div>
+      <div class="flex flex-col sm:items-end gap-2">
+        <a href="/terms.html" data-i18n="footer.terms" class="hover:text-gray-100 transition-colors">Terms of Service</a>
+        <a href="/privacy/metrotune.html" data-i18n="footer.privacy" class="hover:text-gray-100 transition-colors">Privacy Policy</a>
+        <a href="/privacy/metrotune.html#do-not-sell" data-i18n="footer.doNotSell" class="hover:text-gray-100 transition-colors">Do Not Sell or Share My Personal Information</a>
+        <a href="mailto:privacy@archetstudio.com?subject=Data%20Deletion%20Request" data-i18n="footer.dataDeletion" class="hover:text-gray-100 transition-colors">Data Deletion Request</a>
+      </div>
+    </div>
+  </footer>
+  <script src="translations/metrotune-v141.js"></script>
+  <script>
+    (function () {
+      var T = window.METROTUNE_I18N || {};
+      var ALIAS = { 'es-419':'es-MX', 'pt':'pt-PT', 'pt-pt':'pt-PT', 'pt-br':'pt-BR', 'es-mx':'es-MX' };
+      function pick() {
+        var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+        for (var i = 0; i < langs.length; i++) {
+          var raw = langs[i];
+          if (!raw) continue;
+          var lower = raw.toLowerCase();
+          if (T[raw]) return raw;
+          if (T[lower]) return lower;
+          if (ALIAS[lower] && T[ALIAS[lower]]) return ALIAS[lower];
+          var base = lower.split('-')[0];
+          if (T[base]) return base;
+          if (ALIAS[base] && T[ALIAS[base]]) return ALIAS[base];
+        }
+        return 'en';
+      }
+      function apply(lang) {
+        var t = T[lang];
+        if (!t) return;
+        document.documentElement.lang = lang.split('-')[0];
+        var nodes = document.querySelectorAll('[data-i18n]');
+        for (var i = 0; i < nodes.length; i++) {
+          var k = nodes[i].getAttribute('data-i18n');
+          if (t[k]) nodes[i].textContent = t[k];
+        }
+        var metas = document.querySelectorAll('[data-i18n-content]');
+        for (var j = 0; j < metas.length; j++) {
+          var mk = metas[j].getAttribute('data-i18n-content');
+          if (t[mk]) metas[j].setAttribute('content', t[mk]);
+        }
+        if (t['meta.title']) document.title = t['meta.title'];
+      }
+      apply(pick());
+
+      // What's-new callout: paginated reveal
+      var wnCallout = document.getElementById('whatsnew-callout');
+      var wnToggle = document.getElementById('whatsnew-toggle');
+      if (wnCallout && wnToggle) {
+        wnToggle.addEventListener('click', function () {
+          var expanded = wnCallout.classList.toggle('expanded');
+          var key = expanded ? wnToggle.getAttribute('data-key-hide') : wnToggle.getAttribute('data-key-show');
+          var fallback = expanded ? wnToggle.getAttribute('data-fallback-hide') : wnToggle.getAttribute('data-fallback-show');
+          var lang = document.documentElement.lang;
+          var bag = window.METROTUNE_I18N || {};
+          var t = bag[lang] || bag[lang && lang.split('-')[0]] || null;
+          wnToggle.textContent = (t && t[key]) ? t[key] : fallback;
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
